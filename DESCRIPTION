@@ -1,0 +1,21 @@
+Package: dhomer
+Type: Package
+Title: DHOME Ontology and Data
+Version: 0.1.0
+Authors@R: c(person('Tami', 'Crawford', 
+           email = 'tami.crawford@gmail.com', role = c('cre', 'aut'),
+           comment=c(ORCID="0000-0003-0720-7701")),
+        person('Lauren', 'Cuppy', email = 'cuppy.lauren@gmail.com', 
+        role = c('aut')))
+Maintainer: The package maintainer <tami.crawford@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 2.10)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    tibble
