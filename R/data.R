@@ -47,7 +47,7 @@
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 #' copyright, etc
 #'
-#' @format A data frame with 449 rows and 9 columns
+#' @format A data frame with 449 rows and 22 columns
 #' \describe{
 #'   \item{property_name}{The Name of the Property}
 #'   \item{latitude}{Property Latitude}
@@ -74,3 +74,37 @@
 #' }
 #' @source \url{ttps://sc-policymap-com.pallas2.tcl.sc.edu/maps}
 "brownfields"
+
+#' Superfund Sites
+#'
+#' A dataset containing an index of US EPA Superfund sites in South Carolina
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 38 rows and 22 columns
+#' \describe{
+#'   \item{site_name}{The Name of the Site}
+#'   \item{latitude}{Site Latitude}
+#'   \item{longitude}{Site Longitude}
+#'   \item{address}{Site Street Address}
+#'   \item{city}{Site City}
+#'   \item{state}{Site State}
+#'   \item{zip}{Site ZIP Code}
+#'   \item{county}{Site County}
+#'   \item{country}{Site Country}
+#'   \item{lat}{Latitude Match}
+#'   \item{long}{Longitude Match}
+#'   \item{id}{Dataset ID Number}
+#'   \item{input_address}{Geocode Input}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{matched_address}{Geocode Address Match}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{ttps://sc-policymap-com.pallas2.tcl.sc.edu/maps}
+"superfund"
