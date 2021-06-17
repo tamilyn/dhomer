@@ -32,9 +32,9 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
+final <- subset(final, latitude != 0.0000)
 
 fwrite(final, file ="~/Desktop/superfund_geographies.csv")
-
 
 usethis::use_data(superfund, overwrite = TRUE)
 
