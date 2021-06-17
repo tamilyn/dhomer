@@ -32,7 +32,11 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-fwrite(final, file ="~/Desktop/contaminants_of_concern_geographies.csv")
+final2 <- select(final, c('site_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+                          'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
+                          'census_tract', 'census_block'))
+
+fwrite(final2, file ="~/Desktop/contaminants_of_concern_geographies.csv")
 
 usethis::use_data(contaminants, overwrite = TRUE)
 
