@@ -1,13 +1,14 @@
 ## code to prepare `brownfields` dataset goes here
 
-pacman::p_load(rio, tidygeocoder, tidycensus, dplyr, data.table, stringr, tidyverse)
+pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, here)
 
 # https://sc-policymap-com.pallas2.tcl.sc.edu/maps
 # US EPA Brownfields, as of 2020
 # Downloaded 2021-05-21
 
-brownfields <- import("~/Desktop/raw_brownfields.csv")
-head(brownfields)
+explorer_fname <- here(path('data-raw'), "raw_brownfields.csv")
+brownfields <- readr::read_csv(explorer_fname) %>%
+  clean_names()
 
 geocodes <- brownfields %>% geocode(
   street = 'Property Address', city = 'Property City', state = 'Property State', postalcode = 'Property ZIP Code', method = 'cascade'
@@ -15,20 +16,28 @@ geocodes <- brownfields %>% geocode(
 
 fwrite(geocodes, file ="~/Desktop/brownfields_geocoded.csv")
 
-brownfields2 <- import("~/Desktop/brownfields_geocodio.csv")
+explorer_fname <- here(path('data-raw'), "brownfields_geocodio.csv")
+brownfields2 <- readr::read_csv(explorer_fname) %>%
+  clean_names()
 
-brownfields2$address <- paste(brownfields2$Number, brownfields2$Street)
+head(brownfields2)
 
-final <- brownfields2 %>%
-  geocode(street = 'address', city = 'City', state = 'State', postalcode = 'Zip',
+brownfields2$address <- paste(brownfields2$number, brownfields2$street)
+
+geographies <- select(brownfields2, c('property_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country'))
+
+geographies_processed <-distinct(geographies, property_name, .keep_all = TRUE)
+
+final <- geographies_processed %>%
+  geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
 
-fwrite(final, file ="~/Desktop/brownfields.csv")
+fwrite(final, file ="~/Desktop/brownfields_geographies.csv")
 
 
 usethis::use_data(brownfields, overwrite = TRUE)
 
-# At line 16, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search
+# At line 17, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search
 # The file was then ran through a reverse geocode on Geocodio (https://dash.geocod.io/) and saved as brownfields_geocodio.csv
 
