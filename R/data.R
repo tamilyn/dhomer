@@ -40,3 +40,37 @@
 #' }
 #' @source \url{https://data.hrsa.gov/data/download/}
 "hrsa"
+
+#' Brownfield Sites
+#'
+#' A dataset containing an index of brownfield sites in South Carolina
+#' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 449 rows and 9 columns
+#' \describe{
+#'   \item{property_name}{The Name of the Property}
+#'   \item{latitude}{Property Latitude}
+#'   \item{longitude}{Property Longitude}
+#'   \item{address}{Property Street Address}
+#'   \item{city}{Property City}
+#'   \item{state}{Property State}
+#'   \item{zip}{Property ZIP Code}
+#'   \item{county}{Property County}
+#'   \item{country}{Property Country}
+#'   \item{lat}{Latitude Match}
+#'   \item{long}{Longitude Match}
+#'   \item{id}{Dataset ID Number}
+#'   \item{input_address}{Geocode Input}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{matched_address}{Geocode Address Match}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{ttps://sc-policymap-com.pallas2.tcl.sc.edu/maps}
+"brownfields"
