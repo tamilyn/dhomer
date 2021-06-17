@@ -11,7 +11,7 @@ brownfields <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
 geocodes <- brownfields %>% geocode(
-  street = 'Property Address', city = 'Property City', state = 'Property State', postalcode = 'Property ZIP Code', method = 'cascade'
+  street = 'property_address', city = 'property_city', state = 'property_state', postalcode = 'property_zip_code', method = 'cascade'
 )
 
 fwrite(geocodes, file ="~/Desktop/brownfields_geocoded.csv")
