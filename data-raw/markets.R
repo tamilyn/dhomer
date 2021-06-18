@@ -36,10 +36,10 @@ final2 <- select(final, c('name', 'lat_34', 'long_35', 'address', 'city_2', 'sta
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/free_clinics_geographies.csv")
+fwrite(final2, file ="~/Desktop/farmers_and_roadside_markets_geographies.csv")
 
 usethis::use_data(markets, overwrite = TRUE)
 
 # At line 17, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search
-# The file was then ran through a reverse geocode on Geocodio (https://dash.geocod.io/) and saved as free_clinics_geocodio.csv
+# The file was then ran through a reverse geocode on Geocodio (https://dash.geocod.io/) and saved as farmers_and_roadside_geocodio.csv
 
