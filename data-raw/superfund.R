@@ -7,10 +7,10 @@ pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, her
 # Downloaded 2021-05-25
 
 explorer_fname <- here(path('data-raw'), "raw_superfund.csv")
-superfund <- readr::read_csv(explorer_fname) %>%
+sites <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- superfund %>% geocode(
+geocodes <- sites %>% geocode(
   street = 'address', city = 'city', state = 'state', postalcode = 'zip_code', method = 'cascade'
 )
 
@@ -34,11 +34,11 @@ final <- geographies_processed %>%
 
 final <- subset(final, latitude != 0.0000)
 
-final2 <- select(final, c('site_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+superfund <- select(final, c('site_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/superfund_geographies.csv")
+fwrite(superfund, file ="~/Desktop/superfund_geographies.csv")
 
 usethis::use_data(superfund, overwrite = TRUE)
 

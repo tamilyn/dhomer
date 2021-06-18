@@ -7,10 +7,10 @@ pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, her
 # Downloaded 2021-05-21
 
 explorer_fname <- here(path('data-raw'), "raw_brownfields.csv")
-brownfields <- readr::read_csv(explorer_fname) %>%
+sites <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- brownfields %>% geocode(
+geocodes <- sites %>% geocode(
   street = 'property_address', city = 'property_city', state = 'property_state', postalcode = 'property_zip_code', method = 'cascade'
 )
 
@@ -32,11 +32,11 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-final2 <- select(final, c('property_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+brownfields <- select(final, c('property_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/brownfields_geographies.csv")
+fwrite(brownfields, file ="~/Desktop/brownfields_geographies.csv")
 
 
 usethis::use_data(brownfields, overwrite = TRUE)

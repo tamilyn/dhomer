@@ -7,10 +7,10 @@ pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, her
 # Downloaded 2021-05-21
 
 explorer_fname <- here(path('data-raw'), "raw_free_clinics.csv")
-freeclinics <- readr::read_csv(explorer_fname) %>%
+clinics <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- freeclinics %>% geocode(
+geocodes <- clinics %>% geocode(
   street = 'address', method = 'cascade'
 )
 
@@ -32,11 +32,13 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-final2 <- select(final, c('clinic_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+final <- subset(final, latitude != 0.0000)
+
+freeclinics <- select(final, c('clinic_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/free_clinics_geographies.csv")
+fwrite(freeclinics, file ="~/Desktop/free_clinics_geographies.csv")
 
 usethis::use_data(freeclinics, overwrite = TRUE)
 

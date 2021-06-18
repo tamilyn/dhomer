@@ -7,10 +7,10 @@ pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, her
 # Downloaded 2021-05-21
 
 explorer_fname <- here(path('data-raw'), "raw_farmers_markets_and_roadside_markets.csv")
-markets <- readr::read_csv(explorer_fname) %>%
+fandr <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- markets %>% geocode(
+geocodes <- fandr %>% geocode(
   street = 'street', city = 'city', state = 'state', postalcode = 'zip', method = 'cascade'
 )
 
@@ -32,11 +32,11 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city_2', state = 'state_2', postalcode = 'zip_2',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-final2 <- select(final, c('name', 'lat_34', 'long_35', 'address', 'city_2', 'state_2', 'zip_2', 'county_2', 'country',
+markets <- select(final, c('name', 'lat_34', 'long_35', 'address', 'city_2', 'state_2', 'zip_2', 'county_2', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/farmers_and_roadside_markets_geographies.csv")
+fwrite(markets, file ="~/Desktop/farmers_and_roadside_markets_geographies.csv")
 
 usethis::use_data(markets, overwrite = TRUE)
 

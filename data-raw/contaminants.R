@@ -7,10 +7,10 @@ pacman::p_load(readr, tidygeocoder, dplyr, data.table, stringr, janitor, fs, her
 # Downloaded 2021-05-25
 
 explorer_fname <- here(path('data-raw'), "raw_contaminants_of_concern.csv")
-contaminants <- readr::read_csv(explorer_fname) %>%
+cofc <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- contaminants %>% geocode(
+geocodes <- cofc %>% geocode(
   street = 'site_location', city = 'city', state = 'state', postalcode = 'zip_code', method = 'cascade'
 )
 
@@ -32,11 +32,11 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-final2 <- select(final, c('site_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+contaminants <- select(final, c('site_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/contaminants_of_concern_geographies.csv")
+fwrite(contaminants, file ="~/Desktop/contaminants_of_concern_geographies.csv")
 
 usethis::use_data(contaminants, overwrite = TRUE)
 

@@ -69,10 +69,10 @@ fwrite(locations, file ="~/Desktop/pharmacy_locations.csv")
 ## Geocoding
 
 explorer_fname <- here(path('data-raw'), "processed_pharmacies.csv")
-pharmacies <- readr::read_csv(explorer_fname) %>%
+pharm <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- pharmacies %>% geocode(
+geocodes <- pharm %>% geocode(
   street = 'addresses_address_1', city = 'addresses_city', state = 'addresses_state',
   postalcode = 'addresses_postal_code', method = 'cascade'
 )
@@ -95,11 +95,11 @@ final <- geographies_processed %>%
   geocode(street = 'address', city = 'city', state = 'state', postalcode = 'zip',
           method = 'census', return_type = 'geographies', full_results = TRUE)
 
-final2 <- select(final, c('npi','basic_organization_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
+pharmacies <- select(final, c('npi','basic_organization_name', 'latitude', 'longitude', 'address', 'city', 'state', 'zip', 'county', 'country',
                           'match_indicator', 'match_type', 'tiger_line_id', 'tiger_side', 'state_fips', 'county_fips',
                           'census_tract', 'census_block'))
 
-fwrite(final2, file ="~/Desktop/pharmacies_geographies.csv")
+fwrite(pharmacies, file ="~/Desktop/pharmacies_geographies.csv")
 
 usethis::use_data(pharmacies, overwrite = TRUE)
 

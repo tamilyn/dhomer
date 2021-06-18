@@ -47,24 +47,19 @@
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 #' copyright, etc
 #'
-#' @format A data frame with 449 rows and 22 columns
+#' @format A data frame with 449 rows and 17 columns
 #' \describe{
 #'   \item{property_name}{The Name of the Property}
-#'   \item{latitude}{Property Latitude}
-#'   \item{longitude}{Property Longitude}
-#'   \item{address}{Property Street Address}
-#'   \item{city}{Property City}
-#'   \item{state}{Property State}
-#'   \item{zip}{Property ZIP Code}
-#'   \item{county}{Property County}
-#'   \item{country}{Property Country}
-#'   \item{lat}{Latitude Match}
-#'   \item{long}{Longitude Match}
-#'   \item{id}{Dataset ID Number}
-#'   \item{input_address}{Geocode Input}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
 #'   \item{match_indicator}{Geocode Match Status}
 #'   \item{match_type}{Geocode Match Type}
-#'   \item{matched_address}{Geocode Address Match}
 #'   \item{tiger_line_id}{TIGER Line Identification Number}
 #'   \item{tiger_side}{Side of the Address Range}
 #'   \item{state_fips}{State FIPS Code}
@@ -72,7 +67,7 @@
 #'   \item{census_tract}{Census Tract}
 #'   \item{census_block}{Census Block}
 #' }
-#' @source \url{ttps://sc-policymap-com.pallas2.tcl.sc.edu/maps}
+#' @source \url{https://sc-policymap-com.pallas2.tcl.sc.edu/maps}
 "brownfields"
 
 #' Superfund Sites
@@ -81,24 +76,19 @@
 #' #' NEED TO CHECK for any requirements in redistributing data such as a notice
 #' copyright, etc
 #'
-#' @format A data frame with 38 rows and 22 columns
+#' @format A data frame with 38 rows and 17 columns
 #' \describe{
 #'   \item{site_name}{The Name of the Site}
-#'   \item{latitude}{Site Latitude}
-#'   \item{longitude}{Site Longitude}
-#'   \item{address}{Site Street Address}
-#'   \item{city}{Site City}
-#'   \item{state}{Site State}
-#'   \item{zip}{Site ZIP Code}
-#'   \item{county}{Site County}
-#'   \item{country}{Site Country}
-#'   \item{lat}{Latitude Match}
-#'   \item{long}{Longitude Match}
-#'   \item{id}{Dataset ID Number}
-#'   \item{input_address}{Geocode Input}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
 #'   \item{match_indicator}{Geocode Match Status}
 #'   \item{match_type}{Geocode Match Type}
-#'   \item{matched_address}{Geocode Address Match}
 #'   \item{tiger_line_id}{TIGER Line Identification Number}
 #'   \item{tiger_side}{Side of the Address Range}
 #'   \item{state_fips}{State FIPS Code}
@@ -106,5 +96,151 @@
 #'   \item{census_tract}{Census Tract}
 #'   \item{census_block}{Census Block}
 #' }
-#' @source \url{ttps://sc-policymap-com.pallas2.tcl.sc.edu/maps}
+#' @source \url{https://sc-policymap-com.pallas2.tcl.sc.edu/maps}
 "superfund"
+
+#' Contaminants of Concern
+#'
+#' The US EPA's records of contaminated sites and the contaminating substance
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 31 rows and 17 columns
+#' \describe{
+#'   \item{site_name}{The Name of the Site}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{https://www.epa.gov/superfund/superfund-data-and-reports}
+"contaminants"
+
+#' South Carolina Free Clinics
+#'
+#' The dataset of the free medical clinics in South Carolina
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 70 rows and 17 columns
+#' \describe{
+#'   \item{clinic_name}{The Name of the Clinic}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{https://www.scfreeclinics.org/clinics/}
+"freeclinics"
+
+#' South Carolina Farmers and Roadside Markets
+#'
+#' The dataset of the farmers and roadside markets in South Carolina
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 337 rows and 17 columns
+#' \describe{
+#'   \item{name}{The Name of the Market}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/cdb563626aaf4477b7ea591fec10a3e2_0/explore}
+"markets"
+
+#' South Carolina Pharmacy Network
+#'
+#' The dataset of the pharmacies in South Carolina
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 899 rows and 18 columns
+#' \describe{
+#'   \item{basic_organization_name}{The Name of the Pharmacy}
+#'   \item{npi}{National Provider Identifier Number}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{https://www.selecthealthofsc.com/pdf/provider/pharmacy/pharmacy-network.pdf}
+"pharmacies"
+
+#' South Carolina Health Facilities
+#'
+#' The dataset of all licensed health facilities according to SCDHEC
+#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
+#' copyright, etc
+#'
+#' @format A data frame with 2781 rows and 17 columns
+#' \describe{
+#'   \item{name_of_facility}{The Name of the Health Facility}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{address}{Street Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{county}{County}
+#'   \item{country}{Country}
+#'   \item{match_indicator}{Geocode Match Status}
+#'   \item{match_type}{Geocode Match Type}
+#'   \item{tiger_line_id}{TIGER Line Identification Number}
+#'   \item{tiger_side}{Side of the Address Range}
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{county_fips}{County FIPS Code}
+#'   \item{census_tract}{Census Tract}
+#'   \item{census_block}{Census Block}
+#' }
+#' @source \url{https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/04d86b6899fc450288ba07d0dcab2d73_0/explore}
+"allhealthfacilities"
