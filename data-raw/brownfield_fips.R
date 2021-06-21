@@ -6,6 +6,7 @@ library(sf)
 library(tigris)
 options(tigris_use_cache = TRUE)
 library(dplyr)
+library(data.table)
 
 explorer_fname <- here(path('data-raw'), "brownfields_geographies.csv")
 brownfields <- readr::read_csv(explorer_fname) %>%
@@ -31,5 +32,7 @@ latlong_final <- coords %>%
 joined <- st_join(latlong_final, sc_tracts, by = c('fips','GEOID'))
 
 brownfield_fips <- select(joined, property_name, GEOID, INTPTLAT, INTPTLON)
+
+fwrite(brownfield_fips, '~/Desktop/brownfield_fips.csv')
 
 usethis::use_data(brownfield_fips, overwrite = TRUE)
