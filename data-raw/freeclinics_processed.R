@@ -46,7 +46,7 @@ freeclinics_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-freeclinics_procesed <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+freeclinics_processed <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER'))
 
 fwrite(freeclinics_processed, file = here(path('data-raw'), 'freeclinics_processed.csv'))
