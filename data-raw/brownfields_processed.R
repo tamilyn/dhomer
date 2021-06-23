@@ -23,7 +23,7 @@ geocodes <- sites %>% geocode(
   street = 'location_address', city = 'city_name', state = 'state_code', postalcode = 'postal_code', method = 'cascade'
 )
 
-fwrite(geocodes, file = here(path('data-raw', 'brownfields_primary_processed')))
+fwrite(geocodes, file = here(path('data-raw', 'brownfields_primary_processed.csv')))
 
 explorer_fname <- here(path('data-raw'), "brownfields_secondary_processed.csv")
 brownfields <- readr::read_csv(explorer_fname) %>%
