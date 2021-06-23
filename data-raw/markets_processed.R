@@ -41,7 +41,7 @@ system.time({
   intersected <- st_within(coords, sc_tracts)
 })
 
-marekts_processed <- coords %>%
+markets_processed <- coords %>%
   mutate(intersection = as.integer(intersected),
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
