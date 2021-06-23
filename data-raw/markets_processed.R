@@ -23,7 +23,7 @@ geocodes <- markets %>% geocode(
   street = 'street', city = 'city', state = 'state', postalcode = 'zip', method = 'cascade'
 )
 
-fwrite(geocodes, file = here(path('data-raw', 'markets_primary_processed')))
+fwrite(geocodes, file = here(path('data-raw', 'markets_primary_processed.csv')))
 
 explorer_fname <- here(path('data-raw'), "markets_secondary_processed.csv")
 markets <- readr::read_csv(explorer_fname) %>%
