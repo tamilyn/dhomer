@@ -12,6 +12,8 @@ This package contains several datasets provided by the EPA, HRSA, and other site
 The data sets are:
 
 * one entry per data set, brief description of what the data represents and what data (columns) are available
+* US EPA South Carolina Brownfield Sites (brownfields_processed.csv)- Brownfield sites are previously developed sites whose contaminants prevent redevelopment. The data includes the site names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.
+* South Carolina Free Clinics (freeclincics_processed.csv)- Free clinics provide medical care to the impoverished and uninsured residents of South Carolina. The data includes the clinic names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.
 
 
 
