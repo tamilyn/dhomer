@@ -11,9 +11,9 @@ options(tigris_use_cache = TRUE)
 library(dplyr)
 library(data.table)
 
-#  https://ofmpub.epa.gov/apex/cimc/f?p=100:10::::::
+# https://ofmpub.epa.gov/apex/cimc/f?p=100:10::::::
 # US EPA Brownfields
-# Downloaded 2021-05-21
+# Downloaded 2021-06-22
 
 explorer_fname <- here(path('data-raw'), "raw_epa_brownfields.csv")
 sites <- readr::read_csv(explorer_fname) %>%

@@ -11,8 +11,8 @@ options(tigris_use_cache = TRUE)
 library(dplyr)
 library(data.table)
 
-#  https://ofmpub.epa.gov/apex/cimc/f?p=100:10::::::
-# US EPA Brownfields
+# https://www.scfreeclinics.org/
+# South Carolina Free Clinics
 # Downloaded 2021-05-21
 
 explorer_fname <- here(path('data-raw'), "raw_free_clinics.csv")
