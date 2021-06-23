@@ -1,36 +1,34 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/tamilyn/dhomer/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+# dhomer <img src="man/figures/logo.png" align="right" />
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+The dhomer package provides easy access to South Carolina data that may impact social determinants of health.
 
-# Header 1
-## Header 2
-### Header 3
+This package contains several datasets provided by the EPA, HRSA, and other sites (to be specified).  The data is preprocessed into a common format to support spatial analysis.
 
-- Bulleted
-- List
+The data sets are:
 
-1. Numbered
-2. List
+* one entry per data set, brief description of what the data represents and what data (columns) are available
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+# What's New
 
-### Jekyll Themes
+# Installing dhomer
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tamilyn/dhomer/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Install from github
+
+
+# Resources
+
+
+
+## Contributor Code of Conduct
+Please note that this project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 
 ### Support or Contact
 
