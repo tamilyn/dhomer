@@ -6,7 +6,8 @@ Authors@R: c(person('Tami', 'Crawford',
            email = 'tami.crawford@gmail.com', role = c('cre', 'aut'),
            comment=c(ORCID="0000-0003-0720-7701")),
         person('Lauren', 'Cuppy', email = 'cuppy.lauren@gmail.com', 
-        role = c('aut')))
+        role = c('aut'),
+        comment=c(ORCID="0000-0002-1672-4260")))
 Maintainer: The package maintainer <tami.crawford@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
@@ -19,3 +20,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     tibble
+URL: https://tamilyn.github.io/dhomer
