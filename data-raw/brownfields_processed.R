@@ -10,6 +10,7 @@ library(tigris)
 options(tigris_use_cache = TRUE)
 library(dplyr)
 library(data.table)
+library(stringr)
 
 # https://ofmpub.epa.gov/apex/cimc/f?p=100:10::::::
 # US EPA Brownfields
@@ -52,8 +53,8 @@ brownfields_processed <- st_join(brownfields_processed, sc_tracts, by = c('geoid
   select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
-  st_drop_geometry()
-
+  st_drop_geometry() %>%
+  mutate(frs = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv)))
 
 fwrite(brownfields_processed, file = here(path('data-raw'), 'brownfields_processed.csv'))
 
