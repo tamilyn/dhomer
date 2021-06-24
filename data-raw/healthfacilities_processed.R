@@ -37,10 +37,12 @@ healthfacilities_processed <- coords %>%
                          sc_tracts$GEOID[intersection]))
 
 healthfacilities_processed <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','admin_name_phone','facility_cont_email',
-            'county_ownership_type','mailing_address','mailing_city','mailing_state','mailing_zip','licensee','licensee_business_phone','cms_certification','evacuation_zone',
-            'licensee_county','x_2','y_2')) %>%
-  distinct(name_of_facility, .keep_all = TRUE)
+  dplyr::mutate(lat = sf::st_coordinates(.)[,1],
+                lon = sf::st_coordinates(.)[,2]) %>%
+  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  distinct(name_of_facility, .keep_all = TRUE) %>%
+  rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
+  st_drop_geometry()
 
 
 fwrite(healthfacilities_processed, file = here(path('data-raw'), 'healthfacilities_processed.csv'))

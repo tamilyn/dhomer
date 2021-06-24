@@ -47,8 +47,12 @@ freeclinics_processed <- coords %>%
                          sc_tracts$GEOID[intersection]))
 
 freeclinics_processed <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER')) %>%
-  distinct(clinic_name, .keep_all = TRUE)
+  dplyr::mutate(lat = sf::st_coordinates(.)[,1],
+                lon = sf::st_coordinates(.)[,2]) %>%
+  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  distinct(clinic_name, .keep_all = TRUE) %>%
+  rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
+  st_drop_geometry()
 
 fwrite(freeclinics_processed, file = here(path('data-raw'), 'freeclinics_processed.csv'))
 

@@ -47,8 +47,12 @@ markets_processed <- coords %>%
                          sc_tracts$GEOID[intersection]))
 
 markets_processed <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER')) %>%
-  distinct(name, .keep_all = TRUE)
+  dplyr::mutate(lat = sf::st_coordinates(.)[,1],
+                lon = sf::st_coordinates(.)[,2]) %>%
+  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  distinct(name, .keep_all = TRUE) %>%
+  rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
+  st_drop_geometry()
 
 
 fwrite(markets_processed, file = here(path('data-raw'), 'markets_processed.csv'))
