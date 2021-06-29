@@ -10,9 +10,9 @@ options(tigris_use_cache = TRUE)
 library(dplyr)
 library(data.table)
 
-#
-#
-#
+# South Carolina Recreational Areas
+# https://www.arcgis.com/home/item.html?id=4f14ea9215d1498eb022317458437d19
+# Downloaded 2021-06-28
 
 explorer_fname <- here(path('data-raw'), "raw_recreational_areas.csv")
 rec <- readr::read_csv(explorer_fname) %>%
