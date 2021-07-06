@@ -8,7 +8,10 @@ vignette: >
 ---
 # Introduction
 
-`dhomer` allows users to calculate proximity and accessibility to various data points from a geographic address input in order to essentially compute adjacency to determinants of health. Many determinants of health are integrated into the Census Bureau American Community Survey population estimates collected every 1 and 5 years, respectively. The `tigris` package functions allows us to call and integrate ACS data into the `dhomer` functions for more comprehensive determinants of health computation.
+`dhomer` allows users to calculate proximity and accessibility to various data points from a geographic address input in order to essentially
+compute adjacency to determinants of health. Many determinants of health are integrated into the Census Bureau American Community Survey
+population estimates collected every 1 and 5 years, respectively. The `tigris` package functions allows us to call and integrate ACS data into the
+`dhomer` functions for more comprehensive determinants of health computation.
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -30,7 +33,9 @@ View(variables)
 
 ```
 
-`load_variables()` will create an interactive table of all of the variable codes and their labels for your defined survey. The preceding code will generate a table of the 2019 5-Year American Community Survey. The table can be easily searched to find variables of interest to then pull data for. 
+`load_variables()` will create an interactive table of all of the variable codes and their labels for your defined survey. The preceding code will
+generate a table of the 2019 5-Year American Community Survey. The table can be easily searched to find variables of interest to then pull data
+for. 
 
 By scanning the `variables` table, we identified three variables of particular interest to determinants of health:
 * B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level
@@ -62,4 +67,7 @@ percent_below_poverty_level <- poverty %>%
   select(GEOID, NAME, variable, percent)
 ```
 
-The `get_acs()` function retrieves the data from the ACS based on the granularity, geography, variable, and year you define. Data from the Decennial Census of Population and Housing can also be retrieved with `get_decennial()`. stimates are given by number of people, sbut the data can be normalized through computing percentages of the population by calling both your variable of interest and the total population with all other definitions held constant and utilizing the `mutate()` and `select()` functions of `dplyr`.
+The `get_acs()` function retrieves the data from the ACS based on the granularity, geography, variable, and year you define. Data from the
+Decennial Census of Population and Housing can also be retrieved with `get_decennial()`. stimates are given by number of people, sbut the data can
+be normalized through computing percentages of the population by calling both your variable of interest and the total population with all other
+definitions held constant and utilizing the `mutate()` and `select()` functions of `dplyr`.
