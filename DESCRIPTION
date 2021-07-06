@@ -21,3 +21,7 @@ RoxygenNote: 7.1.1
 Imports: 
     tibble
 URL: https://tamilyn.github.io/dhomer
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
