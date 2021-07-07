@@ -74,24 +74,32 @@
 </h1></div>
 
 <p>The dhomer package provides easy access to South Carolina data that may impact social determinants of health.</p>
-<p>This package contains several datasets provided by the EPA, HRSA, and other sites (to be specified). The data is preprocessed into a common format to support spatial analysis.</p>
+<p>This package contains several datasets provided by the EPA, HRSA, SC DHEC, SLED, USDA, Esri, and other sites (to be specified). The data is preprocessed into a common format to support spatial analysis.</p>
+<p>For purposes of this project, social determinants of health can be categorized and the datasets can be classified into the following: Economic Stability, Education, Social and Community Context, Health and Healthcare, and Neighborhood and Built Environment.</p>
 <p>The data sets are:</p>
+<p>Economic Stability:</p>
 <ul>
-<li>US EPA South Carolina Brownfield Sites (brownfields_processed.csv)- Brownfield sites are previously developed sites whose contaminants prevent redevelopment. The data includes the site names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>South Carolina Free Clinics (freeclincics_processed.csv)- Free clinics provide medical care to the impoverished and uninsured residents of South Carolina. The data includes the clinic names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>South Carolina Pharmacies (pharmacies_processed.csv)- A list of the pharmacies in South Carolina. The data includes the pharmacy names, locations, National Provider Identifer (NPI), details on the pharmacy services and pharmacists, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>US EPA Contaminants of Concern (contaminants_processed.csv)- The US EPA compiled a list of uniquely difficult contaminants to clean in the environment. The list includes the site where the contaminant is found, the location, the contaminant found, details about cleanup efforts, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>South Carolina Farmer’s and Roadside Markets (markets_processed.csv)- SCDHEC compiled a list of farmer’s and roadside markets in South Carolina which provide fresh produce to their communities. The data includes the market name, location, months of operation, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>US EPA South Carolina Superfund Sites (superfund_contaminants.csv)- Superfund sites are contaminated sites identified by the US EPA and has allocated funds towards cleaning. The data includes the site names, locations, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>South Carolina Health Facilities (health_facilities.csv)- SC DHEC compiled a list of licensed health facilities according to their records. The data includes a variety of health services, including their categorization, facility names, facility locations, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
-<li>South Carolina Recreational Areas (recreation_processed.csv)- A catalog of recreational areas in South Carolina, categorized into beaches, golf courses, and park and recreation areas. The processed file includes the area name, categorization, GEOID, latitude/longitude, and census tract centroids.</li>
-<li>South Carolina Food Deserts (fooddeserts_processed.csv)- The USDA’s Food Access Research Atlas includes data on census tracts considered to be food deserts based on measures of supermarket accessibility. The processed file includes census tracts deemed to be food deserts, including geographic and demographic information for each tract.</li>
-<li>National Walkability Index for South Carolina Block Groups (raw_natl_wi)- The US EPA’s National Walkability Index scores each block group in the United States based on its relative walkability. The processed file includes only South Carolina scores with geographic, geometric, and census information.</li>
-<li>South Carolina 2019 Violent Crime Statistics (violent_crime_processed.csv)- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled “Crime In South Carolina.” The processed file includes their statistics for violent crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.</li>
-<li>South Carolina 2019 Property Crime Statistics (property_crime_processed.csv)- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled “Crime In South Carolina.” The processed file includes their statistics for property crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.</li>
-<li>Percent of South Carolina Householders Living Alone (percent_living_alone_processed.csv)- Based on results from the 2015-2019 American Community Survey (ACS), this file estimates the number of householders living alone in South Carolina according to census block group.</li>
-<li>Percent of South Carolina Population Over 25 with Less than High School Graduation (percent_less_than_high_school_attainment_processed.csv)- Based on results from the 2015-2019 American Community Survey (ACS), this file estimates the population in South Carolina over 25 with less than a completed high school education according to census tract.</li>
-<li>Percent of South Carolina Households with Income Below Poverty Level in the Past 12 Months (percent_below_poverty_level_processed.csv)- Based on results from the 2015-2019 American Community Survey (ACS), this file estimates the number of households with a past 12-month income below the poverty level in South Carolina according to census block group.</li>
+<li>South Carolina Food Deserts- The USDA’s Food Access Research Atlas includes data on census tracts considered to be low-income, low-access food deserts based on measures of supermarket accessibility. The processed file includes census tracts deemed to be food deserts, including geographic and demographic information for each tract.</li>
+</ul>
+<p>Social and Community Context:</p>
+<ul>
+<li>South Carolina 2019 Violent Crime Statistics- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled “Crime In South Carolina.” The processed file includes their statistics for violent crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.</li>
+<li>South Carolina 2019 Property Crime Statistics- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled “Crime In South Carolina.” The processed file includes their statistics for property crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.</li>
+<li>South Carolina Recreational Areas- A catalog of recreational areas in South Carolina, categorized into beaches, golf courses, and park and recreation areas. The processed file includes the area name, categorization, GEOID, latitude/longitude, and census tract centroids.</li>
+</ul>
+<p>Health and Healthcare:</p>
+<ul>
+<li>South Carolina Free Clinics- Free clinics provide medical care to the impoverished and uninsured residents of South Carolina. The data includes the clinic names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>South Carolina Pharmacies- A list of the pharmacies in South Carolina. The data includes the pharmacy names, locations, National Provider Identifer (NPI), details on the pharmacy services and pharmacists, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>South Carolina Health Facilities- SC DHEC compiled a list of licensed health facilities according to their records. The data includes a variety of health services, including their categorization, facility names, facility locations, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+</ul>
+<p>Neighborhood and Built Environment:</p>
+<ul>
+<li>US EPA South Carolina Brownfield Sites- Brownfield sites are previously developed sites whose contaminants prevent redevelopment. The data includes the site names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>US EPA Contaminants of Concern- The US EPA compiled a list of uniquely difficult contaminants to clean in the environment. The list includes the site where the contaminant is found, the location, the contaminant found, details about cleanup efforts, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>South Carolina Farmer’s and Roadside Markets- SCDHEC compiled a list of farmer’s and roadside markets in South Carolina which provide fresh produce to their communities. The data includes the market name, location, months of operation, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>US EPA South Carolina Superfund Sites- Superfund sites are contaminated sites identified by the US EPA and has allocated funds towards cleaning. The data includes the site names, locations, latitudes/longitudes, GEOIDs, and census tract centroids.</li>
+<li>National Walkability Index for South Carolina Block Groups- The US EPA’s National Walkability Index scores each block group in the United States based on its relative walkability. The processed file includes only South Carolina scores with geographic, geometric, and census information.</li>
 </ul>
 </div>
 <div id="whats-new" class="section level1">
