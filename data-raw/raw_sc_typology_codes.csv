@@ -1,0 +1,47 @@
+FIPStxt,State,County_name,"Metro-nonmetro status, 2013 0=Nonmetro 1=Metro",Economic Types Type_2015_Update non-overlapping,Economic_Type_Label,Farming_2015_Update,Mining_2015-Update,Manufacturing_2015_Update,Government_2015_Update,Recreation_2015_Update,Nonspecialized_2015_Update,Low_Education_2015_Update,Low_Employment_Cnty_2008_2012_25_64,Pop_Loss_2010,Retirement_Dest_2015_Update,Persistent_Poverty_2013,Persistent_Related_Child_Poverty_2013
+45001,SC,Abbeville County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,0
+45003,SC,Aiken County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0
+45005,SC,Allendale County,0,3,Maufacturing,0,0,1,1,0,0,1,1,1,0,1,1
+45007,SC,Anderson County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,0
+45009,SC,Bamberg County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,1,0,1,1
+45011,SC,Barnwell County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1
+45013,SC,Beaufort County,1,5,Recreation,0,0,0,0,1,0,0,0,0,1,0,0
+45015,SC,Berkeley County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0
+45017,SC,Calhoun County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,1
+45019,SC,Charleston County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,1
+45021,SC,Cherokee County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,0,0
+45023,SC,Chester County,1,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1
+45025,SC,Chesterfield County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,0,1
+45027,SC,Clarendon County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1
+45029,SC,Colleton County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1
+45031,SC,Darlington County,1,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1
+45033,SC,Dillon County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,1,1
+45035,SC,Dorchester County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0
+45037,SC,Edgefield County,1,4,Federal/State Government,0,0,0,1,0,0,0,1,0,0,0,0
+45039,SC,Fairfield County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,0,1
+45041,SC,Florence County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,1
+45043,SC,Georgetown County,0,5,Recreation,0,0,0,0,1,0,0,1,0,1,0,1
+45045,SC,Greenville County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0
+45047,SC,Greenwood County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,0
+45049,SC,Hampton County,0,4,Federal/State Government,0,0,0,1,0,0,0,1,0,0,1,1
+45051,SC,Horry County,1,5,Recreation,0,0,0,0,1,0,0,0,0,1,0,0
+45053,SC,Jasper County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,1,1
+45055,SC,Kershaw County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0
+45057,SC,Lancaster County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,1,0,0
+45059,SC,Laurens County,1,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,0
+45061,SC,Lee County,0,4,Federal/State Government,0,0,0,1,0,0,1,1,0,0,1,1
+45063,SC,Lexington County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0
+45065,SC,McCormick County,0,4,Federal/State Government,0,0,0,1,0,0,1,1,0,1,0,1
+45067,SC,Marion County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1
+45069,SC,Marlboro County,0,3,Maufacturing,0,0,1,1,0,0,1,1,0,0,1,1
+45071,SC,Newberry County,0,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,0
+45073,SC,Oconee County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,1,0,0
+45075,SC,Orangeburg County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1
+45077,SC,Pickens County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,0
+45079,SC,Richland County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,0
+45081,SC,Saluda County,1,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,1
+45083,SC,Spartanburg County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,0
+45085,SC,Sumter County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,0,1
+45087,SC,Union County,1,3,Maufacturing,0,0,1,0,0,0,0,1,1,0,0,0
+45089,SC,Williamsburg County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,1,1
+45091,SC,York County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0
