@@ -1,0 +1,47 @@
+fip_stxt,state,county_name,metro_nonmetro_status_2013_0_nonmetro_1_metro,economic_types_type_2015_update_non_overlapping,economic_type_label,farming_2015_update,mining_2015_update,manufacturing_2015_update,government_2015_update,recreation_2015_update,nonspecialized_2015_update,low_education_2015_update,low_employment_cnty_2008_2012_25_64,pop_loss_2010,retirement_dest_2015_update,persistent_poverty_2013,persistent_related_child_poverty_2013,geoid,county_latitude,county_longitude
+45001,SC,Abbeville County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,0,45001,+34.2290410,-082.4540577
+45003,SC,Aiken County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0,45003,+33.5500134,-081.6329830
+45005,SC,Allendale County,0,3,Maufacturing,0,0,1,1,0,0,1,1,1,0,1,1,45005,+32.9797573,-081.3632651
+45007,SC,Anderson County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,0,45007,+34.5212350,-082.6386029
+45009,SC,Bamberg County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,1,0,1,1,45009,+33.2030211,-081.0531607
+45011,SC,Barnwell County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1,45011,+33.2605516,-081.4342278
+45013,SC,Beaufort County,1,5,Recreation,0,0,0,0,1,0,0,0,0,1,0,0,45013,+32.3581120,-080.6894218
+45015,SC,Berkeley County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0,45015,+33.2077000,-079.9536554
+45017,SC,Calhoun County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,1,45017,+33.6747804,-080.7803468
+45019,SC,Charleston County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,1,45019,+32.8004582,-079.9424800
+45021,SC,Cherokee County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,0,0,45021,+35.0497962,-081.6076469
+45023,SC,Chester County,1,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1,45023,+34.6893424,-081.1612488
+45025,SC,Chesterfield County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,0,1,45025,+34.6370178,-080.1592269
+45027,SC,Clarendon County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1,45027,+33.6646821,-080.2178886
+45029,SC,Colleton County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1,45029,+32.8350184,-080.6552438
+45031,SC,Darlington County,1,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,1,45031,+34.3321854,-079.9621155
+45033,SC,Dillon County,0,3,Maufacturing,0,0,1,0,0,0,1,1,0,0,1,1,45033,+34.3901723,-079.3749638
+45035,SC,Dorchester County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0,45035,+33.0821859,-080.4046966
+45037,SC,Edgefield County,1,4,Federal/State Government,0,0,0,1,0,0,0,1,0,0,0,0,45037,+33.7764976,-081.9682452
+45039,SC,Fairfield County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,0,1,45039,+34.3956685,-081.1270007
+45041,SC,Florence County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,1,45041,+34.0285346,-079.7102329
+45043,SC,Georgetown County,0,5,Recreation,0,0,0,0,1,0,0,1,0,1,0,1,45043,+33.4175309,-079.2963325
+45045,SC,Greenville County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0,45045,+34.8926452,-082.3720772
+45047,SC,Greenwood County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,0,0,45047,+34.1557959,-082.1278759
+45049,SC,Hampton County,0,4,Federal/State Government,0,0,0,1,0,0,0,1,0,0,1,1,45049,+32.7783341,-081.1438217
+45051,SC,Horry County,1,5,Recreation,0,0,0,0,1,0,0,0,0,1,0,0,45051,+33.9092694,-078.9766749
+45053,SC,Jasper County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,1,1,45053,+32.4305900,-081.0216270
+45055,SC,Kershaw County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0,45055,+34.3383561,-080.5908847
+45057,SC,Lancaster County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,1,0,0,45057,+34.6868182,-080.7036885
+45059,SC,Laurens County,1,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,0,45059,+34.4836761,-082.0054976
+45061,SC,Lee County,0,4,Federal/State Government,0,0,0,1,0,0,1,1,0,0,1,1,45061,+34.1586401,-080.2512086
+45063,SC,Lexington County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,0,0,0,45063,+33.8994765,-081.2662769
+45065,SC,McCormick County,0,4,Federal/State Government,0,0,0,1,0,0,1,1,0,1,0,1,45065,+33.8975992,-082.3161961
+45067,SC,Marion County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1,45067,+34.0836195,-079.3540014
+45069,SC,Marlboro County,0,3,Maufacturing,0,0,1,1,0,0,1,1,0,0,1,1,45069,+34.6016700,-079.6794351
+45071,SC,Newberry County,0,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,0,45071,+34.2898805,-081.5996761
+45073,SC,Oconee County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,1,0,0,45073,+34.7487656,-083.0615395
+45075,SC,Orangeburg County,0,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,1,1,45075,+33.4361350,-080.8029131
+45077,SC,Pickens County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,0,45077,+34.8853677,-082.7233774
+45079,SC,Richland County,1,4,Federal/State Government,0,0,0,1,0,0,0,0,0,0,0,0,45079,+34.0290952,-080.8980371
+45081,SC,Saluda County,1,3,Maufacturing,0,0,1,0,0,0,1,0,0,0,0,1,45081,+34.0052784,-081.7279033
+45083,SC,Spartanburg County,1,3,Maufacturing,0,0,1,0,0,0,0,0,0,0,0,0,45083,+34.9332708,-081.9910522
+45085,SC,Sumter County,1,0,Nonspecialized,0,0,0,0,0,1,0,1,0,0,0,1,45085,+33.9161395,-080.3823757
+45087,SC,Union County,1,3,Maufacturing,0,0,1,0,0,0,0,1,1,0,0,0,45087,+34.6903965,-081.6158961
+45089,SC,Williamsburg County,0,3,Maufacturing,0,0,1,0,0,0,0,1,0,0,1,1,45089,+33.6264617,-079.7164740
+45091,SC,York County,1,0,Nonspecialized,0,0,0,0,0,1,0,0,0,1,0,0,45091,+34.9701875,-081.1831873
