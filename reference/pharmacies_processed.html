@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>dhomer: DHOME Data — dhomer-package • dhomer</title>
+<title>South Carolina Pharmacy Network — pharmacies_processed • dhomer</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,10 @@
 
 
 
-<meta property="og:title" content="dhomer: DHOME Data — dhomer-package" />
-<meta property="og:description" content="
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description." />
+<meta property="og:title" content="South Carolina Pharmacy Network — pharmacies_processed" />
+<meta property="og:description" content="The dataset of the pharmacies in South Carolina
+#' NEED TO CHECK for any requirements in redistributing data such as a notice
+copyright, etc" />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -125,34 +125,83 @@ More about what it does (maybe more than one line)
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>dhomer: DHOME Data</h1>
+    <h1>South Carolina Pharmacy Network</h1>
     
-    <div class="hidden name"><code>dhomer-package.Rd</code></div>
+    <div class="hidden name"><code>pharmacies_processed.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><img src='figures/logo.png' align='right' alt='logo' width='120' /></p>
-<p>More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.</p>
+    <p>The dataset of the pharmacies in South Carolina
+#' NEED TO CHECK for any requirements in redistributing data such as a notice
+copyright, etc</p>
     </div>
 
+    <pre class="usage"><span class='va'>pharmacies_processed</span></pre>
 
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://tamilyn.github.io/dhomer'>https://tamilyn.github.io/dhomer</a></p></li>
-</ul>
+    <p>A data frame with 954 rows and 54 columns</p><dl>
+<dt>npi</dt><dd><p>National Provider Identifier Number</p></dd>
+<dt>basic_organization_name</dt><dd><p>The Name of the Pharmacy Organization</p></dd>
+<dt>npi_2</dt><dd><p>National Provider Identifier Number</p></dd>
+<dt>hours_of_operation</dt><dd><p>Hours of Operation</p></dd>
+<dt>medicaid_id</dt><dd><p>Medicaid Identifier</p></dd>
+<dt>spoken_languages</dt><dd><p>Spoken Languages</p></dd>
+<dt>e_rx</dt><dd><p>Offers e-Rx</p></dd>
+<dt>delivery</dt><dd><p>Offers Delivery</p></dd>
+<dt>compound</dt><dd><p>Offers Compounds</p></dd>
+<dt>drive_thru</dt><dd><p>Offers Drive-Thru</p></dd>
+<dt>vaccines</dt><dd><p>Offers Vaccines</p></dd>
+<dt>handicap_access</dt><dd><p>Offers Handicap Access</p></dd>
+<dt>cultural_comp_training</dt><dd><p>Provides Cultural Competence Training</p></dd>
+<dt>accepting_new_customers</dt><dd><p>Accepting New Customers</p></dd>
+<dt>website</dt><dd><p>Website</p></dd>
+<dt>basic_organizational_subpart</dt><dd><p>Organizational Subpart?</p></dd>
+<dt>basic_enumeration_date</dt><dd><p>Enumeration Date</p></dd>
+<dt>basic_last_updated</dt><dd><p>Date Last Updated</p></dd>
+<dt>basic_status</dt><dd><p>Status (Active)</p></dd>
+<dt>basic_authorized_official_credential</dt><dd><p>Authorized Official Credential</p></dd>
+<dt>basic_authorized_official_first_name</dt><dd><p>Authorized Official First Name</p></dd>
+<dt>basic_authorized_official_last_name</dt><dd><p>Authorized Official Last Name</p></dd>
+<dt>basic_authorized_official_telephone_number</dt><dd><p>Authorized OFficial Telephone Number</p></dd>
+<dt>basic_authorized_official_title_or_position</dt><dd><p>Authorized OFficial Title/Position</p></dd>
+<dt>basic_name</dt><dd><p>Pharmacy Name</p></dd>
+<dt>basic_parent_organization_ein</dt><dd><p>Parent Organization EIN</p></dd>
+<dt>basic_parent_organization_legal_business_name</dt><dd><p>Parent Organization</p></dd>
+<dt>basic_authorized_official_middle_name</dt><dd><p>Authorized Official Middle Name</p></dd>
+<dt>basic_authorized_official_name_prefix</dt><dd><p>Authorized Official Name Prefix</p></dd>
+<dt>basic_authorized_official_name_suffix</dt><dd><p>Authorized Official Name Suffix</p></dd>
+<dt>basic_certification_date</dt><dd><p>Certification Date</p></dd>
+<dt>basic_name_prefix</dt><dd><p>Other Official Name Prefix</p></dd>
+<dt>basic_first_name</dt><dd><p>Other Official First Name</p></dd>
+<dt>basic_last_name</dt><dd><p>Other Official Last Name</p></dd>
+<dt>basic_middle_name</dt><dd><p>Other Official Middle Name</p></dd>
+<dt>basic_credential</dt><dd><p>Other Official redentials</p></dd>
+<dt>basic_sole_proprieter</dt><dd><p>Sole Proprietor</p></dd>
+<dt>basic_gender</dt><dd><p>Other Official Gender</p></dd>
+<dt>addresses_country_code</dt><dd><p>Country Code</p></dd>
+<dt>addresses_country_name</dt><dd><p>Country</p></dd>
+<dt>addresses_address_purpose</dt><dd><p>Address Purpose</p></dd>
+<dt>addresses_address_type</dt><dd><p>Address Type</p></dd>
+<dt>addresses_address_1</dt><dd><p>Street Address</p></dd>
+<dt>addresses_address_2</dt><dd><p>Street Address 2</p></dd>
+<dt>addresses_city</dt><dd><p>City</p></dd>
+<dt>addresses_state</dt><dd><p>State</p></dd>
+<dt>addresses_postal_code</dt><dd><p>ZIP Code</p></dd>
+<dt>addresses_telephone_number</dt><dd><p>Telephone Number</p></dd>
+<dt>addresses_fax_number</dt><dd><p>Fax Number</p></dd>
+<dt>geoid</dt><dd><p>GEOID</p></dd>
+<dt>tract_latitude</dt><dd><p>Tract Centroid Latitude</p></dd>
+<dt>tract_longitude</dt><dd><p>Tract Centroid Longitude</p></dd>
+<dt>lat</dt><dd><p>Latitude</p></dd>
+<dt>lon</dt><dd><p>Longitude</p></dd>
 
-</div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+</dl>
 
-    <p><strong>Maintainer</strong>: Tami Crawford <a href='mailto:tami.crawford@gmail.com'>tami.crawford@gmail.com</a> (<a href='https://orcid.org/0000-0003-0720-7701'>ORCID</a>)</p>
-<p>Authors:</p><ul>
-<li><p>Lauren Cuppy <a href='mailto:cuppy.lauren@gmail.com'>cuppy.lauren@gmail.com</a> (<a href='https://orcid.org/0000-0002-1672-4260'>ORCID</a>)</p></li>
-</ul>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-
+    <p><a href='https://www.selecthealthofsc.com/pdf/provider/pharmacy/pharmacy-network.pdf'>https://www.selecthealthofsc.com/pdf/provider/pharmacy/pharmacy-network.pdf</a></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
