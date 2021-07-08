@@ -1,3 +1,12 @@
+#' Selected South Carolina Data
+#'
+#' This package contains data formatted for spatial analysis. 
+#' Every dataset include lat/lon coordinates.
+#'
+#' @docType package
+#' @name dhomer
+NULL
+
 #' All HRSA Sites
 #'
 #' A dataset containing HRSA sites
@@ -279,48 +288,6 @@
 #' }
 #' @source \url{https://www.selecthealthofsc.com/pdf/provider/pharmacy/pharmacy-network.pdf}
 "pharmacies_processed"
-
-#' South Carolina Health Facilities
-#'
-#' The dataset of all licensed health facilities according to SCDHEC
-#' #' NEED TO CHECK for any requirements in redistributing data such as a notice
-#' copyright, etc
-#'
-#' @format A data frame with 2781 rows and 30 columns
-#' \describe{
-#'   \item{objectid}{Object ID}
-#'   \item{permit_type}{Facility Permit Type}
-#'   \item{name_of_facility}{The Name of the Health Facility}
-#'   \item{location_address}{Street Address}
-#'   \item{location_city}{City}
-#'   \item{location_state}{State}
-#'   \item{zip_code}{ZIP Code}
-#'   \item{facility_number}{Phone Number}
-#'   \item{facility_email}{Email}
-#'   \item{admin_name_phone}{Administrator Name and Phone Number}
-#'   \item{facility_cont_email}{Secondary Email}
-#'   \item{license_expires}{License Expiration Date}
-#'   \item{county_ownership_type}{County and Ownership Type}
-#'   \item{mailing_address}{Mailing Address}
-#'   \item{mailing_city}{Mailing City}
-#'   \item{mailing_state}{Mailing State}
-#'   \item{mailing_zip}{Mailing ZIP Code}
-#'   \item{licensee}{Liensee}
-#'   \item{licensee_business_phone}{Licensee Business Phone Number}
-#'   \item{cms_certification}{CMS Certification}
-#'   \item{county}{County}
-#'   \item{evacuation_zone}{Evacuation Zone}
-#'   \item{licensee_county}{Licensee County}
-#'   \item{x_2}{X Coordinate}
-#'   \item(y_2){Y Coordinate}
-#'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
-#'   \item{lat}{Latitude}
-#'   \item{lon}{Longitude}
-#' }
-#' @source \url{https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/04d86b6899fc450288ba07d0dcab2d73_0/explore}
-"healthfacilities_processed"
 
 #' South Carolina Food Deserts
 #'

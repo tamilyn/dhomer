@@ -4,17 +4,26 @@
 \name{dhomer-package}
 \alias{dhomer}
 \alias{dhomer-package}
-\title{dhomer: DHOME Ontology and Data}
+\title{dhomer: DHOME Data}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://tamilyn.github.io/dhomer}
+}
+
 }
 \author{
 \strong{Maintainer}: Tami Crawford \email{tami.crawford@gmail.com} (\href{https://orcid.org/0000-0003-0720-7701}{ORCID})
 
 Authors:
 \itemize{
-  \item Lauren Cuppy \email{cuppy.lauren@gmail.com}
+  \item Lauren Cuppy \email{cuppy.lauren@gmail.com} (\href{https://orcid.org/0000-0002-1672-4260}{ORCID})
 }
 
 }
