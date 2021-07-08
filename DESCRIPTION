@@ -1,7 +1,7 @@
 Package: dhomer
 Type: Package
-Title: DHOME Ontology and Data
-Version: 0.1.0
+Title: DHOME Data
+Version: 0.1.1
 Authors@R: c(person('Tami', 'Crawford', 
            email = 'tami.crawford@gmail.com', role = c('cre', 'aut'),
            comment=c(ORCID="0000-0003-0720-7701")),
@@ -15,7 +15,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: 
-    R (>= 2.10)
+    R (>= 3.10)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
