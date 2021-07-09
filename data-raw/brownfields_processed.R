@@ -56,7 +56,7 @@ brownfields_processed <- st_join(brownfields_processed, sc_tracts, by = c('geoid
   st_drop_geometry() %>%
   mutate(frs = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv)))
 
-fwrite(brownfields_processed, file = here(path('data-raw'), 'brownfields_processed.csv'))
+fwrite(brownfields_processed, file = here(path('data-raw'), 'brownfields.csv'))
 
 usethis::use_data(brownfields_processed, overwrite = TRUE)
 

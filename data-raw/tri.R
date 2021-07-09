@@ -43,7 +43,7 @@ tri_processed <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   st_drop_geometry()
 
 
-fwrite(tri_processed, file = here(path('data-raw'), 'tri_processed.csv'))
+fwrite(tri_processed, file = here(path('data-raw'), 'sc_tri_sites.csv'))
 
 
 usethis::use_data(tri, overwrite = TRUE)

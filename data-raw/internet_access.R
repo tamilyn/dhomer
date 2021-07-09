@@ -25,8 +25,8 @@ sc_tracts <- tracts(state = 45) %>%
 
 internet_access <- dplyr::left_join(x = internet, y = sc_tracts, by = 'census_tract') %>%
   select(-c('statefp','countyfp','tractce','name','namelsad','mtfcc','funcstat','aland','awater', 'geoid')) %>%
-  rename(county_latitude = intptlat, county_longitude = intptlon, geoid = census_tract)
+  rename(tract_latitude = intptlat, tract_longitude = intptlon, geoid = census_tract)
 
-fwrite(internet_access, file = here(path('data-raw'), 'internet_access_processed.csv'))
+fwrite(internet_access, file = here(path('data-raw'), 'internet_access.csv'))
 
 usethis::use_data(internet_access, overwrite = TRUE)

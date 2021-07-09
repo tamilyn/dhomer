@@ -57,7 +57,7 @@ contaminants_processed <- st_join(contaminants_processed, sc_tracts, by = c('geo
   st_drop_geometry()
 
 
-fwrite(contaminants_processed, file = here(path('data-raw'), 'contaminants_processed.csv'))
+fwrite(contaminants_processed, file = here(path('data-raw'), 'contaminants.csv'))
 
 
 usethis::use_data(contaminants_processed, overwrite = TRUE)

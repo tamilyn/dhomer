@@ -27,6 +27,6 @@ county_typology_codes <- dplyr::left_join(x = typology, y = sc_counties, by = 'c
   select(-c('statefp','countyfp','countyns','lsad','name','namelsad','classfp','mtfcc','csafp','cbsafp','metdivfp','funcstat','aland','awater')) %>%
   rename(county_latitude = intptlat, county_longitude = intptlon)
 
-fwrite(county_typology_codes, file = here(path('data-raw'), 'sc_typology_codes_processed.csv'))
+fwrite(county_typology_codes, file = here(path('data-raw'), 'sc_typology_codes.csv'))
 
 usethis::use_data(county_typology_codes, overwrite = TRUE)

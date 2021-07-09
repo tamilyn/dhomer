@@ -115,7 +115,7 @@ pharmacies_processed <- st_join(pharmacies_processed, sc_tracts, by = c('geoid',
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
-fwrite(pharmacies_processed, file = here(path('data-raw'), 'pharmacies_processed.csv'))
+fwrite(pharmacies_processed, file = here(path('data-raw'), 'sc_pharmacies.csv'))
 
 usethis::use_data(pharmacies_processed, overwrite = TRUE)
 

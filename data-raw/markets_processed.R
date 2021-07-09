@@ -55,7 +55,7 @@ markets_processed <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID
   st_drop_geometry()
 
 
-fwrite(markets_processed, file = here(path('data-raw'), 'markets_processed.csv'))
+fwrite(markets_processed, file = here(path('data-raw'), 'sc_markets.csv'))
 
 usethis::use_data(markets_processed, overwrite = TRUE)
 

@@ -45,7 +45,7 @@ healthfacilities_processed <- st_join(healthfacilities_processed, sc_tracts, by 
   st_drop_geometry()
 
 
-fwrite(healthfacilities_processed, file = here(path('data-raw'), 'healthfacilities_processed.csv'))
+fwrite(healthfacilities_processed, file = here(path('data-raw'), 'health_facilities.csv'))
 
 
 usethis::use_data(healthfacilities_processed, overwrite = TRUE)

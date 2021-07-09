@@ -45,6 +45,6 @@ recreation_processed <- st_join(recreation_processed, sc_tracts, by = c('geoid',
   st_drop_geometry()
 
 
-fwrite(recreation_processed, file = here(path('data-raw'), 'recreation_processed.csv'))
+fwrite(recreation_processed, file = here(path('data-raw'), 'recreation.csv'))
 
 usethis::use_data(recreation_processed, overwrite = TRUE)

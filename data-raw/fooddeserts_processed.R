@@ -27,6 +27,6 @@ fooddeserts_processed <- inner_join(fooddeserts_processed, sc_tracts, by = 'GEOI
   distinct(census_tract, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON)
 
-fwrite(fooddeserts_processed, file = here(path('data-raw'), 'fooddeserts_processed.csv'))
+fwrite(fooddeserts_processed, file = here(path('data-raw'), 'food_deserts.csv'))
 
 usethis::use_data(fooddeserts_processed, overwrite = TRUE)

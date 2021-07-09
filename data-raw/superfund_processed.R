@@ -55,7 +55,7 @@ superfund_processed <- st_join(superfund_processed, sc_tracts, by = c('geoid','G
   st_drop_geometry() %>%
   mutate(frs = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv)))
 
-fwrite(superfund_processed, file = here(path('data-raw'), 'superfund_processed.csv'))
+fwrite(superfund_processed, file = here(path('data-raw'), 'sc_superfund_sites.csv'))
 
 
 usethis::use_data(superfund_processed, overwrite = TRUE)

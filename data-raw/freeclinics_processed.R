@@ -54,7 +54,7 @@ freeclinics_processed <- st_join(freeclinics_processed, sc_tracts, by = c('geoid
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
-fwrite(freeclinics_processed, file = here(path('data-raw'), 'freeclinics_processed.csv'))
+fwrite(freeclinics_processed, file = here(path('data-raw'), 'freeclinics.csv'))
 
 usethis::use_data(freeclinics_processed, overwrite = TRUE)
 

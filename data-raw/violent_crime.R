@@ -27,6 +27,6 @@ violent_crime <- dplyr::left_join(x = violent, y = sc_counties, by = 'county') %
   select(-c('statefp','countyfp','countyns','lsad','name','namelsad','classfp','mtfcc','csafp','cbsafp','metdivfp','funcstat','aland','awater')) %>%
   rename(county_latitude = intptlat, county_longitude = intptlon)
 
-fwrite(violent_crime, file = here(path('data-raw'), 'violent_crime_processed.csv'))
+fwrite(violent_crime, file = here(path('data-raw'), 'sc_violent_crime.csv'))
 
 usethis::use_data(violent_crime, overwrite = TRUE)
