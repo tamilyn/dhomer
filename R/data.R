@@ -1,6 +1,6 @@
 #' Selected South Carolina Data
 #'
-#' This package contains data formatted for spatial analysis. 
+#' This package contains data formatted for spatial analysis.
 #' Every dataset include lat/lon coordinates.
 #'
 #' @docType package
@@ -544,3 +544,153 @@ NULL
 #' @source \url{https://www.sled.sc.gov/forms/statistics/2019%20Crime%20in%20South%20Carolina.pdf}
 "property_crime"
 
+#' SC Toxic Release Inventory Form R and A Submissions
+#'
+#' The dataset of sites in South Carolina that have submitted a Toxic Release Inventory Form R or A
+#'
+#' @format A data frame with 59834 rows and 30 columns
+#' \describe{
+#'   \item{chem_name}{Chemical Released}
+#'   \item{facility_name}{Facility Name}
+#'   \item{street_address}{Street Address}
+#'   \item{city_name}{City}
+#'   \item{state_abbr}{State Abbreviation}
+#'   \item{state_county_fips_code}{5-digit FIPS Code}
+#'   \item{zip_code}{ZIP Code}
+#'   \item{county_name}{County}
+#'   \item{tri_chem_id}{TRI Chemical ID}
+#'   \item{tri_facility_id}{TRI Facility ID}
+#'   \item{cas_registry_number}{CAS Registry Number}
+#'   \item{epa_registry_id}{EPA Registry ID}
+#'   \item{naics_codes}{NAICS Code}
+#'   \item{industry_code}{Industry Code}
+#'   \item{active_date}{Active Since}
+#'   \item{active_status}{Active Status (1 = Active)}
+#'   \item{max_amount_of_chem}{Maximum Number of Chemicals Released from the Site}
+#'   \item{total_off_site_release}{Total Pounds of Off-Site Toxic Chemical Release}
+#'   \item{total_on_off_site_release}{Total Pounds of On- and Off-Site Toxic Chemical Release}
+#'   \item{total_on_site_release}{Total Pounds of On-Site Toxic Chemical Release}
+#'   \item{total_production_related_waste}{Total Pounds of Toxic Chemicals Released due to Production}
+#'   \item{land_total_release}{Total Pounds of Toxic Chemicals Released to Land}
+#'   \item{land_trea_tot_rel}{Total Pounds of Toxic Chemicals Disposed of in Land Treatment and Application Farming}
+#'   \item{air_total_release}{Total Pounds of Toxic Chemicals Released to Air}
+#'   \item{water_total_release}{Total Pounds of Toxic Chemicals Released to Water}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Trac Centroid Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{long}{Longitude}
+#' }
+#' @source \url{https://enviro.epa.gov/facts/tri/form_ra_download.html}
+"tri_processed"
+
+#' CDC/ATSDR Social Vulnerability Index
+#'
+#' The dataset of
+#'
+#' @format A data frame with 1103 rows and 125 columns
+#' \describe{
+#'   \item{}
+#' }
+#' @source \url{https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html}
+"social_vulnerability_index"
+
+#' Percent of SC Households without Internet Access
+#'
+#' The dataset of census tracts in South Carolina with percentage estimates of households without internet access
+#'
+#' @format A data frame with 1103 rows and 10 columns
+#' \describe{
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{state}{State}
+#'   \item{geoid}{GEOID}
+#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{year}{Data Collection Year}
+#'   \item{value}{Percentage Value}
+#'   \item{data_comment}{NA}
+#'   \item{x8}{NA}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#' }
+#' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
+"internet_access"
+
+#' SC Protected Areas
+#'
+#' The dataset of South Carolina's protected lands and waters
+#'
+#' @format A data frame with 1191565 rows and 73 columns
+#' \describe{
+#'   \item{}
+#' }
+#' @source \url{https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/pad-us-data-overview?qt-science_center_objects=4#qt-science_center_objects}
+"protected_areas_processed"
+
+#' Percent of Impervious Developed Land
+#'
+#' The dataset of South Carolina census tracts with percentage estimates for the amount impervious land in the tract due to development
+#'
+#' @format A data frame with 1103 rows and 9 columns
+#' \describe{
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{state}{State}
+#'   \item{geoid}{GEOID}
+#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{year}{Data Collection Year}
+#'   \item{value}{Percentage Value}
+#'   \item{data_comment}{NA}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#' }
+#' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
+"developed_land_imperviousness"
+
+#' Percent of Housing Units with No Vehicle Access
+#'
+#' The dataset of South Carolina census tracts with percentage estimates of housing units with no vehicle access
+#'
+#' @format A data frame with 1103 rows and 9 columns
+#' \describe{
+#'   \item{state_fips}{State FIPS Code}
+#'   \item{state}{State}
+#'   \item{geoid}{GEOID}
+#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{year}{Data Collection Year}
+#'   \item{value}{Percentage Value}
+#'   \item{data_comment}{NA}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#' }
+#' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
+"vehicle_availability"
+
+#' SC County Typology Codes
+#'
+#' The dataset of county social and economic characteristics, as well as a classification of economic dependence. A value of '1' indicates 'yes'
+#'
+#' @format A data frame with 46 rows and 21 columns
+#' \desribe{
+#'   \item{fip_stxt}{5-Digit FIPS Code}
+#'   \item{state}{State}
+#'   \item{county_name}{County}
+#'   \item{metro_nonmetro_status_2013_0_nonmetro_1_metro}{Metro/Nonmetro (1 = Metro)}
+#'   \item{economic_types_type_2015_update_non_overlapping}{Number of Non-Overlapping Economic Types}
+#'   \item{economic_type_label}{Economic Type Label}
+#'   \item{farming_2015_update}{Farm-Dependent}
+#'   \item{mining_2015-update}{Mining-Dependent}
+#'   \item{manufacturing_2015_update}{Manufacturing-Dependent}
+#'   \item{government_2015_update}{Government-Dependent}
+#'   \item{recreation_2015_update}{Recreation-Dependent}
+#'   \item{nonspecialized_2015_update}{Nonspecialized}
+#'   \item{low_education_2015_update}{Low Education County}
+#'   \item{low_employment_cnty_2008_2012_25_64}{Low Employment County}
+#'   \item{pop_loss_2010}{Experienced Resident Decline}
+#'   \item{retirement_dest_2015_update}{Retirement Destination}
+#'   \item{persistent_poverty_2013}{Experienced Persistent Poverty}
+#'   \item{persistent_related_child_poverty_2013}{Experienced Persistent Related Child Poverty}
+#'   \item{geoid}{GEOID}
+#'   \item{county_latitude}{County Centroid Latitude}
+#'   \item{county_longitude}{County Centroid Longitude}
+#' }
+#' @source \url{https://www.ers.usda.gov/data-products/county-typology-codes/}
+"county_typology_codes"

@@ -10,6 +10,10 @@ options(tigris_use_cache = TRUE)
 library(dplyr)
 library(data.table)
 
+#https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/pad-us-data-overview?qt-science_center_objects=4#qt-science_center_objects
+# South Carolina Protected Areas
+# Downloaded 2021-07-07
+
 explorer_fname <- here(path('data-raw/raw_sc_protected_area'), "raw_sc_protected_areas.shp")
 protected_areas <- sf::st_read(explorer_fname) %>%
   clean_names()

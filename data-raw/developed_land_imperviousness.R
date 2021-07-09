@@ -12,7 +12,7 @@ library(data.table)
 
 # https://ephtracking.cdc.gov/DataExplorer/
 # Average Percent of Land with Developed Imperviousness
-# 2021-07-07
+# Downloaded 2021-07-07
 
 explorer_fname <- here(path('data-raw'), 'raw_developed_imperviousness.csv')
 development <- readr::read_csv(explorer_fname) %>%
