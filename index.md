@@ -15,11 +15,15 @@ The data sets are:
 
 Economic Stability:
 * South Carolina Food Deserts- The USDA's Food Access Research Atlas includes data on census tracts considered to be low-income, low-access food deserts based on measures of supermarket accessibility. The processed file includes census tracts deemed to be food deserts, including geographic and demographic information for each tract.
+* SC County Typology Codes- The USDA's determination of each county in South Carolina's economic dependence and other social characteristics which overlap with the county's economy. The processed file includes the county characteristics, GEOID, latitude/longitude, and county centroids.
 
 Social and Community Context:
 * South Carolina 2019 Violent Crime Statistics- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled "Crime In South Carolina." The processed file includes their statistics for violent crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.
 * South Carolina 2019 Property Crime Statistics- The South Carolina Law Enforcement Division compiles South Carolina crime statistics annually into a report titled "Crime In South Carolina." The processed file includes their statistics for property crime (number of crimes, crime rate, and clearance rate) by county in the year 2019 with county geography information.
 * South Carolina Recreational Areas- A catalog of recreational areas in South Carolina, categorized into beaches, golf courses, and park and recreation areas. The processed file includes the area name, categorization, GEOID, latitude/longitude, and census tract centroids.
+* Social Vulnerability Index- The CDC and ATSDR consider several census variables in order to determine the social vulnerability of each census tract in the United States in order to assess the areas in greatest need following natural disasters. The processed file includes all of the reference data used to make the determination, as well as the overall SVI score.
+* Percent of Households Without Internet Access- The CDC's estimates for percentage of households within each census tract that does not have reliable access to internet based on the ACS, American Factfinder, and US Census Bureau statistics. The processed file includes the census tract, estimates, GEOID, latitude/longitude, and census tract centroids.
+* Percent of Housing Units Without Access to a Vehicle- The CDC's estimates for percentage of housing units within each census tract that do not have access to a vehicle. The processed file includes the census tract, estimates, GEOID, latitude/longitude, and census tract centroids.
 
 Health and Healthcare:
 * South Carolina Free Clinics- Free clinics provide medical care to the impoverished and uninsured residents of South Carolina. The data includes the clinic names, addresses, latitudes/longitudes, GEOIDs, and census tract centroids.
@@ -32,7 +36,8 @@ Neighborhood and Built Environment:
 * South Carolina Farmer's and Roadside Markets- SCDHEC compiled a list of farmer's and roadside markets in South Carolina which provide fresh produce to their communities. The data includes the market name, location, months of operation, contact information, latitudes/longitudes, GEOIDs, and census tract centroids.
 * US EPA South Carolina Superfund Sites- Superfund sites are contaminated sites identified by the US EPA and has allocated funds towards cleaning. The data includes the site names, locations, latitudes/longitudes, GEOIDs, and census tract centroids.
 * National Walkability Index for South Carolina Block Groups- The US EPA's National Walkability Index scores each block group in the United States based on its relative walkability. The processed file includes only South Carolina scores with geographic, geometric, and census information.
-
+* Average Percent of Impervious Land Due to Development
+* Toxic Release Inventory Form R and Form A Submissions
 
 
 # What's New
