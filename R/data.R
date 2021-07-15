@@ -621,7 +621,76 @@ NULL
 #'
 #' @format A data frame with 1191565 rows and 73 columns
 #' \describe{
-#'   \item{}
+#'   \item{category}{Category}
+#'   \item{d_category}{Category}
+#'   \item{own_type}{Owner Type}
+#'   \item{d_own_type}{Owner Type}
+#'   \item{own_name}{Owner Name}
+#'   \item{d_own_name}{Owner Name}
+#'   \item{loc_own}{Local Owner}
+#'   \item{mang_type}{Manager Type}
+#'   \item{d_mang_typ}{Manager Type}
+#'   \item{mang_name}{Manager Name}
+#'   \item{d_mang_nam}{Manager Name}
+#'   \item{loc_mang}{Local Manager}
+#'   \item{des_tp}{Designation Type}
+#'   \item{d_des_tp}{Designation Type}
+#'   \item{loc_ds}{Local Designation}
+#'   \item{unit_nm}{Unit Name}
+#'   \item{loc_nm}{Local Name}
+#'   \item{state_nm}{State Name}
+#'   \item{d_state_nm}{State Name}
+#'   \item{agg_src}{Aggregator Source}
+#'   \item{gis_src}{GIS Source}
+#'   \item{src_date}{Source Date}
+#'   \item{gis_acres}{GIS Acres}
+#'   \item{source_paid}{Source Protected Area ID}
+#'   \item{wdpa_cd}{WDPA Site Code}
+#'   \item{pub_access}{Public Access}
+#'   \item{d_access}{Public Access}
+#'   \item{access_src}{Public Access Source}
+#'   \item{access_dt}{Public Access Date}
+#'   \item{gap_sts}{GAP Status Code}
+#'   \item{d_gap_sts}{GAP Status Code}
+#'   \item{gap_cd_src}{GAP Status Code Source}
+#'   \item{gap_cd_dt}{GAP Status Code Date}
+#'   \item{iucn_cat}{IUCN Category}
+#'   \item{d_iucn_cat}{IUCN Category}
+#'   \item{iucn_ct_src}{IUCN Category Source}
+#'   \item{iucn_ct_dt}{IUCN Category Date}
+#'   \item{date_est}{Date of Establishment}
+#'   \item{comments}{Comments}
+#'   \item{shape_leng}{Shape Length}
+#'   \item{shape_area}{Shape Area}
+#'   \item{area_rptd}{Area Repeated}
+#'   \item{conflict}{Conflict}
+#'   \item{bound_cf}{Bound}
+#'   \item{duration}{Duration}
+#'   \item{security}{Security}
+#'   \item{esmt_hldr}{Easement Holder}
+#'   \item{e_hold_typ}{Easement Holder Type}
+#'   \item{stacked}{Stacked}
+#'   \item{co_held}{Co-Held}
+#'   \item{term}{Term}
+#'   \item{nced_uid}{NCED Identifier}
+#'   \item{prot_level}{Protection Level}
+#'   \item{pri_con_fo}{Primary Characteristics to Conserve}
+#'   \item{cons_focus}{Conservation Focus}
+#'   \item{permanence}{Permanence}
+#'   \item{ns_full}{Status in National System of MPAs}
+#'   \item{mgmt_plan}{Management Plan}
+#'   \item{fish_rstr}{Fishing Restriction}
+#'   \item{prot_foc}{Protective Focus}
+#'   \item{constancy}{Constancy}
+#'   \item{vessel}{Vessel}
+#'   \item{anchor}{Anchor}
+#'   \item{mar_percent}{Percent Marine Area}
+#'   \item{area_mar}{Marine Area}
+#'   \item{marine}{Marine}
+#'   \item{GEOID}{GEOID}
+#'   \item{tract_latitude}{Tract Latitude}
+#'   \item{tract_longitude}{Tract Longitude}
+#'   \item{lat}{Latitude}
 #' }
 #' @source \url{https://www.usgs.gov/core-science-systems/science-analytics-and-synthesis/gap/science/pad-us-data-overview?qt-science_center_objects=4#qt-science_center_objects}
 "protected_areas_processed"
@@ -694,3 +763,189 @@ NULL
 #' }
 #' @source \url{https://www.ers.usda.gov/data-products/county-typology-codes/}
 "county_typology_codes"
+
+#' South Carolina Public Schools
+#'
+#' The dataset of South Carolina public elementary and secondary schools with locale details
+#'
+#' @format A data frame with 1183 rows and 14 columns
+#' \describe{
+#'   \item{ncessch}{NCES school ID}
+#'   \item{leaid}{Unique Agency Code}
+#'   \item{leanm05}{Operating Agency}
+#'   \item{schnamM05}{School Name}
+#'   \item{lcity05}{City}
+#'   \item{lstate05}{State}
+#'   \item{mlocale}{Metro-Centric Locale (1 = Large City, 2 = Mid-size City, 3 = Urban Fringe of a Large City, 4 = Urban Fringe of a Mid-size City, 5 = Large Town, 6 = Small Town, 7 = Rural, outside Core Based Statistical Area (CBSA), 8 = Rural, inside CBSA)}
+#'   \item{ulocale}{Urban-Centric Locale (11 = City, Large, 12 = City, Midsize, 13 = City, Small, 21 = Suburb, Large, 22 = Suburb, Midsize, 23 = Suburb, Small, 31 = Town, Fringe, 32 = Town, Distant, 33 = Town, Remote, 41 = Rural, Fringe, 42 = Rural, Distant, 43 = Rural, Remote)}
+#'   \item{status05}{Operational Status (1 = School continues to be operational, 2 = School closed this year, 3 = New school, 4 = School has been in operation but is reported for the first time, 5 = School is reported with a different education agency, 6 = School is temporarily closed, 7 = School will be operational within 2 years, 8 = School was reported as permanently closed but has reopened)}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://nces.ed.gov/ccd/CCDLocaleCode.asp}
+"public_schools"
+
+#' South Carolina Public Libraries
+#'
+#' The dataset of public libraries and outlets in South Carolina
+#'
+#' @format A data frame with 232 rows and 42 columns
+#' \describe{
+#'   \item{stabr}{State}
+#'   \item{fscskey}{IMLS ID Number}
+#'   \item{fscs_seq}{IMLS Assigned ID Suffix}
+#'   \item{libid}{Library ID}
+#'   \item{libname}{Name}
+#'   \item{address}{Address}
+#'   \item{city}{City}
+#'   \item{zip}{Zip Code}
+#'   \item{zip4}{Zip +4 Code}
+#'   \item{cnty}{County}
+#'   \item{phone}{Phone Number}
+#'   \item{c_out_ty}{Outlet Code}
+#'   \item{sq_feet}{Square Footage}
+#'   \item{f_sq_ft}{Imputation Flag}
+#'   \item{l_num_bm}{Number of Bookmobiles}
+#'   \item{hours}{Public Service Hours Per Year}
+#'   \item{f_hours}{Imputation Flag}
+#'   \item{wks_open}{Number of Weeks Open}
+#'   \item{f_wksopn}{Imputation Flag}
+#'   \item{yr_sub}{FSCS Submission Year}
+#'   \item{obereg}{Bureau of Economic Analysis Region Code}
+#'   \item{statstru}{Structure Status}
+#'   \item{statname}{Status of Library Name}
+#'   \item{stataddr}{Status of the Address}
+#'   \item{incitsst}{International Committee for Information Technology Standards (INCITS) State Code}
+#'   \item{incitsco}{INCITS County Code}
+#'   \item{gnisplac}{Geographic Names Information System Feature ID}
+#'   \item{cntypop}{County Population}
+#'   \item{locale}{Urban-Centric Locale Code}
+#'   \item{centract}{Census Tract}
+#'   \item{cenblock}{Census Block}
+#'   \item{cdcode}{Congressional District}
+#'   \item{cbsa}{Core Based Statistical Area}
+#'   \item{microf}{Metropolitan and Micropolitan Statistical Area}
+#'   \item{geomatch}{Geocoding Accuracy and Precision Level}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://www.imls.gov/research-evaluation/data-collection/public-libraries-survey}
+"libraries"
+
+#' South Carolina Hospitals
+#'
+#' The dataset of hospitals in South Carolina
+#'
+#' @format A data frame with 112 rows and 37 columns
+#' \describe{
+#'   \item{objectid}{Object ID}
+#'   \item{id}{ID Number}
+#'   \item{name}{Hospital Name}
+#'   \item{address}{Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zip}{ZIP Code}
+#'   \item{zip4}{ZIP +4 Code}
+#'   \item{telephone}{Phone Number}
+#'   \item{type}{Hospital Type}
+#'   \item{status}{Status}
+#'   \item{population}{Population}
+#'   \item{county}{County}
+#'   \item{countyfips}{County FIPS Code}
+#'   \item{country}{Country}
+#'   \item{latitude}{Latitude}
+#'   \item{longitude}{Longitude}
+#'   \item{naics_code}{NAICS Code}
+#'   \item{source}{Data Source}
+#'   \item{sourcedate}{Date Extracted}
+#'   \item{val_method}{Value Collection Method}
+#'   \item{val_date}{Value Collection Date}
+#'   \item{website}{Website}
+#'   \item{state_id}{State ID}
+#'   \item{alt_name}{Alternate Name}
+#'   \item{st_fips}{State FIPS Code}
+#'   \item{owner}{Owner}
+#'   \item{ttl_staff}{Total Staff}
+#'   \item{beds}{Number of Beds}
+#'   \item{trauma}{Trauma Center Level}
+#'   \item{helipad}{Has Helipad?}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://hifld-geoplatform.opendata.arcgis.com/datasets/hospitals/explore}
+"hospitals"
+
+#' South Carolina Intermodal Passenger Transportation Terminals
+#'
+#' The dataset of South Carolina's passenger transportation terminals that provide various modes of transportation
+#'
+#' @format A data frame with 104 rows and 58 columns
+#' \describe{
+#'   \item{objectid}{Object ID}
+#'   \item{x}{X Coordinate}
+#'   \item{y}{Y Coordinate}
+#'   \item{fac_id}{Facility ID}
+#'   \item{point_id}{Point ID}
+#'   \item{near_id_1}{Near Point ID:}
+#'   \item{near_id_2}{Near Point ID:}
+#'   \item{near_id_3}{Near Point ID:}
+#'   \item{air_code}{Air Code}
+#'   \item{air_code2}{Air Code 2}
+#'   \item{amtrakcode}{Amtrak Code}
+#'   \item{ferry_code}{Ferry Code}
+#'   \item{rail_id}{Rail ID}
+#'   \item{bike_id}{Bike ID}
+#'   \item{date_updte}{Date Updated}
+#'   \item{address}{Address}
+#'   \item{city}{City}
+#'   \item{state}{State}
+#'   \item{zipcode}{ZIP Code}
+#'   \item{metro_area}{Metro Area}
+#'   \item{fac_name}{Facility Name}
+#'   \item{longitude}{Longitude}
+#'   \item{latitude}{Latitude}
+#'   \item{point_lon}{Point Longitude}
+#'   \item{point_lat}{Point Latitude}
+#'   \item{fac_type}{Facility Type}
+#'   \item{ferry_t}{Transit Ferry Terminal}
+#'   \item{ferry_i}{Intercity Ferry Terminal}
+#'   \item{bus_t}{Transit Bus Station}
+#'   \item{bus_i}{Intercity Bus Station}
+#'   \item{bus_code_s}(Code Sharing Bus Station)
+#'   \item{bus_supp}{Supplemental Bus Station}
+#'   \item{rail_i}{Intercity Rail Service}
+#'   \item{rail_c}{Commuter Rail Service}
+#'   \item{rail_h}{Heavy-Rail Transit Station}
+#'   \item{rail_light}{Light-Rail Transit Station}
+#'   \item{air_serve}{Scheduled Airline Service Airport}
+#'   \item{bike_share}{Bike Share System (open to general public)}
+#'   \item{bike_sys_i}{IT-Automated Bike Share System}
+#'   \item{bike_sys}{Station-Based Bike-Share System}
+#'   \item{website}{Website}
+#'   \item{notes}{Notes}
+#'   \item{source}{Source}
+#'   \item{i_service}{Intercity Service}
+#'   \item{t_service}{Transit Service}
+#'   \item{modes_serv}{Service Modes}
+#'   \item{mode_bus}{Provides Bus Services}
+#'   \item{mode_air}{Provides Air Services}
+#'   \item{mode_rail}{Provides Rail Services}
+#'   \item{mode_ferry}{Provides Ferry Services}
+#'   \item{mode_bike}{Provides Bike Services}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Centroid Latitude}
+#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://hifld-geoplatform.opendata.arcgis.com/datasets/intermodal-passenger-connectivity-database-ipcd/explore?location=45.502900%2C58.184500%2C3.70}
+"transit_terminals"

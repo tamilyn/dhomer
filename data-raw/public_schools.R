@@ -1,5 +1,16 @@
 ## code to prepare `public_schools` dataset goes here
 
+library(sf)
+library(tigris)
+library(here)
+library(readr)
+library(janitor)
+library(data.table)
+
+# https://nces.ed.gov/ccd/CCDLocaleCode.asp
+# South Carolina Public Schools
+# Downloaded 2021-07-13
+
 explorer_fname <- here(path('data-raw'), "raw_sc_public_schools.csv")
 raw_schools <- readr::read_csv(explorer_fname) %>%
   clean_names()
