@@ -16,36 +16,39 @@ NULL
 #' @format A data frame with 252 rows and 31 variables:
 #' \describe{
 #'   \item{site_name}{The site name}
-#'   \item{services_delivered_at_site}{to be filled out soon}
-#'   \item{health_center_type}{to be filled out soon}
-#'   \item{health_center_location_type}{to be filled out soon}
-#'   \item{health_center_location_setting}{to be filled out soon}
-#'   \item{county}{to be filled out soon}
-#'   \item{state}{to be filled out soon}
-#'   \item{grant_number}{to be filled out soon}
-#'   \item{bhcmis_org_id}{to be filled out soon}
-#'   \item{bphc_assigned_number}{to be filled out soon}
-#'   \item{health_center_look_alike_number}{to be filled out soon}
+#'   \item{services_delivered_at_site}{Are services delivered at the site?}
+#'   \item{health_center_type}{Health Center Type}
+#'   \item{health_center_location_type}{Location Type}
+#'   \item{health_center_location_setting}{Location Setting}
+#'   \item{county}{County}
+#'   \item{state}{State}
+#'   \item{grant_number}{Grant Number}
+#'   \item{bhcmis_org_id}{BHCMIS Organization ID}
+#'   \item{bphc_assigned_number}{BPHC Assigned Number}
+#'   \item{health_center_look_alike_number}{Health Center Look-Alike Number}
 #'   \item{address}{to be filled out soon}
-#'   \item{city}{to be filled out soon}
-#'   \item{zip}{to be filled out soon}
-#'   \item{site_telephone_number}{to be filled out soon}
-#'   \item{website}{to be filled out soon}
-#'   \item{admin_functions_performed_at_site}{to be filled out soon}
-#'   \item{hrsa_grant_programs}{to be filled out soon}
-#'   \item{native_hawaiian_health_center_admin_site}{to be filled out soon}
-#'   \item{health_center_service_delivery_site_group}{to be filled out soon}
-#'   \item{hhs_region}{to be filled out soon}
-#'   \item{u_s_senator_name_1}{to be filled out soon}
-#'   \item{u_s_senator_name_2}{to be filled out soon}
-#'   \item{cong_district}{to be filled out soon}
-#'   \item{u_s_congressional_representative_name}{to be filled out soon}
-#'   \item{in_u_s_mex_border_100_km_area}{to be filled out soon}
-#'   \item{in_u_s_mex_border_county}{to be filled out soon}
-#'   \item{rural_status}{to be filled out soon}
-#'   \item{longitude}{to be filled out soon}
-#'   \item{latitude}{to be filled out soon}
-#'   \item{grantee_name}{to be filled out soon}
+#'   \item{city}{City}
+#'   \item{zip}{Zip Code}
+#'   \item{site_telephone_number}{Site Telephone Number}
+#'   \item{website}{Website}
+#'   \item{admin_functions_performed_at_site}{Are administrative services performed at the site?}
+#'   \item{hrsa_grant_programs}{HRSA Grant Programs}
+#'   \item{native_hawaiian_health_center_admin_site}{Native Hawaiian health center administrative site?}
+#'   \item{health_center_service_delivery_site_group}{Health Service Delivery Site Group}
+#'   \item{hhs_region}{HHS Region}
+#'   \item{u_s_senator_name_1}{US Senator}
+#'   \item{u_s_senator_name_2}{tUS Senator}
+#'   \item{cong_district}{Congressional District}
+#'   \item{u_s_congressional_representative_name}{US Congressional Representative}
+#'   \item{in_u_s_mex_border_100_km_area}{Within 100 km of US-Mexico border?}
+#'   \item{in_u_s_mex_border_county}{In US-Mexico Border County}
+#'   \item{rural_status}{Rural?}
+#'   \item{grantee_name}{Grantee Name}
+#'   \item{geoid}{GEOID}
+#'   \item{tract_latitude}{Tract Latitude}
+#'   \item{tract_longitude}{Tract Longitude}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
 #' }
 #' @source \url{https://data.hrsa.gov/data/download/}
 "hrsa"
