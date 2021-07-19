@@ -1,4 +1,4 @@
-## code to prepare `contaminants_processed` dataset goes here
+## code to prepare `contaminants` dataset goes here
 
 library(tidygeocoder)
 library(readr)
@@ -19,8 +19,6 @@ explorer_fname <- here(path('data-raw'), "raw_contaminants_of_concern.csv")
 cofc <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-
-
 geocodes <- cofc %>% geocode(
   street = 'site_location', city = 'city', state = 'state', postalcode = 'zip_code', method = 'cascade'
 )
@@ -28,16 +26,14 @@ geocodes <- cofc %>% geocode(
 fwrite(geocodes, file = here(path('data-raw'), 'contaminants_primary_processed'))
 
 explorer_fname <- here(path('data-raw'), "contaminants_secondary_processed.csv")
-contaminants <- readr::read_csv(explorer_fname) %>%
+contaminants1 <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
 sc_tracts <- tracts(state = 45)
 
-coords <- contaminants %>%
+coords <- contaminants1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
-
-coords
 
 system.time({
   intersected <- st_within(coords, sc_tracts)
@@ -48,16 +44,14 @@ contaminants_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-contaminants_processed <- st_join(contaminants_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+contaminants <- st_join(contaminants_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(c('site_name','epa_id','contaminant_name','media','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   select(contaminant_name, media, everything()) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
+fwrite(contaminants, file = here(path('data-raw'), 'contaminants.csv'))
 
-fwrite(contaminants_processed, file = here(path('data-raw'), 'contaminants.csv'))
-
-
-usethis::use_data(contaminants_processed, overwrite = TRUE)
+usethis::use_data(contaminants, overwrite = TRUE)

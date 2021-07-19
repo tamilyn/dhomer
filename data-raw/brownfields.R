@@ -50,11 +50,12 @@ brownfields_processed <- coords %>%
 brownfields <- st_join(brownfields_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  mutate(frs_id = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv))) %>%
+  mutate(brownfields_id = sub('.*:','',brownfields_link_csv)) %>%
+  select(c('cleanup_name','brownfields_id','frs_id','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
-  st_drop_geometry() %>%
-  mutate(frs = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv)))
+  st_drop_geometry()
 
 fwrite(brownfields, file = here(path('data-raw'), 'brownfields.csv'))
 

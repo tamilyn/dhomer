@@ -1,4 +1,4 @@
-## code to prepare `fooddeserts_processed` dataset goes here
+## code to prepare `food_deserts` dataset goes here
 
 library(readr)
 library(janitor)
@@ -22,11 +22,12 @@ sc_tracts <- tracts(state = 45)
 
 fooddeserts_processed <- deserts %>% mutate(GEOID = as.character(census_tract))
 
-fooddeserts_processed <- inner_join(fooddeserts_processed, sc_tracts, by = 'GEOID') %>%
-  select(-c('STATEFP','COUNTYFP','TRACTCE','geometry','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','GEOID')) %>%
+food_deserts <- inner_join(fooddeserts_processed, sc_tracts, by = 'GEOID') %>%
+  select(c('census_tract','lila_tracts_1and10','lila_tracts_half_and10','lila_tracts_1and20',
+           'low_income_tracts','poverty_rate','median_family_income','GEOID','INTPTLAT','INTPTLON')) %>%
   distinct(census_tract, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON)
 
-fwrite(fooddeserts_processed, file = here(path('data-raw'), 'food_deserts.csv'))
+fwrite(food_deserts, file = here(path('data-raw'), 'food_deserts.csv'))
 
-usethis::use_data(fooddeserts_processed, overwrite = TRUE)
+usethis::use_data(food_deserts, overwrite = TRUE)
