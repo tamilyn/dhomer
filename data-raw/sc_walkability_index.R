@@ -11,6 +11,7 @@ library(sf)
 
 explorer_fname <- here(path('data-raw'), "raw_natl_wi")
 sc_walkability_index <- st_read(explorer_fname) %>%
-  clean_names()
+  clean_names() %>%
+  select(c('geoid20','nt_wlk_in','geometry'))
 
 usethis::use_data(sc_walkability_index, overwrite = TRUE)

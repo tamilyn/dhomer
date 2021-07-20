@@ -1,4 +1,4 @@
-## code to prepare `markets_processed` dataset goes here
+## code to prepare `markets` dataset goes here
 
 library(tidygeocoder)
 library(readr)
@@ -26,12 +26,12 @@ geocodes <- markets %>% geocode(
 fwrite(geocodes, file = here(path('data-raw', 'markets_primary_processed.csv')))
 
 explorer_fname <- here(path('data-raw'), "markets_secondary_processed.csv")
-markets <- readr::read_csv(explorer_fname) %>%
+markets1 <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
 sc_tracts <- tracts(state = 45)
 
-coords <- markets %>%
+coords <- markets1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
@@ -46,17 +46,17 @@ markets_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-markets_processed <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+markets <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(c('objectid','name','mail_phone','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
 
-fwrite(markets_processed, file = here(path('data-raw'), 'sc_markets.csv'))
+fwrite(markets, file = here(path('data-raw'), 'sc_markets.csv'))
 
-usethis::use_data(markets_processed, overwrite = TRUE)
+usethis::use_data(markets, overwrite = TRUE)
 
 ## At line 26, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search ##

@@ -35,15 +35,18 @@ tri_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-tri_processed <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+tri <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(c('chem_name','facility_name','tri_chem_id','tri_facility_id','naics_codes',
+           'total_off_site_release','total_on_off_site_release','total_on_site_release',
+           'total_production_related_waste','land_total_release','air_total_release',
+           'water_total_release','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
 
-fwrite(tri_processed, file = here(path('data-raw'), 'sc_tri_sites.csv'))
+fwrite(tri, file = here(path('data-raw'), 'sc_tri_sites.csv'))
 
 
 usethis::use_data(tri, overwrite = TRUE)

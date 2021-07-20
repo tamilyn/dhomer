@@ -36,16 +36,16 @@ healthfacilities_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-healthfacilities_processed <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+health_facilities <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(c('permit_type','name_of_facility','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(name_of_facility, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
 
-fwrite(healthfacilities_processed, file = here(path('data-raw'), 'health_facilities.csv'))
+fwrite(health_facilities, file = here(path('data-raw'), 'health_facilities.csv'))
 
 
-usethis::use_data(healthfacilities_processed, overwrite = TRUE)
+usethis::use_data(health_facilities, overwrite = TRUE)

@@ -1,4 +1,4 @@
-## code to prepare `pharmacies_processed` dataset goes here
+## code to prepare `pharmacies` dataset goes here
 
 # https://www.selecthealthofsc.com/pdf/provider/pharmacy/pharmacy-network.pdf
 # South Carolina Pharmacies
@@ -107,17 +107,18 @@ pharmacies_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-pharmacies_processed <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+pharmacies <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(c('npi','basic_organization_name','hours_of_operation','medicaid_id','addresses_telephone_number',
+           'geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(npi, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
-fwrite(pharmacies_processed, file = here(path('data-raw'), 'sc_pharmacies.csv'))
+fwrite(pharmacies, file = here(path('data-raw'), 'sc_pharmacies.csv'))
 
-usethis::use_data(pharmacies_processed, overwrite = TRUE)
+usethis::use_data(pharmacies, overwrite = TRUE)
 
 ## At line 73, pharmacy_locations.csv was exported and concatenated with the downloaded data in raw_sc_pharmacy_network.csv ##
 ## At line 87, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search ##

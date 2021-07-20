@@ -1,4 +1,4 @@
-## code to prepare `recreation_processed` dataset goes here
+## code to prepare `recreation` dataset goes here
 
 library(readr)
 library(janitor)
@@ -36,15 +36,15 @@ recreation_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-recreation_processed <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+recreation <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','stctyfips','mnfc','textlength')) %>%
   distinct(name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
 
-fwrite(recreation_processed, file = here(path('data-raw'), 'recreation.csv'))
+fwrite(recreation, file = here(path('data-raw'), 'recreation.csv'))
 
-usethis::use_data(recreation_processed, overwrite = TRUE)
+usethis::use_data(recreation, overwrite = TRUE)

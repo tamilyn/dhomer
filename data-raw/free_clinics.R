@@ -1,4 +1,4 @@
-## code to prepare `freeclinics_processed` dataset goes here
+## code to prepare `free_clinics` dataset goes here
 
 library(tidygeocoder)
 library(readr)
@@ -46,16 +46,16 @@ freeclinics_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-freeclinics_processed <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+free_clinics <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER',)) %>%
+  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','address')) %>%
   distinct(clinic_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
-fwrite(freeclinics_processed, file = here(path('data-raw'), 'freeclinics.csv'))
+fwrite(free_clinics, file = here(path('data-raw'), 'freeclinics.csv'))
 
-usethis::use_data(freeclinics_processed, overwrite = TRUE)
+usethis::use_data(free_clinics, overwrite = TRUE)
 
 ## At line 26, the .csv file was exported for accuracy check of latitudes and longitudes and manual input of missing values via GoogleMaps search ##

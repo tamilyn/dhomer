@@ -41,7 +41,7 @@ pts <- st_cast(protected_areas_processed1, 'POINT')
 protected_areas <- st_join(pts, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','geoid','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','layer','path')) %>%
+  select(c('category','unit_nm','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
