@@ -26,6 +26,7 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 
 ```{r setup}
 # library(dhomer)
+library(tidyverse)
 library(tidycensus)
 library(dplyr)
 census_api_key(Sys.getenv("CENSUS_API_KEY"), install=TRUE, overwrite = TRUE)
