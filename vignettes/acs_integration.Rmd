@@ -25,10 +25,7 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 ## `Tigris` Variables
 
 ```{r setup}
-# library(dhomer)
-library(tidyverse)
-library(tidycensus)
-library(dplyr)
+pacman::p_load(tidycensus, tidyverse, dplyr)
 census_api_key(Sys.getenv("CENSUS_API_KEY"), install=TRUE, overwrite = TRUE)
 readRenviron("~/.Renviron")
 
