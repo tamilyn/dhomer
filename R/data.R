@@ -65,7 +65,6 @@ NULL
 #'   \item{tract_longitude}{Tract Centroid Longitude}
 #'   \item{lat}{Site Latitude}
 #'   \item{lon}{Site Longitude}
-#'   \item{frs}{Facility Registery Service Identification Number}
 #' }
 #' @source \url{https://ofmpub.epa.gov/apex/cimc/f?p=100:10::::::}
 "superfund"
@@ -161,7 +160,7 @@ NULL
 #' \describe{
 #'   \item{census_tract}{Census tract}
 #'   \item{lila_tracts_1and10}{Low income and low access tract measured at 1 mile for urban areas and 10 miles for rural areas}
-#'   \item{lila_tracts_halfand10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
+#'   \item{lila_tracts_half_and10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
 #'   \item{lila_tracts_1and20}{Low income and low access tract measured at 1 mile for urban areas and 20 miles for rural areas}
 #'   \item{low_income_tracts}{Low income tract}
 #'   \item{poverty_rate}{Tract poverty rate}
@@ -261,7 +260,7 @@ NULL
 #'   \item{tract_latitude}{Tract Centroid Latitude}
 #'   \item{tract_longitude}{Trac Centroid Longitude}
 #'   \item{lat}{Latitude}
-#'   \item{long}{Longitude}
+#'   \item{lon}{Longitude}
 #' }
 #' @source \url{https://enviro.epa.gov/facts/tri/form_ra_download.html}
 "tri"
@@ -368,7 +367,7 @@ NULL
 #'   \item{economic_types_type_2015_update_non_overlapping}{Number of Non-Overlapping Economic Types}
 #'   \item{economic_type_label}{Economic Type Label}
 #'   \item{farming_2015_update}{Farm-Dependent}
-#'   \item{mining_2015-update}{Mining-Dependent}
+#'   \item{mining_2015_update}{Mining-Dependent}
 #'   \item{manufacturing_2015_update}{Manufacturing-Dependent}
 #'   \item{government_2015_update}{Government-Dependent}
 #'   \item{recreation_2015_update}{Recreation-Dependent}
@@ -395,7 +394,7 @@ NULL
 #'   \item{ncessch}{NCES school ID}
 #'   \item{leaid}{Unique Agency Code}
 #'   \item{leanm05}{Operating Agency}
-#'   \item{schnamM05}{School Name}
+#'   \item{schnam05}{School Name}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Tract Centroid Latitude}
 #'   \item{tract_longitude}{Tract Centroid Longitude}

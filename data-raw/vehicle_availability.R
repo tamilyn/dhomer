@@ -25,7 +25,7 @@ sc_tracts <- tracts(state = 45) %>%
 
 vehicle_availability <- dplyr::left_join(x = vehicles, y = sc_tracts, by = 'census_tract') %>%
   select(-c('statefp','countyfp','tractce','name','namelsad','mtfcc','funcstat','aland','awater', 'geoid')) %>%
-  rename(county_latitude = intptlat, county_longitude = intptlon, geoid = census_tract)
+  rename(tract_latitude = intptlat, tract_longitude = intptlon, geoid = census_tract)
 
 fwrite(vehicle_availability, file = here(path('data-raw'), 'vehicle_availability.csv'))
 

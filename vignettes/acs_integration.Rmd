@@ -20,16 +20,16 @@ knitr::opts_chunk$set(
 )
 options(rmarkdown.html_vignette.check_title = FALSE)
 
-library(pacman)
+YOUR_API_KEY = 'dbc8a4f9e1d25871cf897773d7a69038dfed5f52'
 
 ```
 
 ## `Tigris` Variables
 
 ```{r setup}
+library(pacman)
 pacman::p_load(tidycensus, tidyverse, dplyr)
-census_api_key(Sys.getenv("CENSUS_API_KEY"), install=TRUE, overwrite = TRUE)
-readRenviron("~/.Renviron")
+census_api_key(YOUR_API_KEY, install = TRUE, overwrite = TRUE)
 
 variables <- load_variables(2019,'acs5')
 

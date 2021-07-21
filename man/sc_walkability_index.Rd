@@ -5,37 +5,10 @@
 \alias{sc_walkability_index}
 \title{South Carolina Walkability Index}
 \format{
-A data frame with 3059 rows and 30 columns
+A data frame with 3059 rows and 3 columns
 \describe{
-\item{geoid10}{Census Block Group 12-digit FIPS Code (2010)}
 \item{geoid20}{Census Block Group 12-digit FIPS Code (2018)}
-\item{statefp}{State FIPS Code}
-\item{countyf}{County FIPS Code}
-\item{tractce}{Tract FIPS Code}
-\item{blockgrpc}{Block Group FIPS Code}
-\item{csa}{Combined Statistical Area Code}
-\item{csa_nam}{Combined Statistical Area Name}
-\item{cbsa}{Core-Based Statistical Area Code}
-\item{cbsa_nm}{Core-Based Statistical Area Name}
-\item{ac_totl}{Total Geometric Area of Block Group}
-\item{ac_watr}{Total Water Area}
-\item{ac_land}{Total Land Area}
-\item{ac_unpr}{Total Unprotexted Land Area}
-\item{tot_pop}{Total Population}
-\item{count_hu}{Housing Units}
-\item{hh}{Households}
-\item{workers}{Count of Workers}
-\item{d2b_e8mixa}{Employment Mix}
-\item{d2a_ephhm}{Employment and Household Mix}
-\item{d3b}{Intersection Density}
-\item{d4a}{Proximity to Transit Stops}
-\item{d2b_rnk}{Employment Mix Ranking (1-20)}
-\item{d2a_rnk}{Employment and Household Mix Ranking (1-20)}
-\item{d3b_rnk}{Intersection Density Ranking (1-20)}
-\item{d4a_rnk}{Proximity to Transit Stops Ranking (1-20)}
 \item{nt_wlk_in}{National Walkability Index Score}
-\item{shp_lng}{Shape Perimeter}
-\item{shap_ar}{Shape Area}
 \item{geometry}{Geometry}
 }
 }
