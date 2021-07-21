@@ -21,6 +21,10 @@ knitr::opts_chunk$set(
 options(rmarkdown.html_vignette.check_title = FALSE)
 
 YOUR_API_KEY = 'dbc8a4f9e1d25871cf897773d7a69038dfed5f52'
+vignette("other-langs", package = "pacman")
+vignette("other-langs", package = "tidycensus")
+vignette("other-langs", package = "dplyr")
+vignette("other-langs", package = "tidyverse")
 
 ```
 
