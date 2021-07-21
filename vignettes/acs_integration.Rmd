@@ -1,8 +1,8 @@
 ---
-title: "Integrating Census Bureau Data with Tigris"
+title: "Integrating ACS Census Bureau Data with Tidycensus"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tigris_integration}
+  %\VignetteIndexEntry{acs_integration}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 options(rmarkdown.html_vignette.check_title = FALSE)
+
 ```
 
 ## `Tigris` Variables
@@ -28,19 +29,13 @@ options(rmarkdown.html_vignette.check_title = FALSE)
 library(tidycensus)
 library(dplyr)
 census_api_key(Sys.getenv("CENSUS_API_KEY"), install=TRUE, overwrite = TRUE)
+readRenviron("~/.Renviron")
 
 variables <- load_variables(2019,'acs5')
 
 ```
 
-`load_variables()` will create an interactive table of all of the variable codes and their labels for your defined survey. The preceding code will
-generate a table of the 2019 5-Year American Community Survey. The table can be easily searched to find variables of interest to then pull data
-for. 
-
-By scanning the `variables` table, we identified three variables of particular interest to determinants of health:
-* B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level
-* B06009_002- Estimate!!Total:!!Less than high school graduate
-* B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
+By scanning the `variables` table, we identified three variables of particular interest to determinants of health: B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level, B06009_002- Estimate!!Total:!!Less than high school graduate, B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
 
 ## Calling ACS Data
 
@@ -65,9 +60,8 @@ block_group_population <- get_acs(
 percent_below_poverty_level <- poverty %>%
   mutate(percent = 100 * (poverty$estimate/block_group_population$estimate)) %>%
   select(GEOID, NAME, variable, percent)
+
+glimpse(percent_below_poverty_level)
 ```
 
-The `get_acs()` function retrieves the data from the ACS based on the granularity, geography, variable, and year you define. Data from the
-Decennial Census of Population and Housing can also be retrieved with `get_decennial()`. stimates are given by number of people, sbut the data can
-be normalized through computing percentages of the population by calling both your variable of interest and the total population with all other
-definitions held constant and utilizing the `mutate()` and `select()` functions of `dplyr`.
+The `get_acs()` function retrieves the data from the ACS based on the granularity, geography, variable, and year you define, then estimates can be easily attained with the `dplyr::mutate()` function.
