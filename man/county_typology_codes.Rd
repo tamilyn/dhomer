@@ -6,7 +6,7 @@
 \title{SC County Typology Codes}
 \format{
 A data frame with 46 rows and 21 columns
-\desribe{
+\describe{
 \item{fip_stxt}{5-Digit FIPS Code}
 \item{state}{State}
 \item{county_name}{County}
@@ -14,7 +14,7 @@ A data frame with 46 rows and 21 columns
 \item{economic_types_type_2015_update_non_overlapping}{Number of Non-Overlapping Economic Types}
 \item{economic_type_label}{Economic Type Label}
 \item{farming_2015_update}{Farm-Dependent}
-\item{mining_2015-update}{Mining-Dependent}
+\item{mining_2015_update}{Mining-Dependent}
 \item{manufacturing_2015_update}{Manufacturing-Dependent}
 \item{government_2015_update}{Government-Dependent}
 \item{recreation_2015_update}{Recreation-Dependent}

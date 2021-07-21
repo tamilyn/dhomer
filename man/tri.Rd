@@ -23,7 +23,7 @@ A data frame with 59834 rows and 17 columns
 \item{tract_latitude}{Tract Centroid Latitude}
 \item{tract_longitude}{Trac Centroid Longitude}
 \item{lat}{Latitude}
-\item{long}{Longitude}
+\item{lon}{Longitude}
 }
 }
 \source{

@@ -9,7 +9,7 @@ A data frame with 1091 rows and 10 columns
 \describe{
 \item{census_tract}{Census tract}
 \item{lila_tracts_1and10}{Low income and low access tract measured at 1 mile for urban areas and 10 miles for rural areas}
-\item{lila_tracts_halfand10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
+\item{lila_tracts_half_and10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
 \item{lila_tracts_1and20}{Low income and low access tract measured at 1 mile for urban areas and 20 miles for rural areas}
 \item{low_income_tracts}{Low income tract}
 \item{poverty_rate}{Tract poverty rate}

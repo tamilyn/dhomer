@@ -16,7 +16,6 @@ A data frame with 33 rows and 9 columns
 \item{tract_longitude}{Tract Centroid Longitude}
 \item{lat}{Site Latitude}
 \item{lon}{Site Longitude}
-\item{frs}{Facility Registery Service Identification Number}
 }
 }
 \source{

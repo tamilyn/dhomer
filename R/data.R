@@ -359,7 +359,7 @@ NULL
 #' The dataset of county social and economic characteristics, as well as a classification of economic dependence. A value of '1' indicates 'yes'
 #'
 #' @format A data frame with 46 rows and 21 columns
-#' \desribe{
+#' \describe{
 #'   \item{fip_stxt}{5-Digit FIPS Code}
 #'   \item{state}{State}
 #'   \item{county_name}{County}

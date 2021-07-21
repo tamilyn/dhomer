@@ -10,7 +10,7 @@ A data frame with 1183 rows and 9 columns
 \item{ncessch}{NCES school ID}
 \item{leaid}{Unique Agency Code}
 \item{leanm05}{Operating Agency}
-\item{schnamM05}{School Name}
+\item{schnam05}{School Name}
 \item{geoid}{GEOID}
 \item{tract_latitude}{Tract Centroid Latitude}
 \item{tract_longitude}{Tract Centroid Longitude}
