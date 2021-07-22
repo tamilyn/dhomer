@@ -1,16 +1,20 @@
 ---
-title: "Integrating ACS Census Bureau Data with Tidycensus"
+title: "Integrating with Census Bureau Data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{acs_integration}
+  %\VignetteIndexEntry{Integrating with Census Bureau Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 # Introduction
 
+
 `dhomer` allows users to calculate proximity and accessibility to various data points from a geographic address input in order to essentially
 compute adjacency to determinants of health. Many determinants of health are integrated into the Census Bureau American Community Survey
-population estimates collected every 1 and 5 years, respectively. The `tigris` package functions allows us to call and integrate ACS data into the
+population estimates collected every 1 and 5 years, respectively.
+
+
+The `tidycensus` package functions allows us to call and integrate ACS data into the
 `dhomer` functions for more comprehensive determinants of health computation.
 
 ```{r, include = FALSE}
@@ -18,54 +22,68 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-options(rmarkdown.html_vignette.check_title = FALSE)
 
-YOUR_API_KEY = 'dbc8a4f9e1d25871cf897773d7a69038dfed5f52'
-vignette("other-langs", package = "pacman")
 vignette("other-langs", package = "tidycensus")
 vignette("other-langs", package = "dplyr")
-vignette("other-langs", package = "tidyverse")
 
 ```
 
-## `Tigris` Variables
+
 
 ```{r setup}
-library(pacman)
-pacman::p_load(tidycensus, tidyverse, dplyr)
-census_api_key(YOUR_API_KEY, install = TRUE, overwrite = TRUE)
-
-variables <- load_variables(2019,'acs5')
-
+library(tidycensus)
+library(dplyr)
+library(leaflet)
+library(dhomer)
 ```
 
-By scanning the `variables` table, we identified three variables of particular interest to determinants of health: B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level, B06009_002- Estimate!!Total:!!Less than high school graduate, B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
+## Census Data Variables
 
-## Calling ACS Data
+Three variables of related to determinants of health: 
 
-```{r}
+B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level, 
+B06009_002- Estimate!!Total:!!Less than high school graduate, B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
 
-# Percent of South Carolina Households with Income Below Poverty Level in the Past 12 Months
 
-poverty <- get_acs(
-  geography = 'block group',
-  state = 'SC',
-  variables = 'B17021_002',
-  year = 2019
-)
+## Fetching Census Data
 
-block_group_population <- get_acs(
-  geography = 'block group',
-  state = 'SC',
-  variables = 'B01003_001',
-  year = 2019
-)
+Estimates from the American Community Survey for below poverty, less than high school graduates and householder living alone are obtained and then divided by the population for the area since the data will be displayed on a map.
 
-percent_below_poverty_level <- poverty %>%
-  mutate(percent = 100 * (poverty$estimate/block_group_population$estimate)) %>%
-  select(GEOID, NAME, variable, percent)
+```{r message=FALSE, warning=FALSE, include=FALSE}
+a_df <- get_acs(
+    variables = c(
+      "below_poverty" = "B17021_002",
+      "less_than_highschool" = "B06009_002",
+      "nonfamily_households" = "B11001_008"),
+                  state = "SC",
+                  geography = "county",
+                  geometry = TRUE,
+                  cache_table = TRUE,
+                  year = 2019,
+                  summary_var ="B01003_001",
+                  output = "wide") 
 
-glimpse(percent_below_poverty_level)
+a_df <- a_df %>% 
+  mutate(percent_below_pov = below_povertyE/summary_est)
 ```
 
-The `get_acs()` function retrieves the data from the ACS based on the granularity, geography, variable, and year you define, then estimates can be easily attained with the `dplyr::mutate()` function.
+
+```{r message=FALSE, warning=FALSE}
+qpal <- colorQuantile("RdYlBu", a_df$percent_below_pov, n = 5)
+
+leaflet(data = a_df) %>% 
+  addPolygons(data = a_df, stroke = FALSE, fillOpacity = 0.6, color = ~qpal(percent_below_pov)) %>% 
+  addPolylines(weight = 2, color="gray") %>% 
+  addCircles(data = libraries, 
+             label = libraries$libname, 
+             color = "pink") %>% 
+  addLegend(title = "Percent Below Poverty",
+            opacity = 1,
+            pal = qpal, 
+            values = ~a_df$percent_below_pov
+)
+```
+
+
+
+
