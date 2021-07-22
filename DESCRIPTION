@@ -21,9 +21,6 @@ RoxygenNote: 7.1.1
 Imports: 
     tidycensus,
     tibble,
-    gdal-config,
-    rgdal,
-    sf,
     leaflet
 URL: https://tamilyn.github.io/dhomer
 Suggests: 
