@@ -20,7 +20,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Imports: 
     tidycensus,
-    tibble
+    tibble,
+    sf,
+    leaflet
 URL: https://tamilyn.github.io/dhomer
 Suggests: 
     rmarkdown,
