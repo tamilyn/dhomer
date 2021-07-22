@@ -1,0 +1,10 @@
+pandoc: 2.11.4
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  acs_integration: acs_integration.html
+last_built: 2021-07-22T02:55Z
+urls:
+  reference: https://tamilyn.github.io/dhomer/reference
+  article: https://tamilyn.github.io/dhomer/articles
+
