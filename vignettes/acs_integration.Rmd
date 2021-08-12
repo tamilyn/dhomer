@@ -35,12 +35,9 @@ library(sf)
 library(tidycensus)
 library(dplyr)
 library(leaflet)
-library(dhomer)
+#library(dhomer)
 
-#this api key needs to be specified in pkgdown config file or
-#elsewhere, not here, this is temporary
-YOUR_API_KEY = 'dbc8a4f9e1d25871cf897773d7a69038dfed5f52'
-census_api_key(YOUR_API_KEY, install = FALSE, overwrite = FALSE)
+census_api_key(Sys.getenv("CENSUS_API_KEY" = key), install = FALSE, overwrite = FALSE)
 ```
 
 ## Census Data Variables
