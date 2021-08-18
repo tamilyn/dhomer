@@ -46,13 +46,21 @@ freeclinics_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-free_clinics <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+free_clinics_unchecked <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','address')) %>%
   distinct(clinic_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+free_clinics = data.frame()
+
+for (i in 1:nrow(free_clinics_unchecked) ) {
+  if(32.0346 <= free_clinics_unchecked$lat[i] && free_clinics_unchecked$lat[i] <= 35.215402 && -83.35391 <= free_clinics_unchecked$lon[i] && free_clinics_unchecked$lon[i] <= -78.54203) {
+    free_clinics <- rbind(free_clinics, free_clinics_unchecked[i,])
+  }
+}
 
 fwrite(free_clinics, file = here(path('data-raw'), 'freeclinics.csv'))
 

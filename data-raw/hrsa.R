@@ -31,12 +31,20 @@ hrsa_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-hrsa <- st_join(hrsa_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+hrsa_unchecked <- st_join(hrsa_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('site_name','bhcmis_org_id','bphc_assigned_number','site_telephone_number','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+hrsa = data.frame()
+
+for (i in 1:nrow(hrsa_unchecked) ) {
+  if(32.0346 <= hrsa_unchecked$lat[i] && hrsa_unchecked$lat[i] <= 35.215402 && -83.35391 <= hrsa_unchecked$lon[i] && hrsa_unchecked$lon[i] <= -78.54203) {
+    hrsa <- rbind(hrsa, hrsa_unchecked[i,])
+  }
+}
 
 fwrite(hrsa, file = here(path('data-raw'), 'hrsa.csv'))
 

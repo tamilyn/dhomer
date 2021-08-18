@@ -107,7 +107,7 @@ pharmacies_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-pharmacies <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+pharmacies_unchecked <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('npi','basic_organization_name','hours_of_operation','medicaid_id','addresses_telephone_number',
@@ -115,6 +115,14 @@ pharmacies <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) 
   distinct(npi, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+pharmacies = data.frame()
+
+for (i in 1:nrow(pharmacies_unchecked) ) {
+  if(32.0346 <= pharmacies_unchecked$lat[i] && pharmacies_unchecked$lat[i] <= 35.215402 && -83.35391 <= pharmacies_unchecked$lon[i] && pharmacies_unchecked$lon[i] <= -78.54203) {
+    pharmacies <- rbind(pharmacies, pharmacies_unchecked[i,])
+  }
+}
 
 fwrite(pharmacies, file = here(path('data-raw'), 'sc_pharmacies.csv'))
 

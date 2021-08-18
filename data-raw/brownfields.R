@@ -47,7 +47,7 @@ brownfields_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                         sc_tracts$GEOID[intersection]))
 
-brownfields <- st_join(brownfields_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+brownfields_unchecked <- st_join(brownfields_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   mutate(frs_id = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv))) %>%
@@ -56,6 +56,14 @@ brownfields <- st_join(brownfields_processed, sc_tracts, by = c('geoid','GEOID')
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+brownfields = data.frame()
+
+for (i in 1:nrow(brownfields_unchecked) ) {
+  if(32.0346 <= brownfields_unchecked$lat[i] && brownfields_unchecked$lat[i] <= 35.215402 && -83.35391 <= brownfields_unchecked$lon[i] && brownfields_unchecked$lon[i] <= -78.54203) {
+    brownfields <- rbind(brownfields, brownfields_unchecked[i,])
+  }
+}
 
 fwrite(brownfields, file = here(path('data-raw'), 'brownfields.csv'))
 

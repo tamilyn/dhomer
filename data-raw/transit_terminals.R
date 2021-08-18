@@ -31,12 +31,20 @@ transit <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-transit_terminals <- st_join(transit, sc_tracts) %>%
+transit_terminals_unchecked <- st_join(transit, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('fac_id','fac_name','notes','mode_bus','mode_air','mode_rail','mode_ferry','mode_bike','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+transit_terminals = data.frame()
+
+for (i in 1:nrow(transit_terminals_unchecked) ) {
+  if(32.0346 <= transit_terminals_unchecked$lat[i] && transit_terminals_unchecked$lat[i] <= 35.215402 && -83.35391 <= transit_terminals_unchecked$lon[i] && transit_terminals_unchecked$lon[i] <= -78.54203) {
+    transit_terminals <- rbind(transit_terminals, transit_terminals_unchecked[i,])
+  }
+}
 
 fwrite(transit_terminals, file = here(path('data-raw'), 'sc_intermodal_passenger_terminals.csv'))
 

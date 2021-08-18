@@ -36,7 +36,7 @@ recreation_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-recreation <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+recreation_unchecked <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','stctyfips','mnfc','textlength')) %>%
@@ -44,6 +44,13 @@ recreation <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) 
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
+recreation = data.frame()
+
+for (i in 1:nrow(recreation_unchecked) ) {
+  if(32.0346 <= recreation_unchecked$lat[i] && recreation_unchecked$lat[i] <= 35.215402 && -83.35391 <= recreation_unchecked$lon[i] && recreation_unchecked$lon[i] <= -78.54203) {
+    recreation <- rbind(recreation, recreation_unchecked[i,])
+  }
+}
 
 fwrite(recreation, file = here(path('data-raw'), 'recreation.csv'))
 

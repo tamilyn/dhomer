@@ -44,7 +44,7 @@ superfund_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-superfund <- st_join(superfund_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+superfund_unchecked <- st_join(superfund_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   mutate(superfund_id = sub('.*=','',superfund_link_csv)) %>%
@@ -53,6 +53,14 @@ superfund <- st_join(superfund_processed, sc_tracts, by = c('geoid','GEOID')) %>
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+superfund = data.frame()
+
+for (i in 1:nrow(superfund_unchecked) ) {
+  if(32.0346 <= superfund_unchecked$lat[i] && superfund_unchecked$lat[i] <= 35.215402 && -83.35391 <= superfund_unchecked$lon[i] && superfund_unchecked$lon[i] <= -78.54203) {
+    superfund <- rbind(superfund, superfund_unchecked[i,])
+  }
+}
 
 fwrite(superfund, file = here(path('data-raw'), 'sc_superfund_sites.csv'))
 

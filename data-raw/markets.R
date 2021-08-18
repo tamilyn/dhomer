@@ -46,7 +46,7 @@ markets_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-markets <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+markets_unchecked <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('objectid','name','mail_phone','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
@@ -54,6 +54,13 @@ markets <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
+markets = data.frame()
+
+for (i in 1:nrow(markets_unchecked) ) {
+  if(32.0346 <= markets_unchecked$lat[i] && markets_unchecked$lat[i] <= 35.215402 && -83.35391 <= markets_unchecked$lon[i] && markets_unchecked$lon[i] <= -78.54203) {
+    markets <- rbind(markets, markets_unchecked[i,])
+  }
+}
 
 fwrite(markets, file = here(path('data-raw'), 'sc_markets.csv'))
 

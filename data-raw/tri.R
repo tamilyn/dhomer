@@ -35,7 +35,7 @@ tri_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-tri <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+tri_unchecked <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('chem_name','facility_name','tri_chem_id','tri_facility_id','naics_codes',
@@ -45,6 +45,13 @@ tri <- st_join(tri_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
+tri = data.frame()
+
+for (i in 1:nrow(tri_unchecked) ) {
+  if(32.0346 <= tri_unchecked$lat[i] && tri_unchecked$lat[i] <= 35.215402 && -83.35391 <= tri_unchecked$lon[i] && tri_unchecked$lon[i] <= -78.54203) {
+    tri <- rbind(tri, tri_unchecked[i,])
+  }
+}
 
 fwrite(tri, file = here(path('data-raw'), 'sc_tri_sites.csv'))
 
