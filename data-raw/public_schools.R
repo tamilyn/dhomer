@@ -30,12 +30,20 @@ schools <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-public_schools <- st_join(schools, sc_tracts, by = c('geoid','GEOID')) %>%
+public_schools_unchecked <- st_join(schools, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','lcity05','lstate05','mlocale','ulocale','status05')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+public_schools = data.frame()
+
+for (i in 1:nrow(public_schools_unchecked) ) {
+  if(32.0346 <= public_schools_unchecked$lat[i] && public_schools_unchecked$lat[i] <= 35.215402 && -83.35391 <= public_schools_unchecked$lon[i] && public_schools_unchecked$lon[i] <= -78.54203) {
+    public_schools <- rbind(public_schools, public_schools_unchecked[i,])
+  }
+}
 
 fwrite(public_schools, file = here(path('data-raw'), 'sc_public_schools.csv'))
 

@@ -44,13 +44,22 @@ contaminants_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-contaminants <- st_join(contaminants_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+contaminants_unchecked <- st_join(contaminants_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('site_name','epa_id','contaminant_name','media','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
   select(contaminant_name, media, everything()) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
+
+contaminants = data.frame()
+
+for (i in 1:nrow(contaminants_unchecked) ) {
+  if(32.0346 <= contaminants_unchecked$lat[i] && contaminants_unchecked$lat[i] <= 35.215402 && -83.35391 <= contaminants_unchecked$lon[i] && contaminants_unchecked$lon[i] <= -78.54203) {
+    contaminants <- rbind(contaminants, contaminants_unchecked[i,])
+  }
+}
+
 
 fwrite(contaminants, file = here(path('data-raw'), 'contaminants.csv'))
 

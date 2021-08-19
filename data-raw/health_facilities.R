@@ -36,7 +36,7 @@ healthfacilities_processed <- coords %>%
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-health_facilities <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+health_facilities_unchecked <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('permit_type','name_of_facility','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
@@ -44,6 +44,13 @@ health_facilities <- st_join(healthfacilities_processed, sc_tracts, by = c('geoi
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 
+health_facilities = data.frame()
+
+for (i in 1:nrow(health_facilities_unchecked) ) {
+  if(32.0346 <= health_facilities_unchecked$lat[i] && health_facilities_unchecked$lat[i] <= 35.215402 && -83.35391 <= health_facilities_unchecked$lon[i] && health_facilities_unchecked$lon[i] <= -78.54203) {
+    health_facilities <- rbind(health_facilities, health_facilities_unchecked[i,])
+  }
+}
 
 fwrite(health_facilities, file = here(path('data-raw'), 'health_facilities.csv'))
 
