@@ -50,6 +50,9 @@ for (i in 1:nrow(recreation_unchecked) ) {
   if(32.0346 <= recreation_unchecked$lat[i] && recreation_unchecked$lat[i] <= 35.215402 && -83.35391 <= recreation_unchecked$lon[i] && recreation_unchecked$lon[i] <= -78.54203) {
     recreation <- rbind(recreation, recreation_unchecked[i,])
   }
+  else {
+    glimpse(recreation_unchecked[i,])
+  }
 }
 
 fwrite(recreation, file = here(path('data-raw'), 'recreation.csv'))

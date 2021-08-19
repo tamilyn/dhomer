@@ -63,6 +63,9 @@ for (i in 1:nrow(brownfields_unchecked) ) {
   if(32.0346 <= brownfields_unchecked$lat[i] && brownfields_unchecked$lat[i] <= 35.215402 && -83.35391 <= brownfields_unchecked$lon[i] && brownfields_unchecked$lon[i] <= -78.54203) {
     brownfields <- rbind(brownfields, brownfields_unchecked[i,])
   }
+  else {
+    glimpse(brownfields_unchecked[i,])
+  }
 }
 
 fwrite(brownfields, file = here(path('data-raw'), 'brownfields.csv'))

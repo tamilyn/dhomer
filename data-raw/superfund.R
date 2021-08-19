@@ -60,6 +60,9 @@ for (i in 1:nrow(superfund_unchecked) ) {
   if(32.0346 <= superfund_unchecked$lat[i] && superfund_unchecked$lat[i] <= 35.215402 && -83.35391 <= superfund_unchecked$lon[i] && superfund_unchecked$lon[i] <= -78.54203) {
     superfund <- rbind(superfund, superfund_unchecked[i,])
   }
+  else {
+    glimpse(superfund_unchecked[i,])
+  }
 }
 
 fwrite(superfund, file = here(path('data-raw'), 'sc_superfund_sites.csv'))

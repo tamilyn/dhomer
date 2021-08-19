@@ -43,6 +43,9 @@ for (i in 1:nrow(libraries_unchecked) ) {
   if(32.0346 <= libraries_unchecked$lat[i] && libraries_unchecked$lat[i] <= 35.215402 && -83.35391 <= libraries_unchecked$lon[i] && libraries_unchecked$lon[i] <= -78.54203) {
     libraries <- rbind(libraries, libraries_unchecked[i,])
   }
+  else {
+    glimpse(libraries_unchecked[i,])
+  }
 }
 
 fwrite(libraries, file = here(path('data-raw'), 'sc_public_libraries.csv'))

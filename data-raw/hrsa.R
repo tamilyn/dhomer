@@ -44,9 +44,11 @@ for (i in 1:nrow(hrsa_unchecked) ) {
   if(32.0346 <= hrsa_unchecked$lat[i] && hrsa_unchecked$lat[i] <= 35.215402 && -83.35391 <= hrsa_unchecked$lon[i] && hrsa_unchecked$lon[i] <= -78.54203) {
     hrsa <- rbind(hrsa, hrsa_unchecked[i,])
   }
+  else {
+    glimpse(hrsa_unchecked[i,])
+  }
 }
 
 fwrite(hrsa, file = here(path('data-raw'), 'hrsa.csv'))
-
 
 usethis::use_data(hrsa, overwrite = TRUE)
