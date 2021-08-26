@@ -60,6 +60,9 @@ for (i in 1:nrow(markets_unchecked) ) {
   if(32.0346 <= markets_unchecked$lat[i] && markets_unchecked$lat[i] <= 35.215402 && -83.35391 <= markets_unchecked$lon[i] && markets_unchecked$lon[i] <= -78.54203) {
     markets <- rbind(markets, markets_unchecked[i,])
   }
+  else {
+    glimpse(markets_unchecked[i,])
+  }
 }
 
 fwrite(markets, file = here(path('data-raw'), 'sc_markets.csv'))

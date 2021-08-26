@@ -15,6 +15,10 @@ explorer_fname <- here(path('data-raw'), "raw_sc_public_schools.csv")
 raw_schools <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
+# Correcting latitude/longitude error revealed during check
+raw_schools$latcod[964] = 33.98846900935035
+raw_schools$loncod[964] = -80.98127978465922
+
 sc_tracts <- tracts(state = 45)
 
 coords <- raw_schools %>%
@@ -42,6 +46,9 @@ public_schools = data.frame()
 for (i in 1:nrow(public_schools_unchecked) ) {
   if(32.0346 <= public_schools_unchecked$lat[i] && public_schools_unchecked$lat[i] <= 35.215402 && -83.35391 <= public_schools_unchecked$lon[i] && public_schools_unchecked$lon[i] <= -78.54203) {
     public_schools <- rbind(public_schools, public_schools_unchecked[i,])
+  }
+  else {
+    glimpse(public_schools_unchecked[i,])
   }
 }
 

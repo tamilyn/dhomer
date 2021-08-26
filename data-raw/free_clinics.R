@@ -60,6 +60,9 @@ for (i in 1:nrow(free_clinics_unchecked) ) {
   if(32.0346 <= free_clinics_unchecked$lat[i] && free_clinics_unchecked$lat[i] <= 35.215402 && -83.35391 <= free_clinics_unchecked$lon[i] && free_clinics_unchecked$lon[i] <= -78.54203) {
     free_clinics <- rbind(free_clinics, free_clinics_unchecked[i,])
   }
+  else {
+    glimpse(free_clinics_unchecked[i,])
+  }
 }
 
 fwrite(free_clinics, file = here(path('data-raw'), 'freeclinics.csv'))

@@ -13,14 +13,22 @@ library(data.table)
 
 explorer_fname <- here(path('data-raw/raw_sc_intermodal_passenger_connectivity'), 'raw_sc_intermodal_passenger_connectivity.shp')
 raw_transit <- st_read(explorer_fname) %>%
-  clean_names()
+  clean_names() %>%
+  st_drop_geometry()
+
+# Correcting reversed latitude/longitude revealed during check
+raw_transit$latitude[101] = (raw_transit$longitude[101] - raw_transit$latitude[101]) + (raw_transit$longitude[101] = raw_transit$latitude[101])
 
 sc_tracts <- tracts(state = 45)
 
 coords <- raw_transit %>%
-  filter(is.na(geometry) == F) %>%
-  st_as_sf(wkt = 'geometry') %>%
-  st_transform(crs = 4269)
+  filter(is.na(longitude) == F & is.na(latitude) == F) %>%
+  st_as_sf(coords = c('longitude', 'latitude'), crs = st_crs(sc_tracts))
+
+# coords <- raw_transit %>%
+#   filter(is.na(geometry) == F) %>%
+#   st_as_sf(wkt = 'geometry') %>%
+#   st_transform(crs = 4269)
 
 system.time({
   intersected <- st_within(coords, sc_tracts)
@@ -43,6 +51,9 @@ transit_terminals = data.frame()
 for (i in 1:nrow(transit_terminals_unchecked) ) {
   if(32.0346 <= transit_terminals_unchecked$lat[i] && transit_terminals_unchecked$lat[i] <= 35.215402 && -83.35391 <= transit_terminals_unchecked$lon[i] && transit_terminals_unchecked$lon[i] <= -78.54203) {
     transit_terminals <- rbind(transit_terminals, transit_terminals_unchecked[i,])
+  }
+  else {
+    glimpse(transit_terminals_unchecked[i,])
   }
 }
 

@@ -50,6 +50,9 @@ for (i in 1:nrow(health_facilities_unchecked) ) {
   if(32.0346 <= health_facilities_unchecked$lat[i] && health_facilities_unchecked$lat[i] <= 35.215402 && -83.35391 <= health_facilities_unchecked$lon[i] && health_facilities_unchecked$lon[i] <= -78.54203) {
     health_facilities <- rbind(health_facilities, health_facilities_unchecked[i,])
   }
+  else {
+    glimpse(health_facilities_unchecked[i,])
+  }
 }
 
 fwrite(health_facilities, file = here(path('data-raw'), 'health_facilities.csv'))

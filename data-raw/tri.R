@@ -51,6 +51,9 @@ for (i in 1:nrow(tri_unchecked) ) {
   if(32.0346 <= tri_unchecked$lat[i] && tri_unchecked$lat[i] <= 35.215402 && -83.35391 <= tri_unchecked$lon[i] && tri_unchecked$lon[i] <= -78.54203) {
     tri <- rbind(tri, tri_unchecked[i,])
   }
+  else {
+    glimpse(tri_unchecked[i,])
+  }
 }
 
 fwrite(tri, file = here(path('data-raw'), 'sc_tri_sites.csv'))

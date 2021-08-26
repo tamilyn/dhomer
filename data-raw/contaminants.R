@@ -58,8 +58,10 @@ for (i in 1:nrow(contaminants_unchecked) ) {
   if(32.0346 <= contaminants_unchecked$lat[i] && contaminants_unchecked$lat[i] <= 35.215402 && -83.35391 <= contaminants_unchecked$lon[i] && contaminants_unchecked$lon[i] <= -78.54203) {
     contaminants <- rbind(contaminants, contaminants_unchecked[i,])
   }
+  else {
+    glimpse(contaminants_unchecked[i,])
+    }
 }
-
 
 fwrite(contaminants, file = here(path('data-raw'), 'contaminants.csv'))
 

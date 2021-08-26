@@ -49,7 +49,11 @@ for (i in 1:nrow(services_unchecked) ) {
   if(32.0346 <= services_unchecked$lat[i] && services_unchecked$lat[i] <= 35.215402 && -83.35391 <= services_unchecked$lon[i] && services_unchecked$lon[i] <= -78.54203) {
     substance_abuse_services <- rbind(substance_abuse_services, services_unchecked[i,])
   }
+  else {
+    glimpse(services_unchecked[i,])
+  }
 }
 
+fwrite(substance_abuse_services, file = here(path('data-raw'), 'sc_substance_abuse_services.csv'))
 
 usethis::use_data(substance_abuse_services, overwrite = TRUE)
