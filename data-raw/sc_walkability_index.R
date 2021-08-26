@@ -12,30 +12,18 @@ library(tigris)
 # Downloaded 2021-06-28
 
 explorer_fname <- here(path('data-raw'), "raw_natl_wi")
-sc_walkability_index <- st_read(explorer_fname) %>%
+sc_walkability_index1 <- st_read(explorer_fname) %>%
   clean_names() %>%
-  select(c('geoid20','nt_wlk_in','geometry'))
+  select(c('geoid20','nt_wlk_in','geometry')) %>%
+  st_drop_geometry() %>%
+  rename(GEOID = geoid20)
 
 sc_blocks <- block_groups(state = 45)
 
-pts <- st_cast(sc_walkability_index, 'POINT')
+sc_walkability_index <- left_join(sc_walkability_index1, sc_blocks, by = 'GEOID') %>%
+  select(c('GEOID','nt_wlk_in','INTPTLAT','INTPTLON')) %>%
+  rename(block_latitude = INTPTLAT, block_longitude = INTPTLON)
 
-nwi_unchecked <- st_join(pts, sc_blocks) %>%
-  dplyr::mutate(lat = sf::st_coordinates(.)[,2],
-                lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('geoid20','nt_wlk_in','INTPTLAT','INTPTLON','lat','lon')) %>%
-  rename(block_latitude = INTPTLAT, block_longitude = INTPTLON) %>%
-  st_drop_geometry()
-
-sc_walkability_index = data.frame()
-
-for (i in 1:nrow(nwi_unchecked) ) {
-  if(32.0346 <= nwi_unchecked$lat[i] && nwi_unchecked$lat[i] <= 35.215402 && -83.35391 <= nwi_unchecked$lon[i] && nwi_unchecked$lon[i] <= -78.54203) {
-    tri <- rbind(sc_walkability_index, nwi_unchecked[i,])
-  }
-  else {
-    glimpse(nwi_unchecked[i,])
-  }
-}
 
 usethis::use_data(sc_walkability_index, overwrite = TRUE)
+
