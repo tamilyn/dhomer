@@ -243,9 +243,10 @@ NULL
 #'
 #' @format A data frame with 3059 rows and 3 columns
 #' \describe{
-#'   \item{geoid20}{Census Block Group 12-digit FIPS Code (2018)}
+#'   \item{GEOID}{Census Block Group 12-digit FIPS Code (2018)}
 #'   \item{nt_wlk_in}{National Walkability Index Score}
-#'   \item{geometry}{Geometry}
+#'   \item{block_latitude}{Census Block Group Centroid Latitude}
+#'   \item{block_longitude}{Census Block Group Centroid Longitude}
 #' }
 #' @source \url{https://edg.epa.gov/metadata/catalog/search/resource/details.page?uuid=%7B251AFDD9-23A7-4068-9B27-A3048A7E6012%7D}
 "sc_walkability_index"
