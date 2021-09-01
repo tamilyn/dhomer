@@ -36,23 +36,13 @@ coords <- brownfields1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-coords
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-brownfields_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                        sc_tracts$GEOID[intersection]))
-
-brownfields_unchecked <- st_join(brownfields_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+brownfields_unchecked <- st_join(coords, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   mutate(frs_id = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv))) %>%
   mutate(brownfields_id = sub('.*:','',brownfields_link_csv)) %>%
-  select(c('cleanup_name','brownfields_id','frs_id','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('cleanup_name','brownfields_id','frs_id','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

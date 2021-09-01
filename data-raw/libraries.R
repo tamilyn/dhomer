@@ -25,12 +25,12 @@ system.time({
   intersected <- st_within(coords, sc_tracts)
 })
 
-libraries <- coords %>%
+libraries1 <- coords %>%
   mutate(intersection = as.integer(intersected),
          geoid = if_else(is.na(intersection), "",
                          sc_tracts$GEOID[intersection]))
 
-libraries_unchecked <- st_join(libraries, sc_tracts, by = c('geoid','GEOID')) %>%
+libraries_unchecked <- st_join(libraries1, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('libid','libname','phone','hours','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%

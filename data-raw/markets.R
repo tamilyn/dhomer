@@ -16,10 +16,10 @@ library(data.table)
 # Downloaded 2021-05-21
 
 explorer_fname <- here(path('data-raw'), "raw_farmers_markets_and_roadside_markets.csv")
-markets <- readr::read_csv(explorer_fname) %>%
+markets0 <- readr::read_csv(explorer_fname) %>%
   clean_names()
 
-geocodes <- markets %>% geocode(
+geocodes <- markets0 %>% geocode(
   street = 'street', city = 'city', state = 'state', postalcode = 'zip', method = 'cascade'
 )
 
@@ -31,25 +31,15 @@ markets1 <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- markets1 %>%
+markets2 <- markets1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-coords
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-markets_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-markets_unchecked <- st_join(markets_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+markets_unchecked <- st_join(markets2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('objectid','name','mail_phone','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('objectid','name','mail_phone','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

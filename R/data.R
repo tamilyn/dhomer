@@ -223,8 +223,8 @@ NULL
 #' @format A data frame with 1687 rows and 8 columns
 #' \describe{
 #'   \item{objectid}{Object ID}
-#'   \item{name}{Name}
-#'   \item{feattype}{Feature Type}
+#'   \item{name}{The name of the recreational site or location}
+#'   \item{feattype}{The type of recreational site found at this location}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
@@ -256,15 +256,14 @@ NULL
 #' The dataset of violent crime statistics by county in South Carolina in 2019 according to the South Carolina Law Enforcement Division.
 #' Violent crime includes murder, sexual battery, robbery, and aggravated assault as a result of a personal confrontation between offender and
 #' victim. The processed dataset includes the county name, the number of violent crimes, the crime rate according to the county population, the
-#' clearance rate (the percentage of crimes cleared by arrest or exceptional means), and census information. The dataset is categorized as a
-#' Social and Community Context Determinant of Health.
+#' clearance rate, and census information. The dataset is categorized as a Social and Community Context Determinant of Health.
 #'
 #' @format A data frame with 46 rows and 7 columns
 #' \describe{
 #'   \item{county}{County}
-#'   \item{number}{Number of Crimes}
-#'   \item{rate}{Crime Rate}
-#'   \item{clearance}{Clearance Rate}
+#'   \item{number}{The number of violent crimes that occurred in this county in 2019}
+#'   \item{rate}{Crime rate, that is the number of crimes divided by the county population and multiplied by 10,000}
+#'   \item{clearance}{Clearance rate, that is the number of crimes cleared by arrest or exceptional means divided by the total number of crimes}
 #'   \item{geoid}{GEOID}
 #'   \item{county_latitude}{Latitude of the County Centroid}
 #'   \item{county_longitude}{Longitude of the County Centroid}
@@ -276,15 +275,15 @@ NULL
 #'
 #' The dataset of property crime statistics by county in South Carolina in 2019 according to the South Carolina Law Enforcement Division.
 #' Property crime includes breaking and entering, vehicle theft, larsony, and arson. The processed dataset includes the county name, the number
-#' of property crimes, the crime rate according to the county population, the clearance rate (the percentage of crimes cleared by arrest or
-#' exceptional means), and census information. The dataset is categorized as a Social and Community Context Determinant of Health.
+#' of property crimes, the crime rate according to the county population, the clearance rate, and census information. The dataset is categorized
+#' as a Social and Community Context Determinant of Health.
 #'
 #' @format A data frame with 46 rows and 7 columns
 #' \describe{
 #'   \item{county}{County}
-#'   \item{number}{Number of Crimes}
-#'   \item{rate}{Crime Rate}
-#'   \item{clearance}{Clearance Rate}
+#'   \item{number}{The number of property crimes that occurred in this county in 2019}
+#'   \item{rate}{Crime rate, that is the number of crimes divided by the county population and multiplied by 10,000}
+#'   \item{clearance}{Clearance rate, that is the number of crimes cleared by arrest or exceptional means divided by the total number of crimes}
 #'   \item{geoid}{GEOID}
 #'   \item{county_latitude}{Latitude of the County Centroid}
 #'   \item{county_longitude}{Longitude of the County Centroid}
@@ -306,18 +305,18 @@ NULL
 #'
 #' @format A data frame with 59834 rows and 17 columns
 #' \describe{
-#'   \item{chem_name}{Chemical Released}
-#'   \item{facility_name}{Facility Name}
-#'   \item{tri_chem_id}{TRI Chemical ID}
-#'   \item{tri_facility_id}{TRI Facility ID}
-#'   \item{naics_codes}{NAICS Code}
-#'   \item{total_off_site_release}{Total Pounds of Off-Site Toxic Chemical Release}
-#'   \item{total_on_off_site_release}{Total Pounds of On- and Off-Site Toxic Chemical Release}
-#'   \item{total_on_site_release}{Total Pounds of On-Site Toxic Chemical Release}
+#'   \item{chem_name}{The name of the chemical released into the environment}
+#'   \item{facility_name}{The name of the facility responsible for releasing the chemical}
+#'   \item{tri_chem_id}{TRI Chemical ID, used to classify and identify chemicals}
+#'   \item{tri_facility_id}{TRI Facility ID, uniquely assigned to each facility that reports to the TRI}
+#'   \item{naics_codes}{North American Industry Classification System (NAICS) code, used by Federal statistical agencies to classify business establishments}
+#'   \item{total_off_site_release}{The total amount of the toxic chemical released to air, water, land, and underground injection wells on or at a facility's site during the calendar year}
+#'   \item{total_on_off_site_release}{The total amount of the toxic chemical that is transferred from a facility site to another site and then released to the environment via water, land or underground injection wells during the calendar year (January 1 - December 31)}
+#'   \item{total_on_site_release}{The total amount (in pounds) of the toxic chemical released to air, water, land, and underground injection wells during the calendar year (January 1 - December 31)}
 #'   \item{total_production_related_waste}{Total Pounds of Toxic Chemicals Released due to Production}
-#'   \item{land_total_release}{Total Pounds of Toxic Chemicals Released to Land}
-#'   \item{air_total_release}{Total Pounds of Toxic Chemicals Released to Air}
-#'   \item{water_total_release}{Total Pounds of Toxic Chemicals Released to Water}
+#'   \item{land_total_release}{The release estimate (in pounds) reported by the facility as LAND releases.}
+#'   \item{air_total_release}{The release estimate (in pounds) reported by the facility as AIR releases.}
+#'   \item{water_total_release}{The release estimate (in pounds) reported by the facility as WATER releases.}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
@@ -340,7 +339,7 @@ NULL
 #' @format A data frame with 1103 rows and 4 columns
 #' \describe{
 #'   \item{geoid}{GEOID}
-#'   \item{svi_value}{Social Vulnerability Value}
+#'   \item{svi_value}{The overall value of social vulnerability determined by the consideration of several social determinants of health}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
@@ -359,9 +358,9 @@ NULL
 #'   \item{state_fips}{State FIPS Code}
 #'   \item{state}{State}
 #'   \item{geoid}{GEOID}
-#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{census_tract_2}{County name and census tract}
 #'   \item{year}{Data Collection Year}
-#'   \item{value}{Percentage Value}
+#'   \item{value}{Percentage of households without access to internet services in the census tract}
 #'   \item{data_comment}{NA}
 #'   \item{x8}{NA}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
@@ -379,8 +378,8 @@ NULL
 #'
 #' @format A data frame with 1191565 rows and 7 columns
 #' \describe{
-#'   \item{category}{Category}
-#'   \item{unit_nm}{Unit Name}
+#'   \item{category}{Category of protected area}
+#'   \item{unit_nm}{Name of the protected area}
 #'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
@@ -447,8 +446,8 @@ NULL
 #'   \item{fip_stxt}{5-Digit FIPS Code}
 #'   \item{state}{State}
 #'   \item{county_name}{County}
-#'   \item{metro_nonmetro_status_2013_0_nonmetro_1_metro}{Metro/Nonmetro (1 = Metro)}
-#'   \item{economic_types_type_2015_update_non_overlapping}{Number of Non-Overlapping Economic Types}
+#'   \item{metro_nonmetro_status_2013_0_nonmetro_1_metro}{Metro/Nonmetro Status (1 = Metro)}
+#'   \item{economic_types_type_2015_update_non_overlapping}{Number of non-overlapping economic types present in the county}
 #'   \item{economic_type_label}{Economic Type Label}
 #'   \item{farming_2015_update}{Farm-Dependent}
 #'   \item{mining_2015_update}{Mining-Dependent}
@@ -456,12 +455,12 @@ NULL
 #'   \item{government_2015_update}{Government-Dependent}
 #'   \item{recreation_2015_update}{Recreation-Dependent}
 #'   \item{nonspecialized_2015_update}{Nonspecialized}
-#'   \item{low_education_2015_update}{Low Education County}
-#'   \item{low_employment_cnty_2008_2012_25_64}{Low Employment County}
-#'   \item{pop_loss_2010}{Experienced Resident Decline}
-#'   \item{retirement_dest_2015_update}{Retirement Destination}
-#'   \item{persistent_poverty_2013}{Experienced Persistent Poverty}
-#'   \item{persistent_related_child_poverty_2013}{Experienced Persistent Related Child Poverty}
+#'   \item{low_education_2015_update}{County is deemed a low education county}
+#'   \item{low_employment_cnty_2008_2012_25_64}{County is deemed a low employment county}
+#'   \item{pop_loss_2010}{County experienced resident decline}
+#'   \item{retirement_dest_2015_update}{County is deemed a retirement destination}
+#'   \item{persistent_poverty_2013}{County experienced persistent poverty}
+#'   \item{persistent_related_child_poverty_2013}{County experienced persistent related child poverty}
 #'   \item{geoid}{GEOID}
 #'   \item{county_latitude}{Latitude of the County Centroid}
 #'   \item{county_longitude}{Longitude of the County Centroid}
@@ -478,9 +477,9 @@ NULL
 #'
 #' @format A data frame with 1183 rows and 9 columns
 #' \describe{
-#'   \item{ncessch}{NCES school ID}
-#'   \item{leaid}{Unique Agency Code}
-#'   \item{leanm05}{Operating Agency}
+#'   \item{ncessch}{National Center for Education Statistics (NCES) school ID, the first seven digits are the school district ID and the last five digits uniquely identify the individual school}
+#'   \item{leaid}{Unique agency ID assigned by the NCES}
+#'   \item{leanm05}{Name of the operating agency responsible for the school}
 #'   \item{schnam05}{School Name}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
@@ -499,10 +498,10 @@ NULL
 #'
 #' @format A data frame with 232 rows and 9 columns
 #' \describe{
-#'   \item{libid}{Library ID}
-#'   \item{libname}{Name}
+#'   \item{libid}{Library identification code assigned by the state}
+#'   \item{libname}{Name of the library}
 #'   \item{phone}{Phone Number}
-#'   \item{hours}{Public Service Hours Per Year}
+#'   \item{hours}{Number of hours per year that the library is open for public service}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
@@ -521,14 +520,14 @@ NULL
 #'
 #' @format A data frame with 104 rows and 13 columns
 #' \describe{
-#'   \item{fac_id}{Facility ID}
-#'   \item{fac_name}{Facility Name}
+#'   \item{fac_id}{Unique transporation facility ID}
+#'   \item{fac_name}{Facility name}
 #'   \item{notes}{Notes}
-#'   \item{mode_bus}{Provides Bus Services}
-#'   \item{mode_air}{Provides Air Services}
-#'   \item{mode_rail}{Provides Rail Services}
-#'   \item{mode_ferry}{Provides Ferry Services}
-#'   \item{mode_bike}{Provides Bike Services}
+#'   \item{mode_bus}{Facility provides bus services}
+#'   \item{mode_air}{Facility provides sir services}
+#'   \item{mode_rail}{Facility provides rail services}
+#'   \item{mode_ferry}{Facility provides ferry services}
+#'   \item{mode_bike}{Facility provides bike services}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
@@ -548,8 +547,8 @@ NULL
 #'
 #' @format A data frame with 2781 rows and 7 columns
 #' \describe{
-#'   \item{permit_type}{Type of Permit}
-#'   \item{name_of_facility}{Facility Name}
+#'   \item{permit_type}{Type of services the facility is permitted to provide}
+#'   \item{name_of_facility}{Facility name}
 #'   \item{geoid}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
