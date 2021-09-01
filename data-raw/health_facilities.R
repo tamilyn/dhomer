@@ -21,25 +21,14 @@ facilities <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- facilities %>%
+facilities0 <- facilities %>%
   filter(is.na(x) == F & is.na(y) == F) %>%
   st_as_sf(coords = c('x', 'y'), crs = st_crs(sc_tracts))
 
-coords
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-healthfacilities_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-health_facilities_unchecked <- st_join(healthfacilities_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+health_facilities_unchecked <- st_join(facilities0, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('permit_type','name_of_facility','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('permit_type','name_of_facility','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(name_of_facility, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

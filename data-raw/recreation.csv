@@ -1,4 +1,4 @@
-objectid,name,feattype,geoid,tract_latitude,tract_longitude,lat,lon
+objectid,name,feattype,GEOID,tract_latitude,tract_longitude,lat,lon
 17304,Bloody Point Beach,Beach,45013002101,+32.1187058,-080.8611777,32.0870279,-80.8707632
 17305,Bloody Point Golf Course,Golf Course,45013002101,+32.1187058,-080.8611777,32.0877213,-80.8719128
 17330,Beach Marker 15,Beach,45013990100,+32.2428182,-080.5598028,32.1081115,-80.8190579

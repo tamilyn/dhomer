@@ -1,4 +1,4 @@
-fac_id,fac_name,notes,mode_bus,mode_air,mode_rail,mode_ferry,mode_bike,geoid,tract_latitude,tract_longitude,lat,lon
+fac_id,fac_name,notes,mode_bus,mode_air,mode_rail,mode_ferry,mode_bike,GEOID,tract_latitude,tract_longitude,lat,lon
 SC2902001,Amtrak Station,Served by Amtrak only. Greyhound station is about two blocks away.,0,0,1,0,0,45055970500,+34.2954753,-080.6158639,34.24735,-80.62616
 SC2902002,,Served by Southeastern Stages,1,0,0,0,0,45055970800,+34.2226390,-080.5951484,34.2201,-80.5939
 SC2904201,Amtrak Station,Served by Amtrak only.,0,0,1,0,0,45009960100,+33.3261599,-081.1667580,33.32614,-81.14315

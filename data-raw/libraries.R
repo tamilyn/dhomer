@@ -17,23 +17,14 @@ raw_libraries <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- raw_libraries %>%
+libraries0 <- raw_libraries %>%
   filter(is.na(longitud) == F & is.na(latitude) == F) %>%
   st_as_sf(coords = c('longitud', 'latitude'), crs = st_crs(sc_tracts))
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-libraries1 <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-libraries_unchecked <- st_join(libraries1, sc_tracts) %>%
+libraries_unchecked <- st_join(libraries0, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('libid','libname','phone','hours','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('libid','libname','phone','hours','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 

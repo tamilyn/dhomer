@@ -31,25 +31,16 @@ superfund2 <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- superfund2 %>%
+superfund3 <- superfund2 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-superfund_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-superfund_unchecked <- st_join(superfund_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+superfund_unchecked <- st_join(superfund3, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   mutate(superfund_id = sub('.*=','',superfund_link_csv)) %>%
   mutate(frs = substr(frs_link_csv, nchar(frs_link_csv)-11, nchar(frs_link_csv))) %>%
-  select(c('cleanup_name','epa_id','superfund_id','frs','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('cleanup_name','epa_id','superfund_id','frs','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(cleanup_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

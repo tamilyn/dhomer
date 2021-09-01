@@ -16,25 +16,14 @@ hrsa1 <- readxl::read_excel(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- hrsa1 %>%
+hrsa2 <- hrsa1 %>%
   filter(is.na(longitude) == F & is.na(latitude) == F) %>%
   st_as_sf(coords = c('longitude', 'latitude'), crs = st_crs(sc_tracts))
 
-coords
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-hrsa_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-hrsa_unchecked <- st_join(hrsa_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+hrsa_unchecked <- st_join(hrsa2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('site_name','bhcmis_org_id','bphc_assigned_number','site_telephone_number','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('site_name','bhcmis_org_id','bphc_assigned_number','site_telephone_number','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 

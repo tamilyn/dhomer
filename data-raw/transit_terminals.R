@@ -21,28 +21,14 @@ raw_transit$latitude[101] = (raw_transit$longitude[101] - raw_transit$latitude[1
 
 sc_tracts <- tracts(state = 45)
 
-coords <- raw_transit %>%
+transit <- raw_transit %>%
   filter(is.na(longitude) == F & is.na(latitude) == F) %>%
   st_as_sf(coords = c('longitude', 'latitude'), crs = st_crs(sc_tracts))
-
-# coords <- raw_transit %>%
-#   filter(is.na(geometry) == F) %>%
-#   st_as_sf(wkt = 'geometry') %>%
-#   st_transform(crs = 4269)
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-transit <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
 
 transit_terminals_unchecked <- st_join(transit, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('fac_id','fac_name','notes','mode_bus','mode_air','mode_rail','mode_ferry','mode_bike','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('fac_id','fac_name','notes','mode_bus','mode_air','mode_rail','mode_ferry','mode_bike','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 

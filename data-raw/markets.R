@@ -35,7 +35,6 @@ markets2 <- markets1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-
 markets_unchecked <- st_join(markets2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%

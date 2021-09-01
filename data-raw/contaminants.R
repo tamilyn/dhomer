@@ -31,23 +31,14 @@ contaminants1 <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- contaminants1 %>%
+contaminants2 <- contaminants1 %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-contaminants_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-contaminants_unchecked <- st_join(contaminants_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+contaminants_unchecked <- st_join(contaminants2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('site_name','epa_id','contaminant_name','media','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('site_name','epa_id','contaminant_name','media','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   select(contaminant_name, media, everything()) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

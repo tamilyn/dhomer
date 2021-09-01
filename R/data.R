@@ -24,7 +24,7 @@ NULL
 #'   \item{bhcmis_org_id}{Bureau of Primary Health Care Health Center Management Information System (BHCMIS) Organization ID}
 #'   \item{bphc_assigned_number}{Bureau of Primary Health Care (BPHC) Assigned Identification Number}
 #'   \item{site_telephone_number}{Site Telephone Number}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -49,7 +49,7 @@ NULL
 #'   \item{cleanup_name}{The name of the previously developed property}
 #'   \item{brownfields_id}{Assessment, Cleanup, and Redevelopment Exchange System (ACRES) Property ID, an EPA database for Brownfields Grantees}
 #'   \item{frs_id}{Facility Registry Service (FRS) ID, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Site Latitude}
@@ -74,7 +74,7 @@ NULL
 #'   \item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
 #'   \item{superfund_id}{Superfund ID Number}
 #'   \item{frs}{Facility Registery Service (FRS) Identification Number, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Site Latitude}
@@ -100,7 +100,7 @@ NULL
 #'   \item{media}{The media where the contaminant was found}
 #'   \item{site_name}{The name of the site where the contaminant was found}
 #'   \item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -126,7 +126,7 @@ NULL
 #'   \item{clinic_name}{The Name of the Clinic}
 #'   \item{specialty}{Clinic Specialty}
 #'   \item{hours_of_operation}{Hours of Operation}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -150,7 +150,7 @@ NULL
 #'   \item{objectid}{Object ID, which SC DHEC uses for identification of sites when mapping with ArcGIS}
 #'   \item{name}{The Name of the Market}
 #'   \item{mail_phone}{Phone Number}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -176,7 +176,7 @@ NULL
 #'   \item{hours_of_operation}{Hours of Operation}
 #'   \item{medicaid_id}{Medicaid Identifier}
 #'   \item{addresses_telephone_number}{Telephone Number}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -225,7 +225,7 @@ NULL
 #'   \item{objectid}{Object ID}
 #'   \item{name}{The name of the recreational site or location}
 #'   \item{feattype}{The type of recreational site found at this location}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -317,7 +317,7 @@ NULL
 #'   \item{land_total_release}{The release estimate (in pounds) reported by the facility as LAND releases.}
 #'   \item{air_total_release}{The release estimate (in pounds) reported by the facility as AIR releases.}
 #'   \item{water_total_release}{The release estimate (in pounds) reported by the facility as WATER releases.}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -481,7 +481,7 @@ NULL
 #'   \item{leaid}{Unique agency ID assigned by the NCES}
 #'   \item{leanm05}{Name of the operating agency responsible for the school}
 #'   \item{schnam05}{School Name}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -502,7 +502,7 @@ NULL
 #'   \item{libname}{Name of the library}
 #'   \item{phone}{Phone Number}
 #'   \item{hours}{Number of hours per year that the library is open for public service}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -528,7 +528,7 @@ NULL
 #'   \item{mode_rail}{Facility provides rail services}
 #'   \item{mode_ferry}{Facility provides ferry services}
 #'   \item{mode_bike}{Facility provides bike services}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -549,7 +549,7 @@ NULL
 #' \describe{
 #'   \item{permit_type}{Type of services the facility is permitted to provide}
 #'   \item{name_of_facility}{Facility name}
-#'   \item{geoid}{GEOID}
+#'   \item{GEOID}{GEOID}
 #'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
 #'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
@@ -557,3 +557,44 @@ NULL
 #' }
 #' @source \url{https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/04d86b6899fc450288ba07d0dcab2d73_0/explore}
 "health_facilities"
+
+#' South Carolina Substance Abuse Treatment Facilities
+#'
+#' A dataset of facilities and services dedicated to treatment of substance abuse compiled by the Substance Abuse and
+#' Mental Health Services Administration. The processed dataset includes the name of the facility, a contact telephone
+#' number, location of the facility, and the types of services the facility provides
+#'
+#' @format A data frame with 106 rows and 10 columns
+#' \describe{
+#'   \item{name}{The name of the facility}
+#'   \item{phone}{Phone Number}
+#'   \item{treatment_facility}{The facility provides treatment services}
+#'   \item{detoxification}{The facility provides detoxification services}
+#'   \item{transitional_housing}{The facility provides transitional housing services}
+#'   \item{GEOID}{GEOID}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://findtreatment.samhsa.gov/locator}
+"substance_abuse_services"
+
+#' South Carolina Substance Abuse Treatment Facilities
+#'
+#' A dataset of facilities and services dedicated to treatment of mental health compiled by the Substance Abuse and
+#' Mental Health Services Administration. The processed dataset includes the name of the facility, a contact telephone
+#' number,and location of the facility.
+#'
+#' @format A data frame with 99 rows and 7 columns
+#' \describe{
+#'   \item{name}{The name of the facility}
+#'   \item{phone}{Phone Number}
+#'   \item{GEOID}{GEOID}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
+#'   \item{lat}{Latitude}
+#'   \item{lon}{Longitude}
+#' }
+#' @source \url{https://findtreatment.samhsa.gov/locator}
+"mental_health_services"

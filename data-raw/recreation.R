@@ -20,26 +20,14 @@ rec <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- rec %>%
+rec2 <- rec %>%
   filter(is.na(wkt_geom) == F) %>%
   st_as_sf(wkt = 'wkt_geom', crs = st_crs(sc_tracts))
 
-
-coords
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-recreation_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-recreation_unchecked <- st_join(recreation_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+recreation_unchecked <- st_join(rec2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','stctyfips','mnfc','textlength')) %>%
+  select(-c('STATEFP','COUNTYFP','TRACTCE','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','stctyfips','mnfc','textlength')) %>%
   distinct(name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

@@ -1,4 +1,4 @@
-name,phone,geoid,tract_latitude,tract_longitude,lat,lon
+name,phone,GEOID,tract_latitude,tract_longitude,lat,lon
 Lexington County CMHC Gaston/Swansea Clinic,803-755-2261,45063020802,+33.7720562,-081.0791953,33.7639976,-81.0926684
 Three Rivers Residential Trt Services,803-791-9918,45063021034,+33.9579627,-081.1546493,33.970426,-81.136899
 Lexington Cnty Comm Mental Health Ctr Adult Clinic/Emergency Services,803-359-3545,45063021031,+33.9906391,-081.2175275,34.000969,-81.2057503

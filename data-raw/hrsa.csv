@@ -1,4 +1,4 @@
-site_name,bhcmis_org_id,bphc_assigned_number,site_telephone_number,geoid,tract_latitude,tract_longitude,lat,lon
+site_name,bhcmis_org_id,bphc_assigned_number,site_telephone_number,GEOID,tract_latitude,tract_longitude,lat,lon
 Denmark-Olar High School,041180,BPS-H80-022352,803-793-3307,45009960100,+33.3261599,-081.1667580,33.32722214,-81.12302847
 ReGenesis Health Care-Union Family Dentistry,0421000,BPS-H80-031535,864-398-4185,45087030200,+34.7080486,-081.6317056,34.71504452,-81.63108294
 Family Health Center at Holly Hill,041180,BPS-H80-014461,803-531-6900,45075010200,+33.3204311,-080.3922399,33.32625449,-80.41722662

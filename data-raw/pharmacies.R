@@ -92,26 +92,15 @@ pharm <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- pharm %>%
+pharm2 <- pharm %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-coords
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-pharmacies_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-pharmacies_unchecked <- st_join(pharmacies_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+pharmacies_unchecked <- st_join(pharm2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
   select(c('npi','basic_organization_name','hours_of_operation','medicaid_id','addresses_telephone_number',
-           'geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+           'GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(npi, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

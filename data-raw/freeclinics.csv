@@ -1,4 +1,4 @@
-clinic_name,specialty,hours_of_operation,geoid,tract_latitude,tract_longitude,lat,lon
+clinic_name,specialty,hours_of_operation,GEOID,tract_latitude,tract_longitude,lat,lon
 ANDERSON FREE CLINIC,,,45007012300,+34.5134656,-082.6052554,34.50806039,-82.64587421
 ANDERSON FREE CLINIC AT HONEA PATH,,,45007011500,+34.4662024,-082.4055574,34.44952666,-82.39356099
 BARRIER ISLANDS FREE MEDICAL CLINIC,,,45019002101,+32.7430103,-080.0840064,32.73185257,-80.06075042

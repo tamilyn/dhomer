@@ -21,23 +21,14 @@ raw_schools$loncod[964] = -80.98127978465922
 
 sc_tracts <- tracts(state = 45)
 
-coords <- raw_schools %>%
+schools <- raw_schools %>%
   filter(is.na(loncod) == F & is.na(latcod) == F) %>%
   st_as_sf(coords = c('loncod', 'latcod'), crs = st_crs(sc_tracts))
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-schools <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-public_schools_unchecked <- st_join(schools, sc_tracts, by = c('geoid','GEOID')) %>%
+public_schools_unchecked <- st_join(schools, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','lcity05','lstate05','mlocale','ulocale','status05')) %>%
+  select(-c('STATEFP','COUNTYFP','TRACTCE','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','lcity05','lstate05','mlocale','ulocale','status05')) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
 

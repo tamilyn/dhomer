@@ -1,4 +1,4 @@
-name,phone,treatment_facility,detoxification,transitional_housing,geoid,tract_latitude,tract_longitude,lat,lon
+name,phone,treatment_facility,detoxification,transitional_housing,GEOID,tract_latitude,tract_longitude,lat,lon
 LRADAC Outpatient,803-726-9400,1,1,,45063021009,+33.9061845,-081.2781687,33.9538874,-81.2345735
 LRC Substance Abuse and Behavioral Programs,803-740-9298,1,,,45063021030,+33.9818300,-081.2111492,33.9771056,-81.2355978
 Columbia Metro Treatment Center Metro Treatment of South Carolina LP,803-791-9422,1,1,,45063020505,+33.9923387,-081.0921352,33.9850073,-81.1061052

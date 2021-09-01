@@ -31,25 +31,15 @@ clinics <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- clinics %>%
+clinics1 <- clinics %>%
   filter(is.na(long) == F & is.na(lat) == F) %>%
   st_as_sf(coords = c('long', 'lat'), crs = st_crs(sc_tracts))
 
-coords
 
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-freeclinics_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-free_clinics_unchecked <- st_join(freeclinics_processed, sc_tracts, by = c('geoid','GEOID')) %>%
+free_clinics_unchecked <- st_join(clinics1, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(-c('geo_method','intersection','STATEFP','COUNTYFP','TRACTCE','GEOID','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','address')) %>%
+  select(-c('geo_method','STATEFP','COUNTYFP','TRACTCE','NAME','NAMELSAD','MTFCC','FUNCSTAT','ALAND','AWATER','address')) %>%
   distinct(clinic_name, .keep_all = TRUE) %>%
   rename(tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()

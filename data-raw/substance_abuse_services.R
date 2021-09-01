@@ -20,25 +20,14 @@ services <- readr::read_csv(explorer_fname) %>%
 
 sc_tracts <- tracts(state = 45)
 
-coords <- services %>%
+services2 <- services %>%
   filter(is.na(longitude) == F & is.na(latitude) == F) %>%
   st_as_sf(coords = c('longitude', 'latitude'), crs = st_crs(sc_tracts))
 
-coords
-
-system.time({
-  intersected <- st_within(coords, sc_tracts)
-})
-
-services_processed <- coords %>%
-  mutate(intersection = as.integer(intersected),
-         geoid = if_else(is.na(intersection), "",
-                         sc_tracts$GEOID[intersection]))
-
-services_unchecked <- st_join(services_processed, sc_tracts) %>%
+services_unchecked <- st_join(services2, sc_tracts) %>%
   dplyr::mutate(lat = sf::st_coordinates(.)[,2],
                 lon = sf::st_coordinates(.)[,1]) %>%
-  select(c('name','phone','sa','dt','hh','geoid','INTPTLAT','INTPTLON','lat','lon')) %>%
+  select(c('name','phone','sa','dt','hh','GEOID','INTPTLAT','INTPTLON','lat','lon')) %>%
   distinct(name, .keep_all = TRUE) %>%
   rename(treatment_facility = sa, detoxification = dt, transitional_housing = hh, tract_latitude = INTPTLAT, tract_longitude = INTPTLON) %>%
   st_drop_geometry()
