@@ -1,0 +1,181 @@
+---
+title: "Mapping Community Characteristics"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mapping Community Characteristics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=TRUE}
+library(dhomer)
+library(dplyr)
+library(janitor)
+library(tmap)
+library(tmaptools)
+library(tigris)
+library(leaflet)
+library(sp)
+library(stringr)
+library(shiny)
+library(htmlwidgets)
+```
+
+# Loading the data
+
+Calling the data from `dhomer` and manipulating it into proper sp objects for mapping in Leaflet
+
+```{r, results='hide'}
+sc_tracts <- tracts(state = 45)
+sc_counties <- counties(state = 45)
+sc_block <- block_groups(state  = 45)
+
+data("developed_land_imperviousness")
+data("internet_access")
+data("vehicle_availability")
+data("social_vulnerability_index")
+# data("sc_walkability_index")
+data("property_crime")
+data("violent_crime")
+
+developed_land_imperviousness2 <- developed_land_imperviousness %>%
+  mutate(geoid = as.character(geoid))
+internet_access2 <- internet_access %>%
+  mutate(geoid = as.character(geoid))
+vehicle_access2 <- vehicle_availability %>%
+  mutate(geoid = as.character(geoid))
+social_vulnerability_index2 <- social_vulnerability_index %>%
+  mutate(geoid = as.character(geoid))
+social_vulnerability_index2$svi_value <- gsub("-999","NA",as.character(social_vulnerability_index2$svi_value))
+walkability2 <- sc_walkability_index %>%
+  dplyr::mutate(geoid = as.character(GEOID))
+property_crime2 <- property_crime %>%
+  mutate(geoid = as.character(geoid))
+violent_crime2 <- violent_crime %>%
+  mutate(geoid = as.character(geoid))
+
+developed_land_imperviousness2$value <-  gsub("%","",as.character(developed_land_imperviousness2$value))
+internet_access2$value <-  gsub("%","",as.character(internet_access2$value))
+vehicle_access2$value <- gsub("%","",as.character(vehicle_access2$value))
+
+
+spatial_imperviousness <-geo_join(sc_tracts, developed_land_imperviousness2, 'GEOID', 'geoid', how = 'inner')
+spatial_internet <- geo_join(sc_tracts, internet_access2, 'GEOID', 'geoid', how = 'inner')
+spatial_vehicle <- geo_join(sc_tracts, vehicle_access2, 'GEOID', 'geoid', how = 'inner')
+spatial_svi <- geo_join(sc_tracts, social_vulnerability_index2, 'GEOID', 'geoid', how = 'inner')
+spatial_nwi <- geo_join(sc_blocks, walkability2, 'GEOID', 'geoid', how = 'inner')
+spatial_property_crime <- geo_join(sc_counties, property_crime2, 'GEOID', 'geoid', how = 'inner')
+spatial_violent_crime <- geo_join(sc_counties, violent_crime2, 'GEOID', 'geoid', how = 'inner')
+
+
+spatial_imperviousness_sp <- as(spatial_imperviousness, Class = 'Spatial')
+spatial_internet_sp <- as(spatial_internet, Class = 'Spatial')
+spatial_vehicle_sp <- as(spatial_vehicle, Class = 'Spatial')
+spatial_svi_sp <- as(spatial_svi, Class = 'Spatial')
+spatial_walkability_sp <- as(spatial_nwi, Class = 'Spatial')
+spatial_property_crime_sp <- as(spatial_property_crime, Class = 'Spatial')
+spatial_violent_crime_sp <- as(spatial_violent_crime, Class = 'Spatial')
+```
+
+# Map Construction
+
+```{r}
+imperv_pal <- colorNumeric(palette = 'YlOrRd', domain = 0:80)
+int_pal <- colorNumeric(palette = 'Blues', domain = 0:121)
+veh_pal <- colorNumeric(palette = 'Reds', domain = 0:100)
+svi_pal <- colorNumeric(palette = 'viridis', domain = 0:1, reverse = TRUE, na.color = NA)
+walk_pal <- colorNumeric(palette = 'Oranges', domain = 0:20)
+prop_pal <- colorNumeric(palette = 'magma', domain = 0:468)
+vio_pal <- colorNumeric(palette = 'magma', domain =  0:112)
+
+map <- leaflet() %>%
+  addTiles() %>%
+  addPolygons(data = spatial_imperviousness_sp, group = 'Development Imperviousness',
+              fillColor = ~imperv_pal(as.double(spatial_imperviousness_sp$value)), color = 'black',
+              weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend("bottomright", pal = imperv_pal, values = as.double(spatial_imperviousness_sp$value),
+            title = "Average Percent of Impervious </br>Land Due to Development",
+            labFormat = labelFormat(suffix = "%"),opacity = 1, group = 'Development Imperviousness',
+            className = 'info legend DevelopmentImperviousness') %>%
+  addLabelOnlyMarkers(data = spatial_imperviousness_sp, lat = as.double(spatial_imperviousness_sp$tract_latitude), lng = as.double(spatial_imperviousness_sp$tract_longitude),
+             label = paste("GEOID: ", spatial_imperviousness_sp$GEOID, ', ', "Value: ", spatial_imperviousness_sp$value),
+             group = 'Development Imperviousness',
+             labelOptions = labelOptions(noHide = F)) %>%
+  addPolygons(data = spatial_internet_sp, group = 'Internet Access',
+              fillColor = ~int_pal(as.double(spatial_internet_sp$value)), color = 'black',
+              weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'Internet Access', "bottomright", pal = int_pal, values = as.double(spatial_internet_sp$value),
+            title = "Percent of Households </br>Without Internet Access",
+            labFormat = labelFormat(suffix = "%"),opacity = 1, className = 'info legend InternetAccess') %>%
+  addLabelOnlyMarkers(data = spatial_internet_sp, lat = as.double(spatial_internet_sp$tract_latitude), lng = as.double(spatial_internet_sp$tract_longitude),
+                      label = paste("GEOID: ", spatial_internet_sp$GEOID, ', ', "Value: ", spatial_internet_sp$value),
+                      group = 'Internet Access',
+                      labelOptions = labelOptions(noHide = F)) %>%
+  addPolygons(data = spatial_vehicle_sp, group = 'Vehicle Access',
+              fillColor = ~veh_pal(as.double(spatial_vehicle_sp$value)), color = 'black',
+              weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'Vehicle Access', "bottomright", pal = veh_pal, values = as.double(spatial_vehicle_sp$value),
+            title = "Percent of Housing Units </br>Without Vehicle Access",
+            labFormat = labelFormat(suffix = "%"),opacity = 1, className = 'info legend VehicleAccess') %>%
+  addLabelOnlyMarkers(data = spatial_vehicle_sp, lat = as.double(spatial_vehicle_sp$tract_latitude), lng = as.double(spatial_vehicle_sp$tract_longitude),
+                      label = paste("GEOID: ", spatial_vehicle_sp$GEOID, ', ', "Value: ", spatial_vehicle_sp$value),
+                      group = 'Vehicle Access',
+                      labelOptions = labelOptions(noHide = F)) %>%
+  addPolygons(data = spatial_svi_sp, group = 'SVI Index',
+              fillColor = ~svi_pal(as.double(spatial_svi_sp$svi_value)), color = 'black',
+              weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'SVI Index', "bottomright", pal = svi_pal, values = as.double(spatial_svi_sp$svi_value),
+            title = "Social Vulnerability </br>Index Score",
+            opacity = 1, na.label = '', className = 'info legend SVIIndex') %>%
+  addLabelOnlyMarkers(data = spatial_svi_sp, lat = as.double(spatial_svi_sp$tract_latitude), lng = as.double(spatial_svi_sp$tract_longitude),
+                      label = paste("GEOID: ", spatial_svi_sp$GEOID, ', ', "Value: ", spatial_svi_sp$svi_value),
+                      group = 'SVI Index',
+                      labelOptions = labelOptions(noHide = F)) %>%
+  addPolygons(data = spatial_walkability_sp, group = 'Walkability Index', fillColor = ~walk_pal(as.double(spatial_walkability_sp$nt_wlk_in)),
+            color = 'black', weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'Walkability Index', 'bottomright', pal = walk_pal, values = as.double(spatial_walkability_sp$nt_wlk_in),
+            title = 'Walkability Index Score', opacity = 1, 
+            className = 'info legend WalkabilityIndex') %>%
+  addPolygons(data = spatial_property_crime_sp, group = 'Property Crime', fillColor = ~prop_pal(as.double(spatial_property_crime_sp$rate)),
+            color = 'black', weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'Property Crime', 'bottomright', pal = prop_pal, values = as.double(spatial_property_crime_sp$rate),
+            title = 'Property Crime Rates', opacity = 1, className = 'info legend PropertyCrime') %>%
+  addLabelOnlyMarkers(data = spatial_property_crime_sp, lat = as.double(spatial_property_crime_sp$county_latitude), lng = as.double(spatial_property_crime_sp$county_longitude),
+                      label = paste("County: ", spatial_property_crime_sp$county, ', ', "Rate: ", spatial_property_crime_sp$rate),
+                      group = 'Property Crime',
+                      labelOptions = labelOptions(noHide = F)) %>%
+  addPolygons(data = spatial_violent_crime_sp, group = 'Violent Crime', fillColor = ~vio_pal(as.double(spatial_violent_crime_sp$rate)),
+              color = 'black', weight = 0.2, opacity = 0.5, fillOpacity = 1, smoothFactor = 0.2) %>%
+  addLegend(group = 'Violent Crime', 'bottomright', pal = vio_pal, values = as.double(spatial_violent_crime_sp$rate),
+            title = 'Violent Crime Rates', opacity = 1, className = 'info legend ViolentCrime') %>%
+  addLabelOnlyMarkers(data = spatial_violent_crime_sp, lat = as.double(spatial_violent_crime_sp$county_latitude), lng = as.double(spatial_violent_crime_sp$county_longitude),
+                      label = paste("County: ", spatial_violent_crime_sp$county, ', ', "Rate: ", spatial_violent_crime_sp$rate),
+                      group = 'Violent Crime', labelOptions = labelOptions(noHide = F)) %>%
+  addLayersControl('topleft', baseGroups = c('Development Imperviousness', 'Internet Access',
+                                  'Vehicle Access', 'SVI Index', 'Walkability Index',
+                                  'Property Crime','Violent Crime')) %>%
+  htmlwidgets::onRender("
+      function(el, x) {
+         var updateLegend = function () {
+            var selectedGroup = document.querySelectorAll('input:checked')[0].nextSibling.innerText.substr(1);
+            var selectedClass = selectedGroup.replace(' ', '');
+            document.querySelectorAll('.legend').forEach(a => a.hidden=true);
+            document.querySelectorAll('.legend').forEach(l => {
+               if (l.classList.contains(selectedClass)) l.hidden=false;
+            });
+         };
+         updateLegend();
+         this.on('baselayerchange', el => updateLegend());
+      }")
+
+
+map
+```
+

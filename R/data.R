@@ -20,13 +20,13 @@ NULL
 #'
 #' @format A data frame with 252 rows and 9 variables:
 #' \describe{
-#'   \item{site_name}{The site name}
-#'   \item{bhcmis_org_id}{BHCMIS Organization ID}
-#'   \item{bphc_assigned_number}{BPHC Assigned Number}
+#'   \item{site_name}{The Health Center site name}
+#'   \item{bhcmis_org_id}{Bureau of Primary Health Care Health Center Management Information System (BHCMIS) Organization ID}
+#'   \item{bphc_assigned_number}{Bureau of Primary Health Care (BPHC) Assigned Identification Number}
 #'   \item{site_telephone_number}{Site Telephone Number}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Latitude}
-#'   \item{tract_longitude}{Tract Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -46,12 +46,12 @@ NULL
 #'
 #' @format A data frame with 456 rows and 8 columns
 #' \describe{
-#'   \item{cleanup_name}{The Name of the Property}
-#'   \item{brownfields_id}{Brownfields ID}
-#'   \item{frs_id}{Facility Registry ID}
+#'   \item{cleanup_name}{The name of the previously developed property}
+#'   \item{brownfields_id}{Assessment, Cleanup, and Redevelopment Exchange System (ACRES) Property ID, an EPA database for Brownfields Grantees}
+#'   \item{frs_id}{Facility Registry Service (FRS) ID, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Site Latitude}
 #'   \item{lon}{Site Longitude}
 #' }
@@ -70,13 +70,13 @@ NULL
 #'
 #' @format A data frame with 33 rows and 9 columns
 #' \describe{
-#'   \item{cleanup_name}{The Name of the Property}
-#'   \item{epa_id}{EPA Identification Number}
+#'   \item{cleanup_name}{The name of the property where a hazardous waste site is located}
+#'   \item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
 #'   \item{superfund_id}{Superfund ID Number}
-#'   \item{frs}{Facility Registery Service Identification Number}
+#'   \item{frs}{Facility Registery Service (FRS) Identification Number, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Site Latitude}
 #'   \item{lon}{Site Longitude}
 #' }
@@ -96,13 +96,13 @@ NULL
 #'
 #' @format A data frame with 1784 rows and 9 columns
 #' \describe{
-#'   \item{contaminant_name}{Identified Contaminant}
-#'   \item{media}{Media Where Contaminant is Found}
-#'   \item{site_name}{The Name of the Site}
-#'   \item{epa_id}{EPA Identification Number}
+#'   \item{contaminant_name}{The name of the contaminant that was found at the site}
+#'   \item{media}{The media where the contaminant was found}
+#'   \item{site_name}{The name of the site where the contaminant was found}
+#'   \item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -127,8 +127,8 @@ NULL
 #'   \item{specialty}{Clinic Specialty}
 #'   \item{hours_of_operation}{Hours of Operation}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract CentroidLongitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -147,12 +147,12 @@ NULL
 #'
 #' @format A data frame with 337 rows and 8 columns
 #' \describe{
-#'   \item{objectid}{Object ID}
+#'   \item{objectid}{Object ID, which SC DHEC uses for identification of sites when mapping with ArcGIS}
 #'   \item{name}{The Name of the Market}
 #'   \item{mail_phone}{Phone Number}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -171,14 +171,14 @@ NULL
 #'
 #' @format A data frame with 954 rows and 10 columns
 #' \describe{
-#'   \item{npi}{National Provider Identifier Number}
+#'   \item{npi}{National Provider Identifier Number, a 10-digit number which identifies an individual provider or healthcare entity for billing purposes}
 #'   \item{basic_organization_name}{The Name of the Pharmacy Organization}
 #'   \item{hours_of_operation}{Hours of Operation}
 #'   \item{medicaid_id}{Medicaid Identifier}
 #'   \item{addresses_telephone_number}{Telephone Number}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -198,15 +198,15 @@ NULL
 #' @format A data frame with 1091 rows and 10 columns
 #' \describe{
 #'   \item{census_tract}{Census tract}
-#'   \item{lila_tracts_1and10}{Low income and low access tract measured at 1 mile for urban areas and 10 miles for rural areas}
-#'   \item{lila_tracts_half_and10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
-#'   \item{lila_tracts_1and20}{Low income and low access tract measured at 1 mile for urban areas and 20 miles for rural areas}
-#'   \item{low_income_tracts}{Low income tract}
-#'   \item{poverty_rate}{Tract poverty rate}
+#'   \item{lila_tracts_1and10}{Low income and low access census tracts, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 10 miles for rural areas}
+#'   \item{lila_tracts_half_and10}{Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1/2 mile for urban areas or 10 miles for rural areas}
+#'   \item{lila_tracts_1and20}{Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 20 miles for rural areas}
+#'   \item{low_income_tracts}{Low income census tract, meaning that the median household income for the tract is below the Housing and Community Development's low-income limit}
+#'   \item{poverty_rate}{Tract poverty rate, that is the percentage of households in the census tract whose median household income falls below the poverty threshold}
 #'   \item{median_family_income}{Tract median family income}
 #'   \item{GEOID}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'
 #' }
 #' @source \url{https://www.ers.usda.gov/data-products/food-access-research-atlas/download-the-data/}
@@ -226,8 +226,8 @@ NULL
 #'   \item{name}{Name}
 #'   \item{feattype}{Feature Type}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -241,12 +241,12 @@ NULL
 #' gives each block group a score, with a higher score indicating a more walkable community. The processed dataset includes the block group
 #' GEOID, that index score and the block group geometry. The dataset is categorized as a Natural and Built Environment Determinant of Health.
 #'
-#' @format A data frame with 3059 rows and 3 columns
+#' @format A data frame with 3059 rows and 4 columns
 #' \describe{
 #'   \item{GEOID}{Census Block Group 12-digit FIPS Code (2018)}
 #'   \item{nt_wlk_in}{National Walkability Index Score}
-#'   \item{block_latitude}{Census Block Group Centroid Latitude}
-#'   \item{block_longitude}{Census Block Group Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
 #' @source \url{https://edg.epa.gov/metadata/catalog/search/resource/details.page?uuid=%7B251AFDD9-23A7-4068-9B27-A3048A7E6012%7D}
 "sc_walkability_index"
@@ -266,8 +266,8 @@ NULL
 #'   \item{rate}{Crime Rate}
 #'   \item{clearance}{Clearance Rate}
 #'   \item{geoid}{GEOID}
-#'   \item{county_latitude}{County Latitude}
-#'   \item{county_longitude}{County Longitude}
+#'   \item{county_latitude}{Latitude of the County Centroid}
+#'   \item{county_longitude}{Longitude of the County Centroid}
 #' }
 #' @source \url{https://www.sled.sc.gov/forms/statistics/2019%20Crime%20in%20South%20Carolina.pdf}
 "violent_crime"
@@ -286,8 +286,8 @@ NULL
 #'   \item{rate}{Crime Rate}
 #'   \item{clearance}{Clearance Rate}
 #'   \item{geoid}{GEOID}
-#'   \item{county_latitude}{County Latitude}
-#'   \item{county_longitude}{County Longitude}
+#'   \item{county_latitude}{Latitude of the County Centroid}
+#'   \item{county_longitude}{Longitude of the County Centroid}
 #' }
 #' @source \url{https://www.sled.sc.gov/forms/statistics/2019%20Crime%20in%20South%20Carolina.pdf}
 "property_crime"
@@ -319,8 +319,8 @@ NULL
 #'   \item{air_total_release}{Total Pounds of Toxic Chemicals Released to Air}
 #'   \item{water_total_release}{Total Pounds of Toxic Chemicals Released to Water}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Trac Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -341,8 +341,8 @@ NULL
 #' \describe{
 #'   \item{geoid}{GEOID}
 #'   \item{svi_value}{Social Vulnerability Value}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
 #' @source \url{https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html}
 "social_vulnerability_index"
@@ -364,8 +364,8 @@ NULL
 #'   \item{value}{Percentage Value}
 #'   \item{data_comment}{NA}
 #'   \item{x8}{NA}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
 #' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
 "internet_access"
@@ -382,8 +382,8 @@ NULL
 #'   \item{category}{Category}
 #'   \item{unit_nm}{Unit Name}
 #'   \item{GEOID}{GEOID}
-#'   \item{tract_latitude}{Tract Latitude}
-#'   \item{tract_longitude}{Tract Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -399,15 +399,15 @@ NULL
 #'
 #' @format A data frame with 1103 rows and 9 columns
 #' \describe{
-#'   \item{state_fips}{State FIPS Code}
+#'   \item{state_fips}{State 2-Digit FIPS Code}
 #'   \item{state}{State}
 #'   \item{geoid}{GEOID}
-#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{census_tract_2}{County Name and Census Tract}
 #'   \item{year}{Data Collection Year}
-#'   \item{value}{Percentage Value}
+#'   \item{value}{Percentage of land that is impervious to water due to development in the census tract}
 #'   \item{data_comment}{NA}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
 #' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
 "developed_land_imperviousness"
@@ -421,15 +421,15 @@ NULL
 #'
 #' @format A data frame with 1103 rows and 9 columns
 #' \describe{
-#'   \item{state_fips}{State FIPS Code}
+#'   \item{state_fips}{State 2-digit FIPS Code}
 #'   \item{state}{State}
 #'   \item{geoid}{GEOID}
-#'   \item{census_tract_2}{County and Census Tract}
+#'   \item{census_tract_2}{County Name and Census Tract}
 #'   \item{year}{Data Collection Year}
-#'   \item{value}{Percentage Value}
+#'   \item{value}{Percentage of housing units that do not have access to a vehicle in the census tract}
 #'   \item{data_comment}{NA}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #' }
 #' @source \url{https://ephtracking.cdc.gov/DataExplorer/}
 "vehicle_availability"
@@ -463,8 +463,8 @@ NULL
 #'   \item{persistent_poverty_2013}{Experienced Persistent Poverty}
 #'   \item{persistent_related_child_poverty_2013}{Experienced Persistent Related Child Poverty}
 #'   \item{geoid}{GEOID}
-#'   \item{county_latitude}{County Centroid Latitude}
-#'   \item{county_longitude}{County Centroid Longitude}
+#'   \item{county_latitude}{Latitude of the County Centroid}
+#'   \item{county_longitude}{Longitude of the County Centroid}
 #' }
 #' @source \url{https://www.ers.usda.gov/data-products/county-typology-codes/}
 "county_typology_codes"
@@ -483,8 +483,8 @@ NULL
 #'   \item{leanm05}{Operating Agency}
 #'   \item{schnam05}{School Name}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -504,8 +504,8 @@ NULL
 #'   \item{phone}{Phone Number}
 #'   \item{hours}{Public Service Hours Per Year}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -530,8 +530,8 @@ NULL
 #'   \item{mode_ferry}{Provides Ferry Services}
 #'   \item{mode_bike}{Provides Bike Services}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
@@ -551,8 +551,8 @@ NULL
 #'   \item{permit_type}{Type of Permit}
 #'   \item{name_of_facility}{Facility Name}
 #'   \item{geoid}{GEOID}
-#'   \item{tract_latitude}{Tract Centroid Latitude}
-#'   \item{tract_longitude}{Tract Centroid Longitude}
+#'   \item{tract_latitude}{Latitude of the Census Tract Centroid}
+#'   \item{tract_longitude}{Longitude of the Census Tract Centroid}
 #'   \item{lat}{Latitude}
 #'   \item{lon}{Longitude}
 #' }
