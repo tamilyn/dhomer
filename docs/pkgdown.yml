@@ -1,9 +1,11 @@
-pandoc: 2.11.4
+pandoc: '2.12'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   acs_integration: acs_integration.html
-last_built: 2021-07-22T02:55Z
+  mapping_community_characteristics: mapping_community_characteristics.html
+  mapping_point_data: mapping_point_data.html
+last_built: 2021-09-20T21:13Z
 urls:
   reference: https://tamilyn.github.io/dhomer/reference
   article: https://tamilyn.github.io/dhomer/articles

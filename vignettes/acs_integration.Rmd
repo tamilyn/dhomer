@@ -18,10 +18,7 @@ The `tidycensus` package functions allows us to call and integrate ACS data into
 `dhomer` functions for more comprehensive determinants of health computation.
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+
 
 vignette("other-langs", package = "tidycensus")
 vignette("other-langs", package = "dplyr")
@@ -30,61 +27,70 @@ vignette("other-langs", package = "dplyr")
 
 
 
-```{r setup}
+```{r setup, include = FALSE, message = FALSE, warning = FALSE}
 library(sf)
 library(tidycensus)
 library(dplyr)
 library(leaflet)
-#library(dhomer)
+library(dhomer)
+data(libraries)
 
-census_api_key(Sys.getenv("CENSUS_API_KEY" = key), install = FALSE, overwrite = FALSE)
+census_api_key(Sys.getenv("CENSUS_API_KEY"), install = FALSE, overwrite = FALSE)
 ```
 
 ## Census Data Variables
 
 Three variables of related to determinants of health: 
 
-B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level, 
-B06009_002- Estimate!!Total:!!Less than high school graduate, B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
+* B17021_002- Estimate!!Total:!!Income in the past 12 months below poverty level, 
+* B06009_002- Estimate!!Total:!!Less than high school graduate, 
+* B11001_008- Estimate!!Total:!!Nonfamily households:!!Householder living alone
 
 
 ## Fetching Census Data
 
 Estimates from the American Community Survey for below poverty, less than high school graduates and householder living alone are obtained and then divided by the population for the area since the data will be displayed on a map.
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
-a_df <- get_acs(
+```{r results='hide',message=FALSE, warning=FALSE, include=TRUE}
+a_df <- suppressMessages(
+  get_acs(
     variables = c(
       "below_poverty" = "B17021_002",
       "less_than_highschool" = "B06009_002",
-      "nonfamily_households" = "B11001_008"),
-                  state = "SC",
-                  geography = "county",
-                  geometry = TRUE,
-                  cache_table = TRUE,
-                  year = 2019,
-                  summary_var ="B01003_001",
-                  output = "wide") 
+      "nonfamily_households" = "B11001_008"
+    ),
+    state = "SC",
+    geography = "county",
+    geometry = TRUE,
+    cache_table = TRUE,
+    year = 2019,
+    summary_var = "B01003_001",
+    output = "wide"
+  )
+)
 
 a_df <- a_df %>% 
   mutate(percent_below_pov = below_povertyE/summary_est)
 ```
 
+## Libraries
+
+The counties show the percent population.  Libraries are shown in blue.
 
 ```{r message=FALSE, warning=FALSE}
 qpal <- colorQuantile("RdYlBu", a_df$percent_below_pov, n = 5)
 
-leaflet(data = a_df) %>% 
+leaflet(data = a_df, width = "100%") %>% 
   addPolygons(data = a_df, stroke = FALSE, fillOpacity = 0.6, color = ~qpal(percent_below_pov)) %>% 
   addPolylines(weight = 2, color="gray") %>% 
   addCircles(data = libraries, 
              label = libraries$libname, 
-             color = "pink") %>% 
+             color = "blue") %>% 
   addLegend(title = "Percent Below Poverty",
             opacity = 1,
             pal = qpal, 
             values = ~a_df$percent_below_pov
-)
+) 
 ```
 
 

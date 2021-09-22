@@ -10,6 +10,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
+  include = FALSE,
   comment = "#>"
 )
 ```
@@ -26,16 +27,17 @@ library(sp)
 library(stringr)
 library(shiny)
 library(htmlwidgets)
+
 ```
 
 # Loading the data
 
 Calling the data from `dhomer` and manipulating it into proper sp objects for mapping in Leaflet
 
-```{r, results='hide'}
+```{r results='hide'}
 sc_tracts <- tracts(state = 45)
 sc_counties <- counties(state = 45)
-sc_block <- block_groups(state  = 45)
+sc_blocks <- block_groups(state  = 45)
 
 data("developed_land_imperviousness")
 data("internet_access")
