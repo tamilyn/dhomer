@@ -1,12 +1,12 @@
 Package: dhomer
 Type: Package
 Title: DHOME Data
-Version: 0.1.2
-Authors@R: c(person('Tami', 'Crawford', 
-           email = 'tami.crawford@gmail.com', role = c('cre', 'aut'),
+Version: 0.1.3
+Authors@R: c(
+   person('Tami', 'Crawford', email = 'tami.crawford@gmail.com', role = c('cre', 'aut'),
            comment=c(ORCID="0000-0003-0720-7701")),
-        person('Lauren', 'Cuppy', email = 'cuppy.lauren@gmail.com', 
-        role = c('aut'),
+   person("Alexander", "Alekseyenko", role="aut"),
+   person('Lauren', 'Cuppy', email = 'cuppy.lauren@gmail.com', role = c('aut'),
         comment=c(ORCID="0000-0002-1672-4260")))
 Maintainer: The package maintainer <tami.crawford@gmail.com>
 Description: More about what it does (maybe more than one line)

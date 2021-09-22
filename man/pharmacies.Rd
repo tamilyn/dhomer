@@ -7,14 +7,14 @@
 \format{
 A data frame with 954 rows and 10 columns
 \describe{
-\item{npi}{National Provider Identifier Number}
+\item{npi}{National Provider Identifier Number, a 10-digit number which identifies an individual provider or healthcare entity for billing purposes}
 \item{basic_organization_name}{The Name of the Pharmacy Organization}
 \item{hours_of_operation}{Hours of Operation}
 \item{medicaid_id}{Medicaid Identifier}
 \item{addresses_telephone_number}{Telephone Number}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -26,7 +26,12 @@ A data frame with 954 rows and 10 columns
 pharmacies
 }
 \description{
-The dataset of the pharmacies in South Carolina
+The dataset of the pharmacies in South Carolina, compiled by Select Health of South Carolina. The pharmacies provide access to prescription
+medicines and, in many cases, vaccinations to the community. The processed dataset includes the pharmacy name, NPI identification number,
+hours of operation, Medicaid ID, telephone number, latitude/longitude, and census tract information. The dataset is categorized as a Health
+and Healthcare Determinant of Health.
+}
+\details{
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

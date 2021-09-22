@@ -47,9 +47,10 @@
 
 
 <meta property="og:title" content="South Carolina Farmers and Roadside Markets — markets" />
-<meta property="og:description" content="The dataset of the farmers and roadside markets in South Carolina
-#' NEED TO CHECK for any requirements in redistributing data such as a notice
-copyright, etc" />
+<meta property="og:description" content="The dataset of the farmer's and roadside markets in South Carolina, compiled by SC DHEC. These markets provide seasonal access to local
+produce to their communities, which tends to be harder to access especially in communities that lack access to a chain supermarket store.
+The processed dataset includes the market name, phone number, latitude/longitude, and census tract information. The dataset is categorized
+as a Social and Community Context Determinant of Health." />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -82,7 +83,7 @@ copyright, etc" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -95,25 +96,32 @@ copyright, etc" />
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -137,9 +145,10 @@ copyright, etc" />
     </div>
 
     <div class="ref-description">
-    <p>The dataset of the farmers and roadside markets in South Carolina
-#' NEED TO CHECK for any requirements in redistributing data such as a notice
-copyright, etc</p>
+    <p>The dataset of the farmer's and roadside markets in South Carolina, compiled by SC DHEC. These markets provide seasonal access to local
+produce to their communities, which tends to be harder to access especially in communities that lack access to a chain supermarket store.
+The processed dataset includes the market name, phone number, latitude/longitude, and census tract information. The dataset is categorized
+as a Social and Community Context Determinant of Health.</p>
     </div>
 
     <pre class="usage"><span class='va'>markets</span></pre>
@@ -148,12 +157,12 @@ copyright, etc</p>
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
     <p>A data frame with 337 rows and 8 columns</p><dl>
-<dt>objectid</dt><dd><p>Object ID</p></dd>
+<dt>objectid</dt><dd><p>Object ID, which SC DHEC uses for identification of sites when mapping with ArcGIS</p></dd>
 <dt>name</dt><dd><p>The Name of the Market</p></dd>
 <dt>mail_phone</dt><dd><p>Phone Number</p></dd>
 <dt>geoid</dt><dd><p>GEOID</p></dd>
-<dt>tract_latitude</dt><dd><p>Tract Centroid Latitude</p></dd>
-<dt>tract_longitude</dt><dd><p>Tract Centroid Longitude</p></dd>
+<dt>tract_latitude</dt><dd><p>Latitude of the Census Tract Centroid</p></dd>
+<dt>tract_longitude</dt><dd><p>Longitude of the Census Tract Centroid</p></dd>
 <dt>lat</dt><dd><p>Latitude</p></dd>
 <dt>lon</dt><dd><p>Longitude</p></dd>
 
@@ -162,6 +171,10 @@ copyright, etc</p>
     <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
     <p><a href='https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/cdb563626aaf4477b7ea591fec10a3e2_0/explore'>https://sc-department-of-health-and-environmental-control-gis-sc-dhec.hub.arcgis.com/datasets/cdb563626aaf4477b7ea591fec10a3e2_0/explore</a></p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>#' NEED TO CHECK for any requirements in redistributing data such as a notice
+copyright, etc</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -174,7 +187,7 @@ copyright, etc</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href='https://github.com/tamilyn'>Tami Crawford</a>, Alexander Alekseyenko, <a href='https://github.com/laurencuppy'>Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

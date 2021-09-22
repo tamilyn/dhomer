@@ -47,7 +47,11 @@
 
 
 <meta property="og:title" content="South Carolina Recreation Areas — recreation" />
-<meta property="og:description" content="The dataset of recreational areas in South Carolina" />
+<meta property="og:description" content="The dataset of common recreational landmarks, including golf courses, beaches, amusement parks, and park and recreation areas in South
+Carolina. These spaces are publicly available, although sometimes at a fee, and are meant to be used for 'fun' activities. Availability of
+these areas could be directly related to children's ability to play and socialize, and should also be considered in proximity to other
+determinant of health burdens. The processed dataset includes the area name, the type of recreational area it is, latitude/longitude, and
+census tract information. The dataset is categorized as a Social and Community Context Determinant of Health." />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -80,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -93,25 +97,32 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -135,7 +146,11 @@
     </div>
 
     <div class="ref-description">
-    <p>The dataset of recreational areas in South Carolina</p>
+    <p>The dataset of common recreational landmarks, including golf courses, beaches, amusement parks, and park and recreation areas in South
+Carolina. These spaces are publicly available, although sometimes at a fee, and are meant to be used for 'fun' activities. Availability of
+these areas could be directly related to children's ability to play and socialize, and should also be considered in proximity to other
+determinant of health burdens. The processed dataset includes the area name, the type of recreational area it is, latitude/longitude, and
+census tract information. The dataset is categorized as a Social and Community Context Determinant of Health.</p>
     </div>
 
     <pre class="usage"><span class='va'>recreation</span></pre>
@@ -148,8 +163,8 @@
 <dt>name</dt><dd><p>Name</p></dd>
 <dt>feattype</dt><dd><p>Feature Type</p></dd>
 <dt>geoid</dt><dd><p>GEOID</p></dd>
-<dt>tract_latitude</dt><dd><p>Tract Centroid Latitude</p></dd>
-<dt>tract_longitude</dt><dd><p>Tract Centroid Longitude</p></dd>
+<dt>tract_latitude</dt><dd><p>Latitude of the Census Tract Centroid</p></dd>
+<dt>tract_longitude</dt><dd><p>Longitude of the Census Tract Centroid</p></dd>
 <dt>lat</dt><dd><p>Latitude</p></dd>
 <dt>lon</dt><dd><p>Longitude</p></dd>
 
@@ -170,7 +185,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href='https://github.com/tamilyn'>Tami Crawford</a>, Alexander Alekseyenko, <a href='https://github.com/laurencuppy'>Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

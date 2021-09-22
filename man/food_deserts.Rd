@@ -8,15 +8,15 @@
 A data frame with 1091 rows and 10 columns
 \describe{
 \item{census_tract}{Census tract}
-\item{lila_tracts_1and10}{Low income and low access tract measured at 1 mile for urban areas and 10 miles for rural areas}
-\item{lila_tracts_half_and10}{Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas}
-\item{lila_tracts_1and20}{Low income and low access tract measured at 1 mile for urban areas and 20 miles for rural areas}
-\item{low_income_tracts}{Low income tract}
-\item{poverty_rate}{Tract poverty rate}
+\item{lila_tracts_1and10}{Low income and low access census tracts, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 10 miles for rural areas}
+\item{lila_tracts_half_and10}{Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1/2 mile for urban areas or 10 miles for rural areas}
+\item{lila_tracts_1and20}{Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 20 miles for rural areas}
+\item{low_income_tracts}{Low income census tract, meaning that the median household income for the tract is below the Housing and Community Development's low-income limit}
+\item{poverty_rate}{Tract poverty rate, that is the percentage of households in the census tract whose median household income falls below the poverty threshold}
 \item{median_family_income}{Tract median family income}
 \item{GEOID}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 
 }
 }
@@ -27,6 +27,12 @@ A data frame with 1091 rows and 10 columns
 food_deserts
 }
 \description{
-The dataset of census tracts deemed to be food deserts by the USDA
+The dataset of census tracts deemed to be food deserts by the USDA. Food deserts are areas deemed to be both low-income and low-access in
+terms of accessibility to a supermarket store. Although communities may have access to convenience stores and independent grocers, the supply
+in these stores if often unreliable and does not necessarily provide access to healthy, affordable food. The USDA has three different
+determinations for "low-access": 1 mile (urban)/10 miles (rural) from the closest supermarket, half a mile (urban)/10 miles from the closest
+supermarket, and 1 mile (urban)/20 miles (rural) from the closest supermarket. The processed dataset includes the census tract GEOID, three
+different determinations of food desert status based on the levels of access, poverty rate, and median family income. The dataset is
+categorized as an Economic Stability Determinant of Health.
 }
 \keyword{datasets}

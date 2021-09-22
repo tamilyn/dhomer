@@ -10,8 +10,8 @@ A data frame with 2781 rows and 7 columns
 \item{permit_type}{Type of Permit}
 \item{name_of_facility}{Facility Name}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -23,6 +23,10 @@ A data frame with 2781 rows and 7 columns
 health_facilities
 }
 \description{
-A dataset of licensed health facilities as compiled by SC DHEC
+A dataset of health facilities licensed to provide care in South Carolina compiled by SC DHEC. The list includes a wide array of care
+specialties. Some providers are also located outside of South Carolina, eitehr because they are located close to the South Carolina border,
+are able to travel into South Carolina to provide their care, or are able to provide care from a distance through mailing or telehealth. The
+processed dataset includes the facility name, specialty permit type, latitude/longitude, and census information. The dataset is categorized
+as a Health and Healthcare Determinant of Health.
 }
 \keyword{datasets}

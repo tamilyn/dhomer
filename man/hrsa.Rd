@@ -7,13 +7,13 @@
 \format{
 A data frame with 252 rows and 9 variables:
 \describe{
-\item{site_name}{The site name}
-\item{bhcmis_org_id}{BHCMIS Organization ID}
-\item{bphc_assigned_number}{BPHC Assigned Number}
+\item{site_name}{The Health Center site name}
+\item{bhcmis_org_id}{Bureau of Primary Health Care Health Center Management Information System (BHCMIS) Organization ID}
+\item{bphc_assigned_number}{Bureau of Primary Health Care (BPHC) Assigned Identification Number}
 \item{site_telephone_number}{Site Telephone Number}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Latitude}
-\item{tract_longitude}{Tract Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -25,7 +25,13 @@ A data frame with 252 rows and 9 variables:
 hrsa
 }
 \description{
-A dataset containing HRSA sites
+A dataset containing HRSA Health Center sites, which receive funding from HRSA and provide care throughout the United States regardless
+of the patient's ability to pay. The Health Center program is one of the largest systems of primary and preventive care providers and is
+committed to providing care to the nation's most vulnerable populations. It is estimated that 1 in 11 people receive care from a HRSA
+Health Center. The processed dataset includes the site name, identification numbers, site telephone numbers, latitude/longitude of the site,
+and census tract information. This dataset is categorized within Health and Healthcare Determinants of Health.
+}
+\details{
 NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

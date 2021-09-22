@@ -47,7 +47,10 @@
 
 
 <meta property="og:title" content="SC Protected Areas — protected_areas" />
-<meta property="og:description" content="The dataset of South Carolina's protected lands and waters" />
+<meta property="og:description" content="The dataset of land and waters in South Carolina which are dedicated to the preservation of biological diversity and available for natural,
+recreational, and cultural purposes. These areas are protected from development and provide natural green spaces to the community. The
+processed dateset includes each latitude/longitude point along the border of each area polygon, the protection category, area name, and census
+information. The dataset is categorized as a Natural and Built Environment Determinant of Health." />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -80,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -93,25 +96,32 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -135,7 +145,10 @@
     </div>
 
     <div class="ref-description">
-    <p>The dataset of South Carolina's protected lands and waters</p>
+    <p>The dataset of land and waters in South Carolina which are dedicated to the preservation of biological diversity and available for natural,
+recreational, and cultural purposes. These areas are protected from development and provide natural green spaces to the community. The
+processed dateset includes each latitude/longitude point along the border of each area polygon, the protection category, area name, and census
+information. The dataset is categorized as a Natural and Built Environment Determinant of Health.</p>
     </div>
 
     <pre class="usage"><span class='va'>protected_areas</span></pre>
@@ -147,8 +160,8 @@
 <dt>category</dt><dd><p>Category</p></dd>
 <dt>unit_nm</dt><dd><p>Unit Name</p></dd>
 <dt>GEOID</dt><dd><p>GEOID</p></dd>
-<dt>tract_latitude</dt><dd><p>Tract Latitude</p></dd>
-<dt>tract_longitude</dt><dd><p>Tract Longitude</p></dd>
+<dt>tract_latitude</dt><dd><p>Latitude of the Census Tract Centroid</p></dd>
+<dt>tract_longitude</dt><dd><p>Longitude of the Census Tract Centroid</p></dd>
 <dt>lat</dt><dd><p>Latitude</p></dd>
 <dt>lon</dt><dd><p>Longitude</p></dd>
 
@@ -169,7 +182,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href='https://github.com/tamilyn'>Tami Crawford</a>, Alexander Alekseyenko, <a href='https://github.com/laurencuppy'>Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

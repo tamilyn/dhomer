@@ -11,8 +11,8 @@ A data frame with 1687 rows and 8 columns
 \item{name}{Name}
 \item{feattype}{Feature Type}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -24,6 +24,10 @@ A data frame with 1687 rows and 8 columns
 recreation
 }
 \description{
-The dataset of recreational areas in South Carolina
+The dataset of common recreational landmarks, including golf courses, beaches, amusement parks, and park and recreation areas in South
+Carolina. These spaces are publicly available, although sometimes at a fee, and are meant to be used for 'fun' activities. Availability of
+these areas could be directly related to children's ability to play and socialize, and should also be considered in proximity to other
+determinant of health burdens. The processed dataset includes the area name, the type of recreational area it is, latitude/longitude, and
+census tract information. The dataset is categorized as a Social and Community Context Determinant of Health.
 }
 \keyword{datasets}

@@ -7,15 +7,15 @@
 \format{
 A data frame with 1103 rows and 9 columns
 \describe{
-\item{state_fips}{State FIPS Code}
+\item{state_fips}{State 2-digit FIPS Code}
 \item{state}{State}
 \item{geoid}{GEOID}
-\item{census_tract_2}{County and Census Tract}
+\item{census_tract_2}{County Name and Census Tract}
 \item{year}{Data Collection Year}
-\item{value}{Percentage Value}
+\item{value}{Percentage of housing units that do not have access to a vehicle in the census tract}
 \item{data_comment}{NA}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 }
 }
 \source{
@@ -25,6 +25,9 @@ A data frame with 1103 rows and 9 columns
 vehicle_availability
 }
 \description{
-The dataset of South Carolina census tracts with percentage estimates of housing units with no vehicle access
+The dataset of South Carolina census tracts with percentage estimates of housing units with no vehicle access. Vehicle access plays a direct
+role in an individual's ability to access food, community resources, and healthcare, especially in areas that are not highly walkable. The
+processed dataset includes the census tract, the value estimate, and census information. The dataset is categorized as a Social and Community
+Context Determinant of Health.
 }
 \keyword{datasets}

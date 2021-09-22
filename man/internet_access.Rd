@@ -15,8 +15,8 @@ A data frame with 1103 rows and 10 columns
 \item{value}{Percentage Value}
 \item{data_comment}{NA}
 \item{x8}{NA}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 }
 }
 \source{
@@ -26,6 +26,9 @@ A data frame with 1103 rows and 10 columns
 internet_access
 }
 \description{
-The dataset of census tracts in South Carolina with percentage estimates of households without internet access
+The dataset of census tracts in South Carolina with percentage estimates of households without internet access. Internet access directly
+affects an individual's ability to complete work or school, shop, receive up-to-date information, and locate resources. The processed dataset
+includes the census tract, value estimate, and census information. The dataset is categorized as a Social and Community Context Determinant
+of Health.
 }
 \keyword{datasets}

@@ -16,8 +16,8 @@ A data frame with 104 rows and 13 columns
 \item{mode_ferry}{Provides Ferry Services}
 \item{mode_bike}{Provides Bike Services}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -29,6 +29,9 @@ A data frame with 104 rows and 13 columns
 transit_terminals
 }
 \description{
-The dataset of South Carolina's passenger transportation terminals that provide various modes of transportation
+The dataset of South Carolina's passenger transportation terminals that provide various modes of transportation. Public transit is essential
+for those without access to a vehicle and those living areas with a low walkability index. The dataset classifies the transit terminals as
+providing bus, air, rail, ferry, or bike transportation, as well as includes the facility name, identification number, latitude/longitude,
+and census information. The dataset is categorized as a Natural and Built Environment Determinant of Health.
 }
 \keyword{datasets}

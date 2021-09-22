@@ -47,7 +47,13 @@
 
 
 <meta property="og:title" content="South Carolina Food Deserts — food_deserts" />
-<meta property="og:description" content="The dataset of census tracts deemed to be food deserts by the USDA" />
+<meta property="og:description" content="The dataset of census tracts deemed to be food deserts by the USDA. Food deserts are areas deemed to be both low-income and low-access in
+terms of accessibility to a supermarket store. Although communities may have access to convenience stores and independent grocers, the supply
+in these stores if often unreliable and does not necessarily provide access to healthy, affordable food. The USDA has three different
+determinations for &quot;low-access&quot;: 1 mile (urban)/10 miles (rural) from the closest supermarket, half a mile (urban)/10 miles from the closest
+supermarket, and 1 mile (urban)/20 miles (rural) from the closest supermarket. The processed dataset includes the census tract GEOID, three
+different determinations of food desert status based on the levels of access, poverty rate, and median family income. The dataset is
+categorized as an Economic Stability Determinant of Health." />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -80,7 +86,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -93,25 +99,32 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -135,7 +148,13 @@
     </div>
 
     <div class="ref-description">
-    <p>The dataset of census tracts deemed to be food deserts by the USDA</p>
+    <p>The dataset of census tracts deemed to be food deserts by the USDA. Food deserts are areas deemed to be both low-income and low-access in
+terms of accessibility to a supermarket store. Although communities may have access to convenience stores and independent grocers, the supply
+in these stores if often unreliable and does not necessarily provide access to healthy, affordable food. The USDA has three different
+determinations for "low-access": 1 mile (urban)/10 miles (rural) from the closest supermarket, half a mile (urban)/10 miles from the closest
+supermarket, and 1 mile (urban)/20 miles (rural) from the closest supermarket. The processed dataset includes the census tract GEOID, three
+different determinations of food desert status based on the levels of access, poverty rate, and median family income. The dataset is
+categorized as an Economic Stability Determinant of Health.</p>
     </div>
 
     <pre class="usage"><span class='va'>food_deserts</span></pre>
@@ -145,15 +164,15 @@
 
     <p>A data frame with 1091 rows and 10 columns</p><dl>
 <dt>census_tract</dt><dd><p>Census tract</p></dd>
-<dt>lila_tracts_1and10</dt><dd><p>Low income and low access tract measured at 1 mile for urban areas and 10 miles for rural areas</p></dd>
-<dt>lila_tracts_half_and10</dt><dd><p>Low income and low access tract measured at 1/2 mile for urban areas and 10 miles for rural areas</p></dd>
-<dt>lila_tracts_1and20</dt><dd><p>Low income and low access tract measured at 1 mile for urban areas and 20 miles for rural areas</p></dd>
-<dt>low_income_tracts</dt><dd><p>Low income tract</p></dd>
-<dt>poverty_rate</dt><dd><p>Tract poverty rate</p></dd>
+<dt>lila_tracts_1and10</dt><dd><p>Low income and low access census tracts, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 10 miles for rural areas</p></dd>
+<dt>lila_tracts_half_and10</dt><dd><p>Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1/2 mile for urban areas or 10 miles for rural areas</p></dd>
+<dt>lila_tracts_1and20</dt><dd><p>Low income and low access census tract, with low access meaning that the distance to a supermarket is greater than 1 mile for urban areas or 20 miles for rural areas</p></dd>
+<dt>low_income_tracts</dt><dd><p>Low income census tract, meaning that the median household income for the tract is below the Housing and Community Development's low-income limit</p></dd>
+<dt>poverty_rate</dt><dd><p>Tract poverty rate, that is the percentage of households in the census tract whose median household income falls below the poverty threshold</p></dd>
 <dt>median_family_income</dt><dd><p>Tract median family income</p></dd>
 <dt>GEOID</dt><dd><p>GEOID</p></dd>
-<dt>tract_latitude</dt><dd><p>Tract Centroid Latitude</p></dd>
-<dt>tract_longitude</dt><dd><p>Tract Centroid Longitude</p></dd>
+<dt>tract_latitude</dt><dd><p>Latitude of the Census Tract Centroid</p></dd>
+<dt>tract_longitude</dt><dd><p>Longitude of the Census Tract Centroid</p></dd>
 
 
 </dl>
@@ -173,7 +192,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href='https://github.com/tamilyn'>Tami Crawford</a>, Alexander Alekseyenko, <a href='https://github.com/laurencuppy'>Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

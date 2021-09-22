@@ -12,8 +12,8 @@ A data frame with 232 rows and 9 columns
 \item{phone}{Phone Number}
 \item{hours}{Public Service Hours Per Year}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -25,6 +25,8 @@ A data frame with 232 rows and 9 columns
 libraries
 }
 \description{
-The dataset of public libraries and outlets in South Carolina
+The dataset of public libraries and library outlets in South Carolina. Public libraries are an accessible collection of books and other
+resources for the community. The processed dataset includes the library name, identification numbers, telephone numbers, hours open,
+latitude/longitude, and census information. The dataset is categorized as an Education Determinant of Health.
 }
 \keyword{datasets}

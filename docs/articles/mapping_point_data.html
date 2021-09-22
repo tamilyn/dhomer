@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -51,25 +51,32 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
+</li>
 <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
@@ -176,14 +183,14 @@
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_polygons.html">tm_polygons</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">'#CCCCCC'</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_layout.html">tm_layout</a></span><span class="op">(</span>main.title <span class="op">=</span> <span class="st">'Environmental Hazards'</span>, 
             main.title.position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'center'</span>,<span class="st">'top'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">tri_map</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_symbols.html">tm_dots</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.1</span>, col <span class="op">=</span> <span class="st">'#700074'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># tm_shape(tri_map) +</span>
+  <span class="co"># tm_dots(size = 0.1, col = '#700074') +</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">brownfields_map</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_symbols.html">tm_dots</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.1</span>, col <span class="op">=</span> <span class="st">'#E62B8B'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">superfund_map</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_symbols.html">tm_dots</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.1</span>, col <span class="op">=</span> <span class="st">'#4AB9C2'</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_shape.html">tm_shape</a></span><span class="op">(</span><span class="va">contaminants_map</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_symbols.html">tm_dots</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.1</span>, col <span class="op">=</span> <span class="st">'#6BAB34'</span><span class="op">)</span> <span class="op">+</span>
+  <span class="co"># tm_shape(superfund_map) +</span>
+  <span class="co"># tm_dots(size = 0.1, col = '#4AB9C2') +</span>
+  <span class="co"># tm_shape(contaminants_map) +</span>
+  <span class="co"># tm_dots(size = 0.1, col = '#6BAB34') +</span>
   <span class="fu"><a href="https://rdrr.io/pkg/tmap/man/tm_add_legend.html">tm_add_legend</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Point Labels'</span>, type <span class="op">=</span> <span class="st">'symbol'</span>, 
                 labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Toxic Release Inventory Sites'</span>, <span class="st">'Brownfields'</span>,
                            <span class="st">'Superfund Sites'</span>,<span class="st">'EPA Contaminants of Concern'</span><span class="op">)</span>,
@@ -256,7 +263,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href="https://github.com/tamilyn">Tami Crawford</a>, Alexander Alekseyenko, <a href="https://github.com/laurencuppy">Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

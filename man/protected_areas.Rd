@@ -10,8 +10,8 @@ A data frame with 1191565 rows and 7 columns
 \item{category}{Category}
 \item{unit_nm}{Unit Name}
 \item{GEOID}{GEOID}
-\item{tract_latitude}{Tract Latitude}
-\item{tract_longitude}{Tract Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -23,6 +23,9 @@ A data frame with 1191565 rows and 7 columns
 protected_areas
 }
 \description{
-The dataset of South Carolina's protected lands and waters
+The dataset of land and waters in South Carolina which are dedicated to the preservation of biological diversity and available for natural,
+recreational, and cultural purposes. These areas are protected from development and provide natural green spaces to the community. The
+processed dateset includes each latitude/longitude point along the border of each area polygon, the protection category, area name, and census
+information. The dataset is categorized as a Natural and Built Environment Determinant of Health.
 }
 \keyword{datasets}

@@ -7,12 +7,12 @@
 \format{
 A data frame with 456 rows and 8 columns
 \describe{
-\item{cleanup_name}{The Name of the Property}
-\item{brownfields_id}{Brownfields ID}
-\item{frs_id}{Facility Registry ID}
+\item{cleanup_name}{The name of the previously developed property}
+\item{brownfields_id}{Assessment, Cleanup, and Redevelopment Exchange System (ACRES) Property ID, an EPA database for Brownfields Grantees}
+\item{frs_id}{Facility Registry Service (FRS) ID, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Site Latitude}
 \item{lon}{Site Longitude}
 }
@@ -24,7 +24,13 @@ A data frame with 456 rows and 8 columns
 brownfields
 }
 \description{
-A dataset containing an index of brownfield sites in South Carolina
+A dataset containing an index of brownfield sites in South Carolina compiled by the US EPA. Brownfields are previous developments that are
+barred from redevelopment due to possible contamination. The EPA provides loans to local environmental control agencies to fund brownfield
+cleanups so that the land can be redeveloped. Brownfields create an economic and environmental strain on the community, which can adversely
+affect health. The processed dataset includes the site name, identification numbers, latitude/longitude, and census tract information. This
+dataset is categorized as a Natural and Build Environment Determinant of Health.
+}
+\details{
 NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

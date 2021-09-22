@@ -12,8 +12,8 @@ A data frame with 46 rows and 7 columns
 \item{rate}{Crime Rate}
 \item{clearance}{Clearance Rate}
 \item{geoid}{GEOID}
-\item{county_latitude}{County Latitude}
-\item{county_longitude}{County Longitude}
+\item{county_latitude}{Latitude of the County Centroid}
+\item{county_longitude}{Longitude of the County Centroid}
 }
 }
 \source{
@@ -23,6 +23,9 @@ A data frame with 46 rows and 7 columns
 property_crime
 }
 \description{
-The dataset of property crime statistics in South Carolina in 2019 according to the South Carolina Law Enforcement Division
+The dataset of property crime statistics by county in South Carolina in 2019 according to the South Carolina Law Enforcement Division.
+Property crime includes breaking and entering, vehicle theft, larsony, and arson. The processed dataset includes the county name, the number
+of property crimes, the crime rate according to the county population, the clearance rate (the percentage of crimes cleared by arrest or
+exceptional means), and census information. The dataset is categorized as a Social and Community Context Determinant of Health.
 }
 \keyword{datasets}

@@ -7,13 +7,13 @@
 \format{
 A data frame with 33 rows and 9 columns
 \describe{
-\item{cleanup_name}{The Name of the Property}
-\item{epa_id}{EPA Identification Number}
+\item{cleanup_name}{The name of the property where a hazardous waste site is located}
+\item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
 \item{superfund_id}{Superfund ID Number}
-\item{frs}{Facility Registery Service Identification Number}
+\item{frs}{Facility Registery Service (FRS) Identification Number, for the FRS, which is maintained by the EPA to provide quality information regarding facilities, sites, and places that are subject to regulation}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Site Latitude}
 \item{lon}{Site Longitude}
 }
@@ -25,7 +25,12 @@ A data frame with 33 rows and 9 columns
 superfund
 }
 \description{
-A dataset containing an index of US EPA Superfund sites in South Carolina
+A dataset containing an index of US EPA Superfund sites in South Carolina. Superfund sites are the EPA's determination of the most
+contaminated lands and environmental emergencies which require a long-term effort in order to completely eliminate the hazardous materials.
+The processed dataset includes the site name, identification numbers, latitude/longitude, and census tract information. The dataset is
+categorized as a Natural and Built Environment Determinant of Health.
+}
+\details{
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

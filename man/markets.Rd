@@ -7,12 +7,12 @@
 \format{
 A data frame with 337 rows and 8 columns
 \describe{
-\item{objectid}{Object ID}
+\item{objectid}{Object ID, which SC DHEC uses for identification of sites when mapping with ArcGIS}
 \item{name}{The Name of the Market}
 \item{mail_phone}{Phone Number}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -24,7 +24,12 @@ A data frame with 337 rows and 8 columns
 markets
 }
 \description{
-The dataset of the farmers and roadside markets in South Carolina
+The dataset of the farmer's and roadside markets in South Carolina, compiled by SC DHEC. These markets provide seasonal access to local
+produce to their communities, which tends to be harder to access especially in communities that lack access to a chain supermarket store.
+The processed dataset includes the market name, phone number, latitude/longitude, and census tract information. The dataset is categorized
+as a Social and Community Context Determinant of Health.
+}
+\details{
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

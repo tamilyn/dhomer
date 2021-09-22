@@ -47,7 +47,11 @@
 
 
 <meta property="og:title" content="South Carolina Violent Crime Statistics — violent_crime" />
-<meta property="og:description" content="The dataset of violent crime statistics in South Carolina in 2019 according to the South Carolina Law Enforcement Division" />
+<meta property="og:description" content="The dataset of violent crime statistics by county in South Carolina in 2019 according to the South Carolina Law Enforcement Division.
+Violent crime includes murder, sexual battery, robbery, and aggravated assault as a result of a personal confrontation between offender and
+victim. The processed dataset includes the county name, the number of violent crimes, the crime rate according to the county population, the
+clearance rate (the percentage of crimes cleared by arrest or exceptional means), and census information. The dataset is categorized as a
+Social and Community Context Determinant of Health." />
 <meta property="og:image" content="https://tamilyn.github.io/dhomer/logo.png" />
 
 
@@ -80,7 +84,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dhomer</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -93,25 +97,32 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+  <a href="../reference/index.html">
+    <span class="far fa-file-code fa-lg"></span>
      
-    <span class="caret"></span>
+    Functions
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/acs_integration.html">Integrating with Census Bureau Data</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_community_characteristics.html">Mapping Community Characteristics</a>
-    </li>
-    <li>
-      <a href="../articles/mapping_point_data.html">Mapping Point Data</a>
-    </li>
-  </ul>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer">
+    <span class="fab fa-github fa-lg"></span>
+     
+    Source Code
+  </a>
+</li>
+<li>
+  <a href="https://github.com/tamilyn/dhomer/issues/">
+    <span class="fas fa-question-circle fa-lg"></span>
+     
+    Issues
+  </a>
+</li>
+<li>
+  <a href="../articles/index.html">
+    <span class="fas fa-file-contract fa-lg"></span>
+     
+    Vignettes
+  </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -135,7 +146,11 @@
     </div>
 
     <div class="ref-description">
-    <p>The dataset of violent crime statistics in South Carolina in 2019 according to the South Carolina Law Enforcement Division</p>
+    <p>The dataset of violent crime statistics by county in South Carolina in 2019 according to the South Carolina Law Enforcement Division.
+Violent crime includes murder, sexual battery, robbery, and aggravated assault as a result of a personal confrontation between offender and
+victim. The processed dataset includes the county name, the number of violent crimes, the crime rate according to the county population, the
+clearance rate (the percentage of crimes cleared by arrest or exceptional means), and census information. The dataset is categorized as a
+Social and Community Context Determinant of Health.</p>
     </div>
 
     <pre class="usage"><span class='va'>violent_crime</span></pre>
@@ -149,8 +164,8 @@
 <dt>rate</dt><dd><p>Crime Rate</p></dd>
 <dt>clearance</dt><dd><p>Clearance Rate</p></dd>
 <dt>geoid</dt><dd><p>GEOID</p></dd>
-<dt>county_latitude</dt><dd><p>County Latitude</p></dd>
-<dt>county_longitude</dt><dd><p>County Longitude</p></dd>
+<dt>county_latitude</dt><dd><p>Latitude of the County Centroid</p></dd>
+<dt>county_longitude</dt><dd><p>Longitude of the County Centroid</p></dd>
 
 </dl>
 
@@ -169,7 +184,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Tami Crawford, Lauren Cuppy.</p>
+  <p>Developed by <a href='https://github.com/tamilyn'>Tami Crawford</a>, Alexander Alekseyenko, <a href='https://github.com/laurencuppy'>Lauren Cuppy</a>.</p>
 </div>
 
 <div class="pkgdown">

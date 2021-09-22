@@ -12,8 +12,8 @@ A data frame with 1183 rows and 9 columns
 \item{leanm05}{Operating Agency}
 \item{schnam05}{School Name}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -25,6 +25,9 @@ A data frame with 1183 rows and 9 columns
 public_schools
 }
 \description{
-The dataset of South Carolina public elementary and secondary schools with locale details
+The dataset of South Carolina public elementary and secondary schools. Proximity to the school may be a determinant in school completion and,
+thus, higher educational attainment, especially for households without access to a vehicle. Similarly, because a great deal of time is spent
+in school, proximity of the school to other determinants of health should also be considered. The processed dataset includes the school name,
+identification numbers, latitude/longtiude, and census information. The dataset is categorized as an Education Determinant of Health.
 }
 \keyword{datasets}

@@ -7,13 +7,13 @@
 \format{
 A data frame with 1784 rows and 9 columns
 \describe{
-\item{contaminant_name}{Identified Contaminant}
-\item{media}{Media Where Contaminant is Found}
-\item{site_name}{The Name of the Site}
-\item{epa_id}{EPA Identification Number}
+\item{contaminant_name}{The name of the contaminant that was found at the site}
+\item{media}{The media where the contaminant was found}
+\item{site_name}{The name of the site where the contaminant was found}
+\item{epa_id}{EPA Identification Number, which identifies handlers of hazardous waste}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -25,7 +25,13 @@ A data frame with 1784 rows and 9 columns
 contaminants
 }
 \description{
-The US EPA's records of contaminated sites and the contaminating substance
+The US EPA's records of contaminants of concern from Superfund decision documents from 1982-2017. The file includes active and deleted sites
+from the National Priority List, which is beneficial because previously contaminated sites could still be having a long-term health effect
+on community members now, even if they have since been eliminated. The processed dataset includes the contaminant information, the media it
+is was/is affecting in the site, the site name, identification numbers, latitude/longitude, and census tract information. The dataset is
+categorized as a Natural and Built Environment Determinant of Health.
+}
+\details{
 #' NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }

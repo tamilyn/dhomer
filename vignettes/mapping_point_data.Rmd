@@ -93,14 +93,14 @@ plot1 <- tm_shape(sc_tracts) +
   tm_polygons(col = '#CCCCCC') +
   tm_layout(main.title = 'Environmental Hazards', 
             main.title.position = c('center','top')) + 
-  tm_shape(tri_map) +
-  tm_dots(size = 0.1, col = '#700074') +
+  # tm_shape(tri_map) +
+  # tm_dots(size = 0.1, col = '#700074') +
   tm_shape(brownfields_map) +
   tm_dots(size = 0.1, col = '#E62B8B') +
-  tm_shape(superfund_map) +
-  tm_dots(size = 0.1, col = '#4AB9C2') +
-  tm_shape(contaminants_map) +
-  tm_dots(size = 0.1, col = '#6BAB34') +
+  # tm_shape(superfund_map) +
+  # tm_dots(size = 0.1, col = '#4AB9C2') +
+  # tm_shape(contaminants_map) +
+  # tm_dots(size = 0.1, col = '#6BAB34') +
   tm_add_legend(title = 'Point Labels', type = 'symbol', 
                 labels = c('Toxic Release Inventory Sites', 'Brownfields',
                            'Superfund Sites','EPA Contaminants of Concern'),

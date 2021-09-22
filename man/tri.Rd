@@ -20,8 +20,8 @@ A data frame with 59834 rows and 17 columns
 \item{air_total_release}{Total Pounds of Toxic Chemicals Released to Air}
 \item{water_total_release}{Total Pounds of Toxic Chemicals Released to Water}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Trac Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -33,6 +33,14 @@ A data frame with 59834 rows and 17 columns
 tri
 }
 \description{
-The dataset of sites in South Carolina that have submitted a Toxic Release Inventory Form R or A
+The dataset of sites in South Carolina that have submitted a Toxic Release Inventory (TRI) Form R or A. The TRI tracks the management of
+hazardous chemicals which pose a threat to the environment or human health. The program collects annual data from sites that manage hazardous
+chemicals and requires the reporting of the amount of toxic chemicals released into the environment via land, water, and air. Form R is
+required for sites that: utilize a PBT chemical (such as lead), manufacture, process, or use more than 1,000,000 pounds of a toxic chemical,
+or has an annual reportable amount of release, recycling, energy recovery, or treatment of a toxic chemical that is more than 500 pounds.
+Form A is to be filled out for: non-PBT chemicals, use of less than 1,000,000 pounds of a toxic chemical, and a annual reportable amount of
+less than 500 pounds of a toxic chemical.  The dataset includes the chemical name, facility name, identifications, toxic chemical release
+data (in pounds), latitude/longitude, and census tract information. The dataset is categorized as a Natural and Built Environment
+Determinant of Health.
 }
 \keyword{datasets}

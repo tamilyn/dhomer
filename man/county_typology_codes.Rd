@@ -26,8 +26,8 @@ A data frame with 46 rows and 21 columns
 \item{persistent_poverty_2013}{Experienced Persistent Poverty}
 \item{persistent_related_child_poverty_2013}{Experienced Persistent Related Child Poverty}
 \item{geoid}{GEOID}
-\item{county_latitude}{County Centroid Latitude}
-\item{county_longitude}{County Centroid Longitude}
+\item{county_latitude}{Latitude of the County Centroid}
+\item{county_longitude}{Longitude of the County Centroid}
 }
 }
 \source{
@@ -37,6 +37,10 @@ A data frame with 46 rows and 21 columns
 county_typology_codes
 }
 \description{
-The dataset of county social and economic characteristics, as well as a classification of economic dependence. A value of '1' indicates 'yes'
+The dataset of county social and economic characteristics, as well as a classification of economic dependence. A county's economic dependence
+falls into one of six categories: farming, mining, manufacturing, government, recreation, or non-specialized. A county's dependence is
+labelled with a '1'. Also included in the processed dataset is levels of low education, population loss, retirement migration, persistent
+poverty, and persistent child-related poverty, as well as census information. The dataset is categorized as an Economic Stability Determinant
+of Health.
 }
 \keyword{datasets}

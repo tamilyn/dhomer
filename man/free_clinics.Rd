@@ -11,8 +11,8 @@ A data frame with 70 rows and 8 columns
 \item{specialty}{Clinic Specialty}
 \item{hours_of_operation}{Hours of Operation}
 \item{geoid}{GEOID}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract CentroidLongitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 \item{lat}{Latitude}
 \item{lon}{Longitude}
 }
@@ -24,8 +24,15 @@ A data frame with 70 rows and 8 columns
 free_clinics
 }
 \description{
-The dataset of the free medical clinics in South Carolina
-#' NEED TO CHECK for any requirements in redistributing data such as a notice
+The dataset of the free medical clinics in South Carolina. Free clinics provide care to uninsured members of the community. They generally
+have a set criteria for who is eligible to receive care from the clinic based on household size and income. Many free clinics provide
+primary care services and treatment for chronic conditions, although some clinics provide specialty care or host specialized providers on
+specific days, and provide referrals for patients in need of extra care. The processed dataset includes the clinic name, specialty (if any),
+hours of operation \link{NOT ADDED IN YET}, latitude/longitude, and census tract information. The dataset is categorized as a Health and
+Healthcare Determinant of Health.
+}
+\details{
+NEED TO CHECK for any requirements in redistributing data such as a notice
 copyright, etc
 }
 \keyword{datasets}

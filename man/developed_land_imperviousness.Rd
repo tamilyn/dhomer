@@ -7,15 +7,15 @@
 \format{
 A data frame with 1103 rows and 9 columns
 \describe{
-\item{state_fips}{State FIPS Code}
+\item{state_fips}{State 2-Digit FIPS Code}
 \item{state}{State}
 \item{geoid}{GEOID}
-\item{census_tract_2}{County and Census Tract}
+\item{census_tract_2}{County Name and Census Tract}
 \item{year}{Data Collection Year}
-\item{value}{Percentage Value}
+\item{value}{Percentage of land that is impervious to water due to development in the census tract}
 \item{data_comment}{NA}
-\item{tract_latitude}{Tract Centroid Latitude}
-\item{tract_longitude}{Tract Centroid Longitude}
+\item{tract_latitude}{Latitude of the Census Tract Centroid}
+\item{tract_longitude}{Longitude of the Census Tract Centroid}
 }
 }
 \source{
@@ -25,6 +25,9 @@ A data frame with 1103 rows and 9 columns
 developed_land_imperviousness
 }
 \description{
-The dataset of South Carolina census tracts with percentage estimates for the amount impervious land in the tract due to development
+The dataset of South Carolina census tracts with percentage estimates for the amount of land that is impervious to water due to development.
+Impervious land increases precipitation runoff, as the water is not able to soak into the earth, and mobilizes pollutants and contaminants in
+the runoff, allowing it an avenue to enter the waterways and spread its toxic effect. The processed dataset includes the census tract, value
+estimate, and census information. The dataset is categorized as a Natural and Built Environment Determinant of Health.
 }
 \keyword{datasets}
